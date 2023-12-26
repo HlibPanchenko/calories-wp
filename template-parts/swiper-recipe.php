@@ -26,8 +26,8 @@
             ?>
         </div>
         <?php
-        if (count($images_of_recipe) > 1) {
-        ?>
+//        if (count($images_of_recipe) > 1) {
+//        ?>
         <div thumbsSlider="" class="swiper-bottom">
             <div class="swiper-wrapper">
                 <?php
@@ -44,7 +44,7 @@
             </div>
         </div>
         <?php
-        }
+//        }
         ?>
     </div>
 </div>

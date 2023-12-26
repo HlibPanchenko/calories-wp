@@ -55,6 +55,7 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                             ?>
                         </div>
                     </div>
+                    <div class="left-recipe_meta"></div>
                     <div class="left-recipe_steps step-section">
                         <div class="step-section_header">
                             Этапы приготовления

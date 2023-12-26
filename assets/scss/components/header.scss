@@ -280,6 +280,9 @@
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-size: 14px;
+      line-height: 22px;
+      //font-size: 18px;
+      letter-spacing: 0.0625rem;
       text-transform: uppercase;
       padding: 8px;
       cursor: pointer;
@@ -354,6 +357,7 @@
 }
 
 @media (max-width: $bp-small) {
+//@media (max-width: $bp-medium) {
   .main-header_burger {
     display: block;
     position: relative;
@@ -416,6 +420,7 @@
 }
 
 @media (max-width: $bp-small) {
+//@media (max-width: $bp-medium) {
   .main-nav {
     //display: none;
     position: fixed;

@@ -58,6 +58,8 @@
   &_text{
     text-transform: uppercase;
     font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.0625rem;
   }
   &_arrow{
       width: 0;
@@ -109,14 +111,14 @@
     line-height: 1.5rem;
     text-underline-offset: 0.1875rem;
     padding: 10px;
-    //padding: 10px 5px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
-    //flex: 1 0 25%;
     cursor: pointer;
-    //text-align: center;
+    //line-height: 22px;
+    //font-size: 18px;
+    letter-spacing: 0.0625rem;
     &:hover {
       background-color: #ececec;
     }

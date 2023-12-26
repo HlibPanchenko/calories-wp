@@ -6,4 +6,5 @@ import './components/swiper.js';
 import './components/animation-on-scroll.js';
 import './components/shake-link.js';
 import './components/sort-block.js';
+import './components/reorder-components.js';
 console.log('bundle');

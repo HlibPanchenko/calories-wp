@@ -247,6 +247,11 @@ color: rgba(0,0,0,.65);
   background: #000;
   color: #000;
   overflow: hidden;
+
+  @media (max-width: $bp-xsmall) {
+    height: 400px;
+
+  }
   .swiper-button-next,
   .swiper-button-prev
   {

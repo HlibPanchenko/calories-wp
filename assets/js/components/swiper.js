@@ -25,7 +25,7 @@ const swiper = new Swiper('.swiper-main', {
 });
 
 const swiperBottom = new Swiper(".swiper-bottom", {
-    loop: true,
+    // loop: true,
     spaceBetween: 10,
     slidesPerView: 4,
     freeMode: true,
@@ -33,7 +33,7 @@ const swiperBottom = new Swiper(".swiper-bottom", {
 });
 
 const swiperTop = new Swiper(".swiper-top", {
-    loop: true,
+    // loop: true,
     spaceBetween: 10,
     navigation: {
         nextEl: ".swiper-button-next",
