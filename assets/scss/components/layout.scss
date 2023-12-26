@@ -1,0 +1,15 @@
+.main-wrapper {
+  min-height: 80%;
+
+  &.layout-fixed-margin {
+    /*из-за того что header fixed*/
+    margin-top: 50px;
+    @media (max-width: $bp-small) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.main-article {
+
+}

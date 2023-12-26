@@ -1,0 +1,24 @@
+.main-footer {
+  background-color: white;
+  height: 200px;
+  -webkit-box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
+  box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
+
+  &_container {
+    height: 100%;
+    max-width: 1400px;
+    padding: 0 10px;
+    margin: 0 auto;
+    @media (max-width: $bp-large) {
+      max-width: 1200px;
+    }
+  }
+
+  &_content {
+    height: 100%;
+display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

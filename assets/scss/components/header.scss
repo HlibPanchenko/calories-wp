@@ -1,0 +1,503 @@
+/*logo*/
+.logo-in-header {
+  &_whole {
+    display: none;
+    @media (min-width: $bp-small+1) {
+      display: block;
+      height: 20px;
+    }
+  }
+
+  &_sign {
+   display: none;
+    @media (max-width: 556px) {
+      display: block;
+      height: 35px;
+    }
+  }
+
+  &_text {
+    display: none;
+    @media (max-width: $bp-small) and (min-width: 557px) {
+      display: block;
+      height: 20px;
+    }
+  }
+}
+
+
+/*sticky header*/
+.fixed-header {
+  @media (min-width: $bp-small) {
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  //left: 0;
+  width: 100%;
+  z-index: 1001;
+  background-color: white;
+  box-shadow: -2px 3px 24px -13px black;
+  }
+}
+
+
+.main-header {
+  position: relative;
+  z-index: 999;
+  background-color: white;
+  box-shadow: -2px 3px 24px -13px black;
+  //margin-bottom: 20px;
+  &_container {
+    max-width: 1400px;
+    padding: 0 10px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+
+
+    @media (max-width: $bp-large) {
+      max-width: 1200px;
+    }
+  }
+
+
+
+  &_top {
+  //display: flex;
+  //  justify-content: space-between;
+  //  align-items: center;
+    height: 60px;
+    //margin: 10px 0;
+    @media (max-width: $bp-small) {
+      //margin-bottom: 0px;
+    }
+  }
+
+  &_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+    &_logo {
+        img {
+          //height: 50px;
+
+        }
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: translate(0, -3px);
+      }
+      }
+
+    &_info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      //border: 1px solid black;
+      gap: 15px;
+      @media (max-width: $bp-small) {
+        //display: none;
+      }
+  }
+
+      &_auth {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        @media (max-width: $bp-small) {
+          display: none;
+        }
+      }
+
+        &_login {
+          background: transparent;
+          //background: navajowhite;
+          //border: navajowhite;
+          align-self: center;
+          max-height: 40px;
+          padding: 10px 30px;
+          color: black;
+          //color: #fff;
+          font-weight: 600;
+          font-size: .95em;
+          border-radius: 2px;
+          text-transform: uppercase;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+
+        &_signin {
+          background: $main-color;
+          //background: $pink_color;
+          //border: navajowhite;
+          align-self: center;
+          max-height: 40px;
+          padding: 10px 30px;
+          color: #fff;
+          font-weight: 600;
+          font-size: .95em;
+          border-radius: 2px;
+          text-transform: uppercase;
+          &:hover {
+            background-color: $pink_color;
+            //background-color: $dark-green;
+          }
+        }
+
+
+  &_bottom {
+    min-height: 30px;
+    display: flex;
+    padding: 10px 0;
+    //flex: 1;
+    align-items: center;
+    width: 100%;
+    //height: 100%;
+    //margin: 10px 0;
+    @media (max-width: $bp-small) {
+      //margin-bottom: -30px;
+      min-height: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+
+    &_nav {
+
+    }
+
+  }
+
+/*search form*/
+.search-block {
+
+  img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translate(0, -3px);
+    }
+  }
+
+  &_form {
+    display: none;
+  }
+
+  &_input-block {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &_label {
+    line-height: 1.5rem;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+
+  &_input {
+    border: 0.5px solid black;
+    border-right: 0;
+    height: 40px;
+    //height: 3rem;
+    border-radius: 0;
+    outline: 0;
+    padding: 10px 50px;
+    @media (max-width: $bp-small) {
+      padding: 10px 25px;
+    }
+  }
+
+  &_btn{
+    width: 40px;
+    //width: 3rem;
+    //height: 3rem;
+    height: 40px;
+    display: flex;
+    border: 0.5px solid $main-color;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    background-color: $main-color;
+    //background-color: $dark-green;
+    border: none;
+    span {
+
+    }
+    img {
+      display: block !important;
+    }
+  }
+
+  &_close {
+    //width: 3rem;
+    padding-left: 10px;
+    height: 3rem;
+    display: flex;
+    //flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //color: #fff !important;
+    background-color: transparent;
+    border: none;
+    //margin-left: -5px;
+    img {
+      display: block !important;
+    }
+  }
+
+}
+
+
+.main-nav {
+  width: 100%;
+  height: 100%;
+
+
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    gap: 10px;
+    @media (max-width: $bp-small) {
+      gap: 15px;
+    }
+
+    >li {
+      position: relative;
+      //color: white;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding: 8px;
+      cursor: pointer;
+      @media (min-width: $bp-small+1) {
+
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          //top: 25px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 3px;
+          background-color: $main-color;
+          display: block;
+        }
+
+        //  при наведении на li элемент в списке с классом .main-nav_list, должен быть отображен элемент с классом .sub-menu
+        .sub-menu {
+          display: block;
+        }
+      }
+      }
+      a {
+        color: inherit;
+      }
+
+    .sub-menu {
+      display: none;
+      //margin-top: 8px;
+      position: absolute;
+      //top: 30px;
+      padding-top: 8px;
+      left: 0;
+      background: #fff;
+      border-top: none;
+      -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+      -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+      box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+      width: 140px;
+      //width: 13rem;
+      max-height: calc(100vh - 9.25rem);
+      z-index: -1;
+      margin-left: -2px;
+      li {
+
+        line-height: 1.5rem;
+        text-underline-offset: 0.1875rem;
+        padding: 10px 5px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        //flex: 1 0 25%;
+        cursor: pointer;
+        text-align: center;
+        &:hover {
+          background-color: #ececec;
+        }
+      }
+    }
+
+    }
+  }
+}
+
+
+/*burger-menu*/
+.main-header_burger {
+  display: none;
+}
+
+@media (max-width: $bp-small) {
+  .main-header_burger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translate(0, -3px);
+    }
+
+    span {
+      position: absolute;
+      background-color: black;
+      //background-color: #fff;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      top: 9px;
+      transition: all 0.3s ease 0s;
+    }
+    &::before,
+    &::after {
+      content: "";
+      background-color: black;
+      //background-color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    &.active span {
+      transform: scale(0);
+    }
+
+    &.active::before {
+      transform: rotate(45deg);
+      background-color: #fff;
+      top: 9px;
+    }
+
+    &.active::after {
+      transform: rotate(-45deg);
+      bottom: 9px;
+      background-color: #fff;
+    }
+  }
+}
+
+@media (max-width: $bp-small) {
+  .main-nav {
+    //display: none;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -100%; // Чтобы изначально выпадающее меню не было видно
+    left: 0;
+    //margin: 0 auto;
+    width: 100vw;
+    min-height: 100%;
+    overflow-x: hidden;
+    //overflow-y: auto;
+    //overflow: auto; // чтобы мы могли скроллить когда у нас не помещаются все элементы меню, когда экран в горизонтальном положении (22 минута в видео у фрилансера)
+    transition: all 0.3s ease 0s;
+    background-color: $main-color;
+    padding: 70px 10px 20px 10px;
+    &.active {
+      top: 0; // при нажатии на кнопку меню выпадает
+    }
+
+    &_list {
+      //flex-direction: column; // выстраиваем наши пункты меню в столбик
+      justify-content: center;
+      height: 80%;
+      //max-height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+
+      >li {
+        position: relative;
+        width: 90%;
+                &:not(:last-child) {
+        border-bottom: 1px solid white;
+        padding-bottom: 20px;
+                  }
+        a {
+          color: white;
+          font-size: 20px;
+          text-transform: uppercase;
+          font-weight: 700;
+          margin-right: 20px;
+
+          &:hover {
+            color:rgb(255, 0, 168) ;
+          }
+        }
+      }
+    }
+  }}
+
+/*dropdown in burger*/
+.dropdown-arrow {
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%);
+  right: 10px;
+  content: '';
+  margin-left: 6px;
+  margin-top: -8px;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  transition: .3s ease;
+  cursor: pointer;
+  padding: 7px;
+  &_opened {
+    transform: rotate(135deg);
+    top: 20px;
+  }
+}
+
+.dropdown-menu-in-burger {
+  margin-top: 20px;
+}
+
+.dropdown-burger_list {
+  li:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

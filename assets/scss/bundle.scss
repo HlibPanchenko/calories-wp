@@ -1,0 +1,28 @@
+// Import your partials or other SCSS files
+@import "utils/reset.scss";
+@import 'utils/_calories-variables.scss';
+@import 'components/css-scrollbars.scss';
+@import 'components/recipe-layout-6-posts.scss';
+@import 'components/header.scss';
+@import 'components/front-page.scss';
+@import 'components/full-width-section.scss';
+@import 'components/swiper.scss';
+@import 'components/layout.scss';
+@import 'components/recipies-day.scss';
+@import 'components/recent-posts.scss';
+@import 'components/trending-section.scss';
+@import 'components/health-section.scss';
+@import 'components/footer.scss';
+@import 'components/recipes.scss';
+@import 'components/sort-block.scss';
+@import 'components/loader.scss';
+@import 'components/pagination.scss';
+@import 'components/single-recipe.scss';
+@import 'components/widget.scss';
+
+
+
+// Your main styles go here
+body {
+  font-family: 'Roboto', sans-serif;
+}
