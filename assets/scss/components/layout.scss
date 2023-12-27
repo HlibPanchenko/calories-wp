@@ -3,7 +3,9 @@
 
   &.layout-fixed-margin {
     /*из-за того что header fixed*/
-    margin-top: 50px;
+    @media (min-width: $bp-medium + 0.1em) {
+      margin-top: 50px;
+    }
     @media (max-width: $bp-small) {
       margin-top: 40px;
     }

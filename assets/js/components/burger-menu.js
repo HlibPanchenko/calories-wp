@@ -3,7 +3,8 @@ jQuery(document).ready(function ($) {
     $(window).on("resize", function() {
         // /*удаляем стрелочки на больших экранах*/
         // /*если ширина окна больше чем 768*/
-        if ($(window).width() > 768) {
+        // if ($(window).width() > 768) {
+        if ($(window).width() > 1024) {
             $("#menu-main-menu-in-header li").find('.dropdown-arrow').remove();
         }
     });

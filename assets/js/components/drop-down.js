@@ -8,7 +8,8 @@ jQuery(document).ready(function($) {
 
             if ($subMenu.length > 0) {
                 $currentItem.addClass("has-submenu");
-                if ($(window).width() <= 768) {
+                // if ($(window).width() <= 768) {
+                if ($(window).width() <= 1024) {
                     // Добавляем элемент с стрелочкой после текста ссылки
                     $currentItem.append('<span class="dropdown-arrow"></span>');
                 }
