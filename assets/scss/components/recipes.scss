@@ -135,20 +135,17 @@
 }
 
 .catalog-posts {
-  //border: 1px solid red;
   &_list{
     display: grid;
-      //grid-template-columns: repeat(auto-fit, minmax(280px, 330px));
-      //grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 40px;
-      //gap: 10px;
       justify-content: space-between;
-      //justify-content: center;
+    margin-bottom: 50px;
     @media (max-width: $bp-small) {
       justify-content: center;
 
     }
+
   }
   &_card {}
 }

@@ -42,7 +42,7 @@
                 </div>
                 <div class="content-box_sidebar sidebar_news">
                         <div class="sidebar_news_wrapper">
-                            <ul class="sidebar_news_list">
+                            <ul class="sidebar_news_list ">
                                 <a href="" class="sidebar_news_item news-card">
                                     <div class="news-card_box">
                                         <div class="news-card_img">

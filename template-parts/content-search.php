@@ -23,13 +23,13 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php calories_first_post_thumbnail(); ?>
+<!--	--><?php //calories_first_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php calories_first_entry_footer(); ?>
+<!--		--><?php //calories_first_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

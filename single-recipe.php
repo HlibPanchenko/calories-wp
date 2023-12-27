@@ -18,6 +18,16 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                     <?php
                     $images_of_recipe = get_field('images_of_recepie');
 
+                    $bzhu_recipe = get_field('bzhu_recipe');
+                    $bzhu_belki = isset(get_field('bzhu_recipe')['bzhu_belki']) ? get_field('bzhu_recipe')['bzhu_belki'] : 0;
+                    $bzhu_zhiri = isset(get_field('bzhu_recipe')['bzhu_zhiri']) ? get_field('bzhu_recipe')['bzhu_zhiri'] : 0;
+                    $bzhu_uglevody = isset(get_field('bzhu_recipe')['bzhu_uglevody']) ? get_field('bzhu_recipe')['bzhu_uglevody'] : 0;
+
+                    $ingredients_recipe = get_field('ingredients_recipe');
+                    $ingredient_recipe = get_field('ingredient_recipe');
+                    $time_cooking = get_field('vremya_na_gotovku');
+                    $quantity_calories = get_field('k-vo_kalorij');
+
                     get_template_part('template-parts/swiper-recipe', null, array('images_of_recipe' => $images_of_recipe));
                     ?>
 
@@ -56,28 +66,24 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                         </div>
                     </div>
                     <div class="left-recipe_meta"></div>
-                    <div class="left-recipe_steps step-section">
-                        <div class="step-section_header">
-                            Этапы приготовления
-                            <span class="step-section_svg-wrapper">
-                        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-                    </span>
-                        </div>
-                        <ul class="step-section_list">
-                            <?php
-                            $recipe_steps = get_field('recipe_steps'); // Получаем данные из поля repeater
-//                            var_dump($recipe_steps);
-                            if ($recipe_steps) {
-                                foreach ($recipe_steps as $step) {
-                                    $step_num = $step['recipe_stepnum'];
-                                    $step_text = $step['recipe_steptext'];
-                                    $step_images = $step['recipe_stepimg'];
-                                    ?>
+                    <?php
+                    $recipe_steps = get_field('recipe_steps'); // Получаем данные из поля repeater
+                    if ($recipe_steps && !empty($recipe_steps)) :
+                        ?>
+                        <div class="left-recipe_steps step-section">
+                            <div class="step-section_header">
+                                Этапы приготовления
+                                <span class="step-section_svg-wrapper">
+                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+                            </div>
+                            <ul class="step-section_list">
+                                <?php foreach ($recipe_steps as $step) : ?>
                                     <li class="step-section_step">
                                         <div class="step-section_num">
-                                            <span><?php echo '0' . esc_html($step_num); ?></span>
+                                            <span><?php echo '0' . esc_html($step['recipe_stepnum']); ?></span>
                                             <div class="step-section_text">
                                                 <span>Ш</span>
                                                 <span>А</span>
@@ -86,29 +92,22 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                                         </div>
                                         <div class="step-section_content content-step">
                                             <div class="content-step_text">
-                                                <?php echo esc_html($step_text); ?>
+                                                <?php echo esc_html($step['recipe_steptext']); ?>
                                             </div>
                                             <div class="content-step_gallery">
-                                                <?php
-                                                foreach ($step_images as $image) {
-                                                    ?>
+                                                <?php foreach ($step['recipe_stepimg'] as $image) : ?>
                                                     <div class="content-step_imgwrapper">
                                                         <img src="<?php echo esc_url($image); ?>" alt="step image">
                                                     </div>
-                                                    <?php
-                                                }
-                                                ?>
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                     </li>
-                                    <?php
-                                }
-                            }
-                            ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
 
-
-                        </ul>
-                    </div>
 
                 </div>
                 <div class="single-recipe_right right-recipe">
@@ -116,71 +115,55 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                         <ul class="right-recipe_list">
                             <li class="right-recipe_item">
                                 <div class="right-recipe_column">
-                                    <div class="right-recipe_top">243 <span> ккал </span></div>
+                                    <div class="right-recipe_top"><?php echo esc_html($quantity_calories); ?> <span> ккал </span></div>
                                     <div class="right-recipe_bottom"> на 100г</div>
                                 </div>
                             </li>
                             <li class="right-recipe_item">
                                 <div class="right-recipe_columns">
                                     <div class="right-recipe_column">
-                                        <div class="right-recipe_top">4 <span> г </span></div>
+                                        <div class="right-recipe_top"><?php echo $bzhu_belki ? esc_html($bzhu_belki) . '<span> г </span>' : 'Н/Д'; ?></div>
                                         <div class="right-recipe_bottom"> Белки</div>
                                     </div>
                                     <div class="right-recipe_column">
-                                        <div class="right-recipe_top">12 <span> г </span></div>
+                                        <div class="right-recipe_top"><?php echo $bzhu_zhiri ? esc_html($bzhu_zhiri) . '<span> г </span>' : 'Н/Д'; ?></div>
                                         <div class="right-recipe_bottom"> Жиры</div>
                                     </div>
                                     <div class="right-recipe_column">
-                                        <div class="right-recipe_top">8 <span> г </span> </div>
+                                        <div class="right-recipe_top"><?php echo $bzhu_uglevody ? esc_html($bzhu_uglevody) . '<span> г </span>' : 'Н/Д'; ?></div>
                                         <div class="right-recipe_bottom"> Углеводы</div>
                                     </div>
                                 </div>
                             </li>
                             <li class="right-recipe_item">
                                 <div class="right-recipe_column">
-                                    <div class="right-recipe_top">35 <span> минут </span> </div>
+                                    <div class="right-recipe_top"><?php echo esc_html($time_cooking); ?> <span> минут </span> </div>
                                     <div class="right-recipe_bottom"> Время</div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="right-recipe_ingredients ingredients-box">
-                        <div class="ingredients-box_header">
-                            Ингредиенты
-                            <span class="step-section_svg-wrapper">
-                        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-                    </span>
-                        </div>
-                        <ul class="ingredients-box_list">
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/cabbage.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">пол помидора</div>
-                            </li>
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/apple.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">2 яблока</div>
-                            </li>
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/chicken-leg.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">100г курицы</div>
-                            </li>
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/fish.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">250г форели</div>
-                            </li>
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/cheese.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">200г сыра</div>
-                            </li>
-                            <li class="ingredients-box_item">
-<!--                                <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/images/spices.png" alt="ingredient">-->
-                                <div class="ingredients-box_text">соль, перец</div>
-                            </li>
-                        </ul>
 
-                    </div>
+                    <?php if ($ingredients_recipe && !empty($ingredients_recipe)) : ?>
+                        <div class="right-recipe_ingredients ingredients-box">
+                            <div class="ingredients-box_header">
+                                Ингредиенты
+                                <span class="step-section_svg-wrapper">
+                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+                            </div>
+                            <ul class="ingredients-box_list">
+                                <?php foreach ($ingredients_recipe as $ingredient_group) : ?>
+                                    <li class="ingredients-box_item">
+                                        <div class="ingredients-box_text"><?php echo esc_html($ingredient_group['ingredient_recipe']); ?></div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="right-recipe_sidebar">
                         <?php get_sidebar(); ?>
                     </div>

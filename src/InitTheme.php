@@ -42,6 +42,7 @@ class InitTheme
         register_nav_menus(
             array(
                 'menu-navbar-main' => esc_html__( 'Menu in header', 'calories_first' ),
+                'menu-navbar-footer' => esc_html__( 'Menu in footer', 'calories_first' ),
             )
         );
 

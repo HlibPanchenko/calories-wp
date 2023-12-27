@@ -44,8 +44,9 @@
     width: 100%;
   }
   &_header{
-    border-bottom: 3px solid $main-color;
-    font-size: 14px;
+    border-bottom: 2.5px solid black;
+    //border-bottom: 3px solid $main-color;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,10 +57,11 @@
   }
 
   &_text{
-    text-transform: uppercase;
-    font-weight: 700;
+    //text-transform: uppercase;
+    font-weight: 500;
     line-height: 22px;
     letter-spacing: 0.0625rem;
+    font-size: 17px;
   }
   &_arrow{
       width: 0;

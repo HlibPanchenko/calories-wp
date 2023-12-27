@@ -1,0 +1,343 @@
+{
+    "key": "group_657acfb249ef7",
+    "title": "post type recepie",
+    "fields": [
+        {
+            "key": "field_657acfce05a3a",
+            "label": "Images of recepie",
+            "name": "images_of_recepie",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min": 1,
+            "max": 10,
+            "min_width": 300,
+            "min_height": 300,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_657affa39e5ee",
+            "label": "К-во калорий",
+            "name": "k-vo_kalorij",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 1,
+            "max": 5000,
+            "placeholder": "",
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_657b00129e5ef",
+            "label": "Время на готовку",
+            "name": "vremya_na_gotovku",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Введите время готовки в минутах (например вместо 1 час 20 минут, введите 80 минут)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 1,
+            "max": 1000,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_657b2db518dcf",
+            "label": "Является ли рецепт полпулярным",
+            "name": "popular_boolean",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Рецепт популярен",
+            "ui_off_text": "Рецепт не популярен",
+            "ui": 1
+        },
+        {
+            "key": "field_65832057be695",
+            "label": "Шаги приготовления рецепта",
+            "name": "recipe_steps",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 1,
+            "max": 10,
+            "collapsed": "",
+            "button_label": "Добавить еще шаг",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_658323d6be696",
+                    "label": "Номер шага",
+                    "name": "recipe_stepnum",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "min": 1,
+                    "max": 10,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65832057be695"
+                },
+                {
+                    "key": "field_65832451be697",
+                    "label": "Что надо сделать на этом этапе?",
+                    "name": "recipe_steptext",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "Опишите этот этап готовки.",
+                    "new_lines": "br",
+                    "parent_repeater": "field_65832057be695"
+                },
+                {
+                    "key": "field_65832495be698",
+                    "label": "Изображения для этого этапа готовки.",
+                    "name": "recipe_stepimg",
+                    "aria-label": "",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min": "",
+                    "max": 5,
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "insert": "append",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_65832057be695"
+                }
+            ]
+        },
+        {
+            "key": "field_658b297461b88",
+            "label": "БЖУ (белки, жиры, углеводы)",
+            "name": "bzhu_recipe",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_658b29a761b89",
+                    "label": "Белки",
+                    "name": "bzhu_belki",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "min": 1,
+                    "max": 500,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_658b2a3561b8a",
+                    "label": "Жиры",
+                    "name": "bzhu_zhiri",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "min": 1,
+                    "max": 500,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_658b2a5461b8b",
+                    "label": "Углеводы",
+                    "name": "bzhu_uglevody",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "min": 1,
+                    "max": 500,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_658b2a8878c65",
+            "label": "Ингредиенты",
+            "name": "ingredients_recipe",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_658b2aae78c66",
+                    "label": "ингредиент",
+                    "name": "ingredient_recipe",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Введите информацию о порции ингредиента. Например, 200г муки или половина яблока.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 50,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_658b2a8878c65"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "recipe"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1703620874
+}
