@@ -291,17 +291,18 @@
       @media (min-width: $bp-medium) {
       //@media (min-width: $bp-small+1) {
       &:hover {
-        &:after {
-          content: "";
-          position: absolute;
-          //top: 25px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 3px;
-          background-color: $main-color;
-          display: block;
-        }
+        //&:after {
+        //  content: "";
+        //  position: absolute;
+        //  //top: 25px;
+        //  left: 0;
+        //  right: 0;
+        //  bottom: 0;
+        //  height: 3px;
+        //  background-color: $main-color;
+        //  display: block;
+        //  overflow: hidden;
+        //}
 
         //  при наведении на li элемент в списке с классом .main-nav_list, должен быть отображен элемент с классом .sub-menu
         .sub-menu {
@@ -315,10 +316,11 @@
 
     .sub-menu {
       display: none;
-      //margin-top: 8px;
+      margin-top: 8px;
       position: absolute;
       //top: 30px;
-      padding-top: 8px;
+      //padding-top: 15px;
+      //padding-top: 8px;
       left: 0;
       background: #fff;
       border-top: none;
@@ -330,6 +332,9 @@
       max-height: calc(100vh - 9.25rem);
       z-index: -1;
       margin-left: -2px;
+      overflow-y: scroll;
+
+
       li {
 
         line-height: 1.5rem;
