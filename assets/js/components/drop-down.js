@@ -6,6 +6,10 @@ jQuery(document).ready(function($) {
             var $currentItem = $(element);
             var $subMenu = $currentItem.find(".sub-menu");
 
+            // Удаляем все элементы с классом "dropdown-arrow"
+            $currentItem.find(".dropdown-arrow").remove();
+
+
             if ($subMenu.length > 0) {
                 $currentItem.addClass("has-submenu");
                 // if ($(window).width() <= 768) {

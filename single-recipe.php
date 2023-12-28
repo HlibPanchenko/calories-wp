@@ -174,6 +174,8 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
 
             ?>
         </div>
+        <?php get_template_part('template-parts/floating-button') ?>
+
    </main>
 <?php
 get_footer();

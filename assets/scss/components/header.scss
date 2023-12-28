@@ -200,17 +200,15 @@
   }
 
   &_input {
-    border: 0.5px solid black;
+    border: 0.5px solid #e0e0e0;
     border-right: 0;
     height: 40px;
-    //height: 3rem;
-    border-radius: 0;
+    border-radius: 2px 0 0 2px;
     outline: 0;
     padding: 10px 50px 10px 10px;
-    //padding: 10px 50px;
     @media (max-width: $bp-small) {
       padding: 10px 15px 10px 5px;
-      border: 0.1px solid black;
+      border: 0.5px solid #e0e0e0;
       border-right: 0;
 
 
@@ -219,17 +217,15 @@
 
   &_btn{
     width: 40px;
-    //width: 3rem;
-    //height: 3rem;
     height: 40px;
     display: flex;
-    border: 0.5px solid $main-color;
+    border: 1px solid $main-color;
+    border-radius: 0 2px 2px 0; /* Пример: тут бордер-радиус будет применен только к правой стороне блока */
     justify-content: center;
     align-items: center;
     color: #fff !important;
     background-color: $main-color;
-    //background-color: $dark-green;
-    border: none;
+
     span {
 
     }
@@ -240,7 +236,7 @@
 
   &_close {
     //width: 3rem;
-    padding-left: 10px;
+    padding-left: 5px;
     height: 3rem;
     display: flex;
     //flex-direction: row;
