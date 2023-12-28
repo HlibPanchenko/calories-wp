@@ -19,9 +19,9 @@ const swiper = new Swiper('.swiper-main', {
         el: '.swiper-scrollbar',
     },
 
-    // autoplay: {
-    //     delay: 5000,
-    // },
+    autoplay: {
+        delay: 5000,
+    },
 });
 
 const swiperBottom = new Swiper(".swiper-bottom", {

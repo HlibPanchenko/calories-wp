@@ -97,6 +97,9 @@ get_header();
             </div>
         </section>
     </article>
+
+    <?php get_template_part('template-parts/floating-button') ?>
+
 </main>
 
 <?php

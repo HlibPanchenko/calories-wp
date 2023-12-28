@@ -94,13 +94,17 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                                             <div class="content-step_text">
                                                 <?php echo esc_html($step['recipe_steptext']); ?>
                                             </div>
-                                            <div class="content-step_gallery">
-                                                <?php foreach ($step['recipe_stepimg'] as $image) : ?>
-                                                    <div class="content-step_imgwrapper">
-                                                        <img src="<?php echo esc_url($image); ?>" alt="step image">
-                                                    </div>
-                                                <?php endforeach; ?>
-                                            </div>
+                                            <?php if (!empty($step['recipe_stepimg'])) : ?>
+                                                <div class="content-step_gallery">
+                                                    <?php foreach ($step['recipe_stepimg'] as $image) : ?>
+                                                        <?php if ($image) : ?>
+                                                            <div class="content-step_imgwrapper">
+                                                                <img src="<?php echo esc_url($image); ?>" alt="step image">
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </li>
                                 <?php endforeach; ?>

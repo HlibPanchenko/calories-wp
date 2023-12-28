@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Template Name: главная страница
+ */
 get_header();
 ?>
 
@@ -7,6 +9,8 @@ get_header();
         <article class="main-article">
 <!--        <div class="full-width-section"></div>-->
         <?php get_template_part('template-parts/swiper-main') ?>
+
+        <?php get_template_part('template-parts/popular-taxonomies') ?>
 
         <?php get_template_part('template-parts/recipies-day') ?>
 
