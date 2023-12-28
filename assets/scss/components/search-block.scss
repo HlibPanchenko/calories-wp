@@ -1,0 +1,49 @@
+.search-big {
+  display: block;
+  &_block {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &_input {
+    border: 0.5px solid #e0e0e0;
+    border-right: 0;
+    height: 60px;
+    border-radius: 2px 0 0 2px;
+    outline: 0;
+    padding: 10px 50px 10px 20px;
+    width: 100%;
+    font-size: 20px;
+    @media (max-width: $bp-small) {
+      //padding: 10px 15px 10px 5px;
+      border: 0.5px solid #e0e0e0;
+      border-right: 0;
+
+
+    }
+  }
+
+  &_btn{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border: 1px solid $main-color;
+    border-radius: 0 2px 2px 0; /* Пример: тут бордер-радиус будет применен только к правой стороне блока */
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    background-color: $main-color;
+
+    span {
+
+    }
+    img {
+      display: block !important;
+    }
+  }
+
+}
+
+

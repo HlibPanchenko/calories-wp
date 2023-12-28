@@ -39,6 +39,16 @@ use src\utilsClass;
                             </div>
                         </div>
 
+                        <div class="all-recepies_description">
+                            Добро пожаловать на страницу всех <span>рецептов</span> ! <br>
+                            Ищите вдохновение для ваших кулинарных творений среди нашего разнообразного ассортимента.
+                            <span class="span-recepies-1">Используйте блок поиска для быстрого поиска и настройте фильтры</span>, чтобы отобразить только те
+                            рецепты, которые соответствуют вашим предпочтениям. Приятного кулинарного путешествия!
+                        </div>
+
+                        <?php get_template_part('search-form-big'); ?>
+
+
                         <div class="all-recepies_sort sort-block">
 
                             <ul class="sort-block_list">
@@ -60,7 +70,10 @@ use src\utilsClass;
                                                         echo esc_html($taxonomy_labels->singular_name);
                                                         ?>
                                                     </div>
-                                                    <div class="sort-block_arrow"></div>
+                                                    <div class="sort-block_btn">
+                                                        <div class="sort-block_arrow"></div>
+                                                    </div>
+
                                                 </div>
 
                                                 <?php
@@ -97,7 +110,9 @@ use src\utilsClass;
                                             <div class="sort-block_text">
                                                 Количество калорий
                                             </div>
-                                            <div class="sort-block_arrow"></div>
+                                            <div class="sort-block_btn">
+                                                <div class="sort-block_arrow"></div>
+                                            </div>
                                         </div>
                                         <div class="sort-block_dropdown dropdown-sort">
                                             <?php
@@ -134,7 +149,9 @@ use src\utilsClass;
                                             <div class="sort-block_text">
                                                 Время на готовку
                                             </div>
-                                            <div class="sort-block_arrow"></div>
+                                            <div class="sort-block_btn">
+                                                <div class="sort-block_arrow"></div>
+                                            </div>
                                         </div>
                                         <div class="sort-block_dropdown dropdown-sort">
                                             <?php

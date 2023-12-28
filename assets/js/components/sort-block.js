@@ -1,17 +1,5 @@
 jQuery(document).ready(function ($) {
 
-    // Добавляем обработчик события для кнопок удаления выбранных фильтров один раз при загрузке страницы
-    // $(document).on('click', '.choosenFilters_item', function() {
-    //     var filterID = $(this).find('.remove-filter').data('filter-id');
-    //     handleRemoveFilter(selectedFilters, filterID);
-    // });
-    //
-    // $('.choosenFilters').on('click', '.choosenFilters_item', function() {
-    //     var filterID = $(this).find('.remove-filter').data('filter-id');
-    //     handleRemoveFilter(selectedFilters, filterID);
-    // });
-
-
     // При клике на заголовок sort-block_header
     $('.sort-block_header').click(function () {
         // Находим ближайший блок .sort-block_dropdown

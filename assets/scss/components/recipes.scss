@@ -131,6 +131,24 @@
   }
   &_catalog {}
 
+  &_description {
+    margin: 20px 0px;
+    text-align: justify;
+    line-height: 32px;
+    letter-spacing: 0.0625rem;
+    font-size: 20px;
+
+
+    span{
+      color: #ff00a8;
+      font-weight: 500;
+    }
+
+    .span-recepies-1 {
+      color: #ff00a8;
+      font-weight: 500;
+    }
+  }
 
 }
 

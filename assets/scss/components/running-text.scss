@@ -23,11 +23,11 @@
   min-width: 100%;
   white-space: nowrap;
   animation-name: runningLine;
-  animation-duration: 12s;
+  animation-duration: 20s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   @media (max-width: $bp-small) {
-    animation-duration: 20s;
+    animation-duration: 25s;
   }
 }
 
