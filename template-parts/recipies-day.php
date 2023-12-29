@@ -1,6 +1,7 @@
 <?php
 
 use src\utilsClass;
+
 ?>
 
 <section class="recipe-layout recipe-day">
