@@ -1,6 +1,6 @@
 <?php
 
-use src\utilsClass;
+use src\UtilsClass;
 /*
  * передавать сюда текущую таксономию блюда чтобы формировать в header-day_wrapper ссылку на страницу этой таксономии
  * */
@@ -11,10 +11,10 @@ if (!empty($current_taxonomy)) {
     $dish_link = get_term_link($current_taxonomy[0]);
 }
 
-
 ?>
 
 <section class="recipe-layout">
+
     <div class="recipe-layout_container">
         <header class="recipe-layout_header header-layout">
             <div class=" header-layout_wrapper">

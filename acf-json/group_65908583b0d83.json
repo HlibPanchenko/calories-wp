@@ -1,0 +1,99 @@
+{
+    "key": "group_65908583b0d83",
+    "title": "Блок таксономий",
+    "fields": [
+        {
+            "key": "field_658dc7bb37ba8",
+            "label": "Блок популярных категорий",
+            "name": "popular_categories",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_658dc81937ba9",
+                    "label": "Заголовок блока популярных категорий",
+                    "name": "popular_categories_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "ПОПУЛЯРНЫЕ КАТЕГОРИИ",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_658dc84c37baa",
+                    "label": "Укажите какие посты показывать в блоке.",
+                    "name": "popular_categories_taxonomies",
+                    "aria-label": "",
+                    "type": "checkbox",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "burger": "Бургеры",
+                        "meat": "Мясо",
+                        "pizza": "Пицца",
+                        "sushi": "Суши",
+                        "salad": "Салаты",
+                        "soup": "Супы",
+                        "side-dishes": "Гарниры",
+                        "dessert": "Десерты",
+                        "appetizer": "Закуски",
+                        "cereal": "Каши",
+                        "fish": "Рыба",
+                        "fastfood": "Фастфуд"
+                    },
+                    "default_value": [],
+                    "return_format": "array",
+                    "allow_custom": 0,
+                    "layout": "vertical",
+                    "toggle": 0,
+                    "save_custom": 0,
+                    "custom_choice_button_text": "Add new choice"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/taxonomies-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1703976151
+}

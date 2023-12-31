@@ -18,6 +18,9 @@ class InitTheme
         // Инициализация виджета
         CustomTaxonomyWidget::init();
 
+        if (function_exists('acf_register_block_type')) {
+            add_action('acf/init', [__CLASS__, 'registerAcfBlockTypes']);
+        }
     }
 
     public static function registerThemeSupports(): void
@@ -41,8 +44,8 @@ class InitTheme
 
         register_nav_menus(
             array(
-                'menu-navbar-main' => esc_html__( 'Menu in header', 'calories_first' ),
-                'menu-navbar-footer' => esc_html__( 'Menu in footer', 'calories_first' ),
+                'menu-navbar-main' => esc_html__('Menu in header', 'calories_first'),
+                'menu-navbar-footer' => esc_html__('Menu in footer', 'calories_first'),
             )
         );
 
@@ -61,26 +64,28 @@ class InitTheme
     {
         wp_enqueue_style(
             'calories_first-google-fonts',
-            'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+            'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+        );
 
-        wp_enqueue_script( 'jquery', [
+        wp_enqueue_script('jquery', [
             'in_footer' => true,
-        ]  );
+        ]);
 
         wp_enqueue_style(
             'calories_first-maincss',
             get_template_directory_uri() . '/dist/css/bundle.css',
             array('swiper-styles'),
             _S_VERSION,
-            'all' );
+            'all'
+        );
 
         wp_enqueue_script(
             'calories_first-mainjs',
             get_template_directory_uri() . '/dist/js/bundle.js',
             array('jquery', 'swiper-scripts'),
             _S_VERSION,
-//            true
-    ['in_footer' => true]
+            //            true
+            ['in_footer' => true]
         );
 
 
@@ -97,8 +102,8 @@ class InitTheme
             _S_VERSION,
             [
                 'in_footer' => true,
-            ] );
-
+            ]
+        );
     }
 
     public static function registerSidebars(): void
@@ -106,16 +111,27 @@ class InitTheme
 
         register_sidebar(
             array(
-                'name'          => esc_html__( 'Сайдбар таксономий', 'calories_first' ),
+                'name'          => esc_html__('Сайдбар таксономий', 'calories_first'),
                 'id'            => 'sidebar-recipe-taxonomies',
-                'description'   => esc_html__( 'Добавьте сюда виджеты', 'calories_first' ),
+                'description'   => esc_html__('Добавьте сюда виджеты', 'calories_first'),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h2 class="widget-title">',
                 'after_title'   => '</h2>',
             )
         );
+    }
 
-
+    public static function registerAcfBlockTypes(): void
+    {
+        acf_register_block_type([
+            'name' => 'taxonomies-block',
+            'title' => 'Блок Таксономий',
+            'description' => 'A block for displaying 6 taxonomies',
+//            'render_template' =>'template-parts/blocks/popular-taxonomies.php',
+            'render_template' => get_template_directory() . '/template-parts/blocks/popular-taxonomies.php',
+            'icon' => 'list-view',
+            'keywords' => 'taxonomy'
+        ]);
     }
 }

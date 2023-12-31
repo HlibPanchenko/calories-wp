@@ -4,7 +4,7 @@ namespace src;
 
 class SortHandler
 {
-    public static function init()
+    public static function init(): void
     {
         // Хук для обработки AJAX-запросов
         add_action('wp_ajax_handle_custom_request', [__CLASS__, 'handle_custom_request']);
@@ -13,7 +13,7 @@ class SortHandler
 
     public static function handle_custom_request()
     {
-        $selectedData = isset($_POST['selectedData']) ? $_POST['selectedData'] : array();
+        $selectedData = $_POST['selectedData'] ?? [];
         $page = isset($_POST['page']) ? absint($_POST['page']) : 1;
 
 //        $posts_per_page = get_option('posts_per_page');

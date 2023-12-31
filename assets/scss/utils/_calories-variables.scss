@@ -1,7 +1,8 @@
 /*scss variables*/
 
 /*colors*/
-$main-color: #73ae37;
+//$main-color: #73ae37;
+$main-color: var(--theme-main-color);
 $pink_color: #ff00a8;
 $dark-green: #006646;
 $background-light-green: #f5f6ea;

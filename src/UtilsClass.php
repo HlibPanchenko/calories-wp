@@ -2,7 +2,7 @@
 
 namespace src;
 
-class utilsClass
+class UtilsClass
 {
 
     public static function minsToHours(int $minutes): array
@@ -30,7 +30,8 @@ class utilsClass
         return $time_markup;
     }
 
-    public static function get_taxonomy_terms($taxonomy_keys) {
+    public static function get_taxonomy_terms($taxonomy_keys)
+    {
         $result = array();
 
         foreach ($taxonomy_keys as $key) {
@@ -48,7 +49,7 @@ class utilsClass
     }
 
     public static function debug($data)
-{
-    echo '<pre>' . print_r($data, 1) . '</pre>';
-}
+    {
+        echo '<pre>' . print_r($data, 1) . '</pre>';
+    }
 }

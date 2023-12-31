@@ -1,14 +1,13 @@
 <?php
-use src\utilsClass;
-
+use src\UtilsClass;
 // Получаем ID страницы "Main page" чтобы получить ее custom fields
-$main_page_id = get_option('page_on_front');
+//$main_page_id = get_option('page_on_front');
 
 // Получаем кастомные поля
-$popular_categories = get_field('popular_categories', $main_page_id); // group
+$popular_categories = get_field('popular_categories'); // group
+//$popular_categories = get_field('popular_categories', $main_page_id); // group
 $popular_categories_title = $popular_categories["popular_categories_title"]; // text
 $popular_categories_taxonomies = $popular_categories["popular_categories_taxonomies"]; // checkbox
-
 // Определение белого списка таксономий
 $whitelist_taxonomies = array('dish', 'ingredients', 'cuisine', 'holiday', 'cooking-method', 'part_of_the_day');
 
@@ -60,7 +59,7 @@ $whitelist_taxonomies = array('dish', 'ingredients', 'cuisine', 'holiday', 'cook
                                             <?php if ($taxonomy_image) : ?>
                                                 <img src="<?php echo esc_url($taxonomy_image); ?>" alt="Картинка для таксономии" class="card-layout_img">
                                             <?php else : ?>
-                                                <img src="<?php echo get_template_directory_uri(); ?>/dist/images/default-image.jpg" alt="Default Image" class="card-layout_img">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/dist/images/default_taxonomy.png" alt="Default Image" class="card-layout_img">
                                             <?php endif; ?>
                                         </div>
                                         <div class="card-layout_info">

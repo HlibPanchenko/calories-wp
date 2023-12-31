@@ -1,5 +1,5 @@
 <?php
-use src\utilsClass;
+use src\UtilsClass;
 
 get_header();
 ?>
