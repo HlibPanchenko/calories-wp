@@ -48,6 +48,25 @@ class UtilsClass
         return $result;
     }
 
+    public static function custom_excerpt($text, $length = 20, $append = '...')
+    {
+        $excerpt = strip_tags($text);
+        if (mb_strlen($excerpt, 'UTF-8') > $length) {
+            $excerpt = mb_substr($excerpt, 0, $length, 'UTF-8');
+            $excerpt .= $append;
+        }
+        return $excerpt;
+    }
+
+    public static function limit_title_to_one_line($title, $max_length = 50, $append = '...') {
+        $title = strip_tags($title); // Удаляем HTML-теги
+        if (mb_strlen($title, 'UTF-8') > $max_length) {
+            $title = mb_substr($title, 0, $max_length, 'UTF-8');
+            $title .= $append;
+        }
+        return $title;
+    }
+
     public static function debug($data)
     {
         echo '<pre>' . print_r($data, 1) . '</pre>';

@@ -1,4 +1,5 @@
 <?php
+
 use src\UtilsClass;
 
 get_header();
@@ -51,37 +52,44 @@ get_header();
                                         <div class="card_header">
                                             <div class="card_img">
                                                 <?php
-                                                if ($images && is_array($images) && !empty($images)) {
-                                                    echo '<img src="' . esc_url($images[0]) . '" alt="Image in card" class="card-day_img">';
+                                                if (has_post_thumbnail()) {
+                                                    the_post_thumbnail('full', array('class' => 'card-day_img'));
                                                 } else {
-                                                    // Fallback image if no images are found
-                                                    echo '<img src="' . get_template_directory_uri() . '/dist/images/default-image.jpg" alt="Default Image" class="card-day_img">';
+                                                    if ($images && is_array($images) && !empty($images)) {
+                                                        echo '<img src="' . esc_url($images[0]) . '" alt="Image in card" class="card-day_img">';
+                                                    }
                                                 }
                                                 ?>
                                             </div>
                                         </div>
                                         <div class="card_content">
-                                            <div class="card_title"><?php the_title(); ?></div>
+                                            <div class="card_title"><?php echo UtilsClass::limit_title_to_one_line(get_the_title(), 50, '...'); ?></div>
+                                            <!--                                            <div class="card_title">-->
+                                            <?php //the_title();
+                                            ?><!--</div>-->
                                             <div class="card_info">
-                                                <?php echo get_the_excerpt(); ?>
+                                                <?php echo UtilsClass::custom_excerpt(get_the_excerpt(), 100, '...'); ?>
                                             </div>
-                                            <div class="card_meta">
-                                                <div class="card_author">Marina Volkova</div>
-                                                <div class="card_date"><?php echo get_the_date('d.m.Y'); ?></div>
-                                            </div>
+                                            <!--                                            <div class="card_meta">-->
+                                            <!--                                                <div class="card_author">Marina Volkova</div>-->
+                                            <!--                                                <div class="card_date">-->
+                                            <?php //echo get_the_date('d.m.Y');
+                                            ?><!--</div>-->
+                                            <!--                                            </div>-->
                                         </div>
                                     </div>
                                 </a>
                             <?php endwhile; ?>
 
-<!--                            --><?php
+                            <!--                            --><?php
 //                            // Пагинация
 //                            the_posts_pagination(array(
 //                                'prev_text'          => '&laquo;',
 //                                'next_text'          => '&raquo;',
 //                                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'your-theme') . ' </span>',
 //                            ));
-//                            ?>
+//
+                            ?>
 
                         <?php else : ?>
                             <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
@@ -90,8 +98,8 @@ get_header();
                     <?php
                     // Пагинация
                     the_posts_pagination(array(
-                        'prev_text'          => '&laquo;',
-                        'next_text'          => '&raquo;',
+                        'prev_text' => '&laquo;',
+                        'next_text' => '&raquo;',
                         'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'your-theme') . ' </span>',
                     ));
                     ?>

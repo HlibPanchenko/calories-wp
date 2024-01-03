@@ -84,9 +84,15 @@
   }
 
     &_logo {
+      display: block;
       height: 30px;
       @media (max-width: $bp-small) {
         height: 20px;
+
+        &.show {
+          visibility: hidden;
+          opacity: 0;
+        }
       }
       a {
         width: 100%;
@@ -316,7 +322,12 @@
       }
       }
       a {
+        display: inline-block;
         color: inherit;
+        width: 100%;
+        height: 100%;
+        padding: 10px 5px;
+
       }
 
     .sub-menu {
@@ -340,7 +351,7 @@
 
         line-height: 1.5rem;
         text-underline-offset: 0.1875rem;
-        padding: 10px 5px;
+        //padding: 10px 5px;
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
         font-size: 14px;
@@ -439,8 +450,10 @@
     left: 0;
     //margin: 0 auto;
     width: 100vw;
-    min-height: 100%;
+    //height: 100%;
+    height: 100vh;
     overflow-x: hidden;
+    overflow-y: hidden;
     //overflow-y: auto;
     //overflow: auto; // чтобы мы могли скроллить когда у нас не помещаются все элементы меню, когда экран в горизонтальном положении (22 минута в видео у фрилансера)
     transition: all 0.3s ease 0s;

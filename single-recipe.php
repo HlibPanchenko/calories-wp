@@ -174,7 +174,7 @@ $dish_terms = get_the_terms(get_the_ID(), 'dish');
                 </div>
             </div>
             <?php
-            get_template_part('template-parts/recipes-layout-6-posts',  null, array('current_taxonomy' => $dish_terms))
+//            get_template_part('template-parts/recipes-layout-6-posts',  null, array('current_taxonomy' => $dish_terms))
 
             ?>
         </div>

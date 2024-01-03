@@ -2,7 +2,7 @@
 @import "utils/reset.scss";
 @import 'utils/_calories-variables.scss';
 @import 'components/css-scrollbars.scss';
-@import 'components/recipe-layout-6-posts.scss';
+@import 'components/recipes-block.scss';
 @import 'components/header.scss';
 @import 'components/front-page.scss';
 @import 'components/floating-button.scss';
@@ -11,7 +11,7 @@
 @import 'components/layout.scss';
 @import 'components/recipies-day.scss';
 @import 'components/recent-posts.scss';
-@import 'components/trending-section.scss';
+@import 'components/posts-block.scss';
 @import 'components/health-section.scss';
 @import 'components/footer.scss';
 @import 'components/recipes.scss';
@@ -21,7 +21,9 @@
 @import 'components/loader.scss';
 @import 'components/pagination.scss';
 @import 'components/single-recipe.scss';
-@import 'components/popular-taxonomies.scss';
+@import 'components/single.scss';
+@import 'components/popular-taxonomies-block.scss';
+@import 'components/page-taxonomies.scss';
 @import 'components/widget.scss';
 
 

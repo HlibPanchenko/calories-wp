@@ -128,10 +128,36 @@ class InitTheme
             'name' => 'taxonomies-block',
             'title' => 'Блок Таксономий',
             'description' => 'A block for displaying 6 taxonomies',
-//            'render_template' =>'template-parts/blocks/popular-taxonomies.php',
-            'render_template' => get_template_directory() . '/template-parts/blocks/popular-taxonomies.php',
+            'render_template' => get_template_directory() . '/template-parts/blocks/popular-taxonomies-block.php',
             'icon' => 'list-view',
             'keywords' => 'taxonomy'
+        ]);
+
+        acf_register_block_type([
+            'name' => 'swiper-block',
+            'title' => 'Блок Свайпер',
+            'description' => 'A block for displaying main swiper',
+            'render_template' => get_template_directory() . '/template-parts/blocks/swiper-main-block.php',
+            'icon' => 'list-view',
+            'keywords' => 'swiper'
+        ]);
+
+        acf_register_block_type([
+            'name' => 'recipes-block',
+            'title' => 'Блок рецептов',
+            'description' => 'A block for displaying recipes',
+            'render_template' => get_template_directory() . '/template-parts/blocks/recipes-block.php',
+            'icon' => 'list-view',
+            'keywords' => 'recipes'
+        ]);
+
+        acf_register_block_type([
+            'name' => 'posts-block',
+            'title' => 'Блок постов',
+            'description' => 'A block for displaying posts',
+            'render_template' => get_template_directory() . '/template-parts/blocks/posts-block.php',
+            'icon' => 'list-view',
+            'keywords' => 'recipes'
         ]);
     }
 }

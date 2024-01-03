@@ -1,10 +1,15 @@
 jQuery(document).ready(function ($) {
     // Назначаем обработчик события на клик по иконке поиска
-    $(".search-block img").click(function() {
+    $(".search-block img").click(function () {
         $(".search-block_form").css("display", "block");
         $(".search-block img").css("display", "none");
         /*блок авторизации*/
         $(".main-header_auth").css("display", "none");
+        /*лого*/
+        if (window.innerWidth  <= 768) {
+            $(".main-header_logo").addClass("show");
+        }
+
     });
 
     // Назначаем обработчик события на клик по кнопке "Close"
@@ -16,6 +21,11 @@ jQuery(document).ready(function ($) {
         // $(".main-header_auth").css("display", "block");
         if (window.innerWidth > 768) {
             $(".main-header_auth").css("display", "block");
+        }
+
+        /*лого*/
+        if (window.innerWidth  <= 768) {
+            $(".main-header_logo").removeClass("show");
         }
     });
 

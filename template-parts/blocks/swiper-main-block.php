@@ -1,9 +1,10 @@
 <?php
 // Получаем ID страницы "Main page" чтобы получить ее custom fields
-$main_page_id = get_option('page_on_front');
+//$main_page_id = get_option('page_on_front');
 
 // Получаем кастомные поля
-$slider_elements = get_field('slider_elements', $main_page_id); // repeater
+//$slider_elements = get_field('slider_elements', $main_page_id); // repeater
+$slider_elements = get_field('slider_elements'); // repeater
 
 //$slider_image = $slider_elements["slider_img"]; // image
 //$slider_title = $slider_elements["slider_title"]; // text

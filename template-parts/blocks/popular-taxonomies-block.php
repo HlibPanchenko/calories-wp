@@ -8,6 +8,7 @@ $popular_categories = get_field('popular_categories'); // group
 //$popular_categories = get_field('popular_categories', $main_page_id); // group
 $popular_categories_title = $popular_categories["popular_categories_title"]; // text
 $popular_categories_taxonomies = $popular_categories["popular_categories_taxonomies"]; // checkbox
+$popular_categories_link = $popular_categories["popular_categories_link"];
 // Определение белого списка таксономий
 $whitelist_taxonomies = array('dish', 'ingredients', 'cuisine', 'holiday', 'cooking-method', 'part_of_the_day');
 
@@ -17,7 +18,8 @@ $whitelist_taxonomies = array('dish', 'ingredients', 'cuisine', 'holiday', 'cook
     <div class="recipe-layout_container">
         <header class="recipe-layout_header header-layout">
             <div class=" header-layout_wrapper">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('recipes'))); ?>" class=" header-layout_link shaked-el" >
+                <a href="<?php echo esc_url(home_url('/' . $popular_categories_link )); ?>" class=" header-layout_link shaked-el" >
+<!--                <a href="--><?php //echo esc_url(get_permalink(get_page_by_path('recipes'))); ?><!--" class=" header-layout_link shaked-el" >-->
 
                     <span class="header-layout_linktext _anim-items"><?php echo  $popular_categories_title?></span>
                     <span class="header-layout_svg-wrapper">

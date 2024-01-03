@@ -249,10 +249,10 @@ use src\UtilsClass;
                                             <div class="card_info">
                                                 <?php echo get_the_excerpt() ?>
                                             </div>
-                                            <div class="card_meta">
-                                                <div class="card_author">Marina Volkova</div>
-                                                <div class="card_date"><?php echo get_the_date('d.m.Y'); ?></div>
-                                            </div>
+<!--                                            <div class="card_meta">-->
+<!--                                                <div class="card_author">Marina Volkova</div>-->
+<!--                                                <div class="card_date">--><?php //echo get_the_date('d.m.Y'); ?><!--</div>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </a>
