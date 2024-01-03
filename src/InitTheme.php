@@ -10,10 +10,14 @@ class InitTheme
 
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueueScripts']);
 
+        add_action('wp_enqueue_scripts', [__CLASS__, 'myajax_data'], 99);
+
         add_action('widgets_init', [__CLASS__, 'registerSidebars']);
 
         // Инициализация обработчика сортировки
         SortHandler::init();
+
+        LoadMoreHandler::init();
 
         // Инициализация виджета
         CustomTaxonomyWidget::init();
@@ -52,9 +56,9 @@ class InitTheme
         add_theme_support(
             'custom-logo',
             [
-                'height'      => 250,
-                'width'       => 250,
-                'flex-width'  => true,
+                'height' => 250,
+                'width' => 250,
+                'flex-width' => true,
                 'flex-height' => true,
             ]
         );
@@ -104,6 +108,23 @@ class InitTheme
                 'in_footer' => true,
             ]
         );
+
+    }
+
+    public static function myajax_data()
+    {
+
+        // Первый параметр 'twentyfifteen-script' означает, что код будет прикреплен к скрипту с ID 'twentyfifteen-script'
+        // 'twentyfifteen-script' должен быть добавлен в очередь на вывод, иначе WP не поймет куда вставлять код локализации
+        // Заметка: обычно этот код нужно добавлять в functions.php в том месте где подключаются скрипты, после указанного скрипта
+        wp_localize_script('calories_first-mainjs', 'myajax',
+            array(
+                'url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('myajax-nonce')
+            )
+
+        );
+
     }
 
     public static function registerSidebars(): void
@@ -111,13 +132,13 @@ class InitTheme
 
         register_sidebar(
             array(
-                'name'          => esc_html__('Сайдбар таксономий', 'calories_first'),
-                'id'            => 'sidebar-recipe-taxonomies',
-                'description'   => esc_html__('Добавьте сюда виджеты', 'calories_first'),
+                'name' => esc_html__('Сайдбар таксономий', 'calories_first'),
+                'id' => 'sidebar-recipe-taxonomies',
+                'description' => esc_html__('Добавьте сюда виджеты', 'calories_first'),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
-                'after_widget'  => '</div>',
-                'before_title'  => '<h2 class="widget-title">',
-                'after_title'   => '</h2>',
+                'after_widget' => '</div>',
+                'before_title' => '<h2 class="widget-title">',
+                'after_title' => '</h2>',
             )
         );
     }

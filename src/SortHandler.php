@@ -20,7 +20,7 @@ class SortHandler
         $posts_per_page = 8;
         $offset = ($page - 1) * $posts_per_page;
 
-        error_log(print_r($selectedData, true));
+//        error_log(print_r($selectedData, true));
 
         // Обработайте данные и подготовьте аргументы для WP_Query
         $query_args = array(

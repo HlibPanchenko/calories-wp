@@ -1,5 +1,10 @@
 .page-taxonomies {
   &_list {
+
+    .catalog-posts {
+      margin-bottom: 50px;
+    }
+
     .card-layout {
       height: 270px !important;
     }
@@ -7,5 +12,7 @@
     .card-layout_header {
       //height: 240px !important;
     }
+
+
   }
 }

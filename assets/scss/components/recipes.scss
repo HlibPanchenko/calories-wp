@@ -92,46 +92,16 @@
     }
   }
 
-    //  &::before {
-    //    content: "";
-    //    display: block;
-    //    width: 40%;
-    //    height: 4px;
-    //    background: $light-orange;
-    //    left: 0;
-    //    top: 50%;
-    //    position: absolute;
-    //
-    //  }
-    //
-    //  &::after {
-    //    content: "";
-    //    display: block;
-    //    width: 40%;
-    //    height: 4px;
-    //    background: $light-orange;
-    //    right: 0;
-    //    top: 50%;
-    //    position: absolute;
-    //  }
-    //
-    //@media (max-width: $bp-small) {
-    //  &::after,
-    //  &::before {
-    //    width: 20%;
-    //
-    //  }
-    //}
-
-
-
-
   &_sort {
     //min-height: 100px;
-
   }
   &_catalog {}
 
+  &_more {
+    button {
+
+    }
+  }
   &_description {
     margin: 20px 0px;
     text-align: justify;
