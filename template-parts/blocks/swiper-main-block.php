@@ -1,58 +1,66 @@
 <?php
-// Получаем ID страницы "Main page" чтобы получить ее custom fields
-//$main_page_id = get_option('page_on_front');
 
-// Получаем кастомные поля
-//$slider_elements = get_field('slider_elements', $main_page_id); // repeater
+
 $slider_elements = get_field('slider_elements'); // repeater
-
-//$slider_image = $slider_elements["slider_img"]; // image
-//$slider_title = $slider_elements["slider_title"]; // text
-//$slider_content = $slider_elements["slider_content"]; // text area
 ?>
 
+
+
+
 <!-- Slider main container -->
-<section class="swiper-main">
+<section class="swiper-main" >
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
 
         <?php foreach ($slider_elements as $slider_element) : ?>
             <?php
+            $uniqid = uniqid('recipes-block-');
+
             // Получаем данные для каждого слайда
             $slider_image = $slider_element["slider_img"];
             $slider_title = $slider_element["slider_title"];
             $slider_content = $slider_element["slider_content"];
+            $slider_link = $slider_element["slider_link"];
+            $slider_title_color = $slider_element["slider_title_color"];
+            $slider_content_color = $slider_element["slider_content_color"];
+            $slider_button_color = $slider_element["slider_button_color"];
+            $slider_button_text_color = $slider_element["slider_button_text_color"];
+            $slider_button_text = $slider_element["slider_button_text"];
+
             ?>
 
+            <style>
+                <?php
+                echo <<<EOT
+                #$uniqid .card-in-slider_title {
+                     color: $slider_title_color;
+                }
+                #$uniqid .card-in-slider_text {
+                    color: $slider_content_color
+                }
+                
+                #$uniqid .card-in-slider_btn {
+                    background-color:  $slider_button_color;
+                    color:  $slider_button_text_color;
+                }
+                EOT;
+                ?>
+            </style>
+
             <!-- Slides -->
-            <div class="swiper-slide slider-block">
+            <div class="swiper-slide slider-block" id="<?php echo $uniqid; ?>">
                 <img src="<?php echo esc_url($slider_image); ?>" alt="Изображение слайдера">
                 <div class="slider-block_container">
+
                     <div class="slider-block_content card-in-slider">
-                        <div class="card-in-slider_img">
-                            <img src="<?php echo get_template_directory_uri() ?>/dist/images/SImply-Recipes-Fondant-Potatoes-METHOD-10-0f009ff3e0ce47a196cc97bff2c4fd80.webp" alt="dish photo">
+                        <div class="card-in-slider_box">
+                            <div class="card-in-slider_title"><?php echo esc_html($slider_title) ?></div>
+                            <div class="card-in-slider_text"><?php echo esc_html($slider_content) ?></div>
+                            <a href="<?php echo esc_url(home_url('/' . $slider_link)); ?>" class="card-in-slider_btn">
+                                <?php echo esc_html( $slider_button_text) ?>
+                            </a>
                         </div>
-                        <h3 class="card-in-slider_title">
-                            <?php echo esc_html($slider_title); ?>
-                        </h3>
-                        <p class="card-in-slider_description">
-                            <?php echo esc_html($slider_content); ?>
-                        </p>
-                        <div class="card-in-slider_info">
-                            <div class="card-in-slider_rating">
-                                <div class="card-in-slider_star"></div>
-                                <div class="card-in-slider_star"></div>
-                                <div class="card-in-slider_star"></div>
-                                <div class="card-in-slider_star"></div>
-                                <div class="card-in-slider_star"></div>
-                            </div>
-                            <div class="card-in-slider_credentials">
-                                <div class="card-in-slider_date">08.12.2023</div>
-                                <div class="card-in-slider_author">
-                                    Vladilen Kuchka
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

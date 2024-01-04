@@ -1,5 +1,7 @@
 <?php
 
+use src\UtilsClass;
+
 $uniqid = uniqid('post-block-');
 
 $blok_postov = get_field('block_postov'); // group
@@ -208,7 +210,7 @@ $blok_postov_link = $blok_postov['block_postov_link'];
                                                     </div>
                                                     <div class="news-card_content">
                                                         <h4 class="news-card_title">
-                                                            <?php the_title(); ?>
+                                                            <?php echo UtilsClass::limit_title_to_one_line(get_the_title(), 50, '...'); ?>
                                                         </h4>
                                                         <div class="news-card_taxonomies">
                                                             <?php

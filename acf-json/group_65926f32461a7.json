@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -91,28 +91,123 @@
                     "placeholder": "",
                     "new_lines": "",
                     "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_659690cd2bc50",
+                    "label": "Ссылка",
+                    "name": "slider_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_659690f62bc51",
+                    "label": "Цвет заголовка",
+                    "name": "slider_title_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_6596911d2bc52",
+                    "label": "Цвет текста",
+                    "name": "slider_content_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_659691352bc53",
+                    "label": "Цвет кнопки",
+                    "name": "slider_button_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#73ae37",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_6596916d2bc54",
+                    "label": "Цвет текста в кнопке",
+                    "name": "slider_button_text_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_659691912bc55",
+                    "label": "Текст в кнопке",
+                    "name": "slider_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Перейти",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_658dc59237ba3"
                 }
             ]
-        },
-        {
-            "key": "field_65926f33b7862",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -133,5 +228,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704108691
+    "modified": 1704366665
 }

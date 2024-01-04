@@ -147,8 +147,8 @@ $recipes_block_link = $recipes_block['block_recipes_link'];
                                         ?><!--</span>-->
                                         <!--                                    </div>-->
                                         <!--                                </div>-->
-                                        <div class="card-layout_title"><?php the_title(); ?></div>
-                                        <div class="card-layout_excerpt"><?php echo get_the_excerpt() ?></div>
+                                        <div class="card-layout_title"><?php echo UtilsClass::limit_title_to_one_line(get_the_title(), 50, '...'); ?></div>
+                                        <div class="card-layout_excerpt"> <?php echo UtilsClass::custom_excerpt(get_the_excerpt(), 100, '...'); ?></div>
                                     </div>
                                 </a>
 
