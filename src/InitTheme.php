@@ -180,5 +180,14 @@ class InitTheme
             'icon' => 'list-view',
             'keywords' => 'recipes'
         ]);
+
+        acf_register_block_type([
+            'name' => 'accordion-block',
+            'title' => 'Блок аккордион',
+            'description' => 'A block for displaying accordion block',
+            'render_template' => get_template_directory() . '/template-parts/blocks/accordion-block.php',
+            'icon' => 'list-view',
+            'keywords' => 'accordion, questions'
+        ]);
     }
 }

@@ -14,7 +14,7 @@ $slider_elements = get_field('slider_elements'); // repeater
 
         <?php foreach ($slider_elements as $slider_element) : ?>
             <?php
-            $uniqid = uniqid('recipes-block-');
+            $uniqid = uniqid('swiper-block-');
 
             // Получаем данные для каждого слайда
             $slider_image = $slider_element["slider_img"];

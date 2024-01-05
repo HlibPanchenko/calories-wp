@@ -7,6 +7,7 @@ import './components/animation-on-scroll.js';
 import './components/shake-link.js';
 import './components/sort-block.js';
 import './components/reorder-components.js';
+import './components/accordion-block.js';
 import './components/floating-button.js';
 import './components/load-more-taxonomies.js';
 console.log('bundle');
