@@ -263,6 +263,25 @@
                     "enable_opacity": 1,
                     "return_format": "string",
                     "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_659982ad34de5",
+                    "label": "Цвет кнопки при наведении",
+                    "name": "slider_button_hover",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
                 }
             ]
         },
@@ -321,5 +340,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704535147
+    "modified": 1704559301
 }

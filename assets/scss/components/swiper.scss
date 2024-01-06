@@ -84,15 +84,17 @@
     position: absolute;
     //border: 1px solid white;
     //top: 20%;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
+    //top: 50%;
+    transform: translateY(-40%);
+    //transform: translateY(-50%);
     left: 5%;
     //-webkit-box-shadow: 27px 26px 97px -61px rgba(66, 68, 90, 1);
     //-moz-box-shadow: 27px 26px 97px -61px rgba(66, 68, 90, 1);
     //box-shadow: 27px 26px 97px -61px rgba(66, 68, 90, 1);
     padding: 20px;
     //height: 40%;
-    width: 40%;
+    width: 42%;
     //width: 50%;
     min-width: 320px;
     z-index: 20;
@@ -100,8 +102,13 @@
       //height: 65%;
       width: 55%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -40%);
       //transform: translateY(-50%);
+
+    }
+    @media (max-width: $bp-small) {
+      width: 100%;
+
 
     }
   }
@@ -159,39 +166,50 @@
     //line-height: 1.25;
     font-weight: 700;
     color: white;
-    margin-bottom: 26px;
+    margin-bottom: 18px;
+    @media (max-width: $bp-small) {
+      font-size: 54px;
+    }
+
+    @media (max-width: $bp-xsmall) {
+      font-size: 44px;
+    }
   }
 
   &_text {
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 0.0625rem;
     text-transform: uppercase;
     line-height: 1.5;
     //line-height: 1.25;
     font-weight: 700;
     color: white;
-    margin-bottom: 46px;
-    text-align: justify;
+    margin-bottom: 36px;
+    //text-align: justify;
   }
 
   &_btn {
     display: inline-block;
     background: $main-color;
     align-self: center;
-    //max-height: 40px;
-    padding: 15px 50px;
+    padding: 18px 28px;
     color: #fff;
-    font-weight: 600;
-    //font-size: 0.95em;
-    font-size: 20px;
-    border-radius: 2px;
+    border-radius: 35px;
     text-transform: uppercase;
-    //margin-bottom: 25px;
+    font-size: 21px;
+    letter-spacing: 0.0625rem;
+    line-height: 1.5;
+    font-weight: 700;
+    //text-align: justify;
+
 
     &:hover {
       background: $pink_color;
     }
   }
+
+
+  /* CSS */
  }
 
 /*card*/

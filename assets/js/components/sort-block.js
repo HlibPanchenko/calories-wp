@@ -1,3 +1,5 @@
+import {truncateText} from './/utils.js';
+
 jQuery(document).ready(function ($) {
 
     // При клике на заголовок sort-block_header
@@ -130,6 +132,7 @@ jQuery(document).ready(function ($) {
 
             if (postsData.length > 0) {
                 postsData.forEach(function (post) {
+                    var truncatedExcerpt = truncateText(post.excerpt, 100);
                     var postHTML = `
                     <a href="${post.permalink}" class="catalog-posts_card card">
                         <div class="card_box">
@@ -140,11 +143,12 @@ jQuery(document).ready(function ($) {
                             </div>
                             <div class="card_content">
                                 <div class="card_title">${post.title}</div>
-                                <div class="card_info">${post.excerpt}</div>
-                                <div class="card_meta">
-                                    <div class="card_author">Marina Volkova</div>
-                                    <div class="card_date">10.12.2023</div>
-                                </div>
+                                <div class="card_info">${truncatedExcerpt}</div>
+<!--                                <div class="card_info">${post.excerpt}</div>-->
+<!--                                <div class="card_meta">-->
+<!--                                    <div class="card_author">Marina Volkova</div>-->
+<!--                                    <div class="card_date">10.12.2023</div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </a>`;

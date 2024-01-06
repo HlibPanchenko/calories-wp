@@ -35,6 +35,8 @@ $slider_arrows = get_field("slider_arrows");
             $slider_card_background = $slider_element["slider_card_background"];
             $slider_block_tinting = $slider_element["slider_block_tinting"];
             $slider_block_border = $slider_element["slider_block_border"];
+            $slider_button_hover = $slider_element["slider_button_hover"];
+
 
 
 
@@ -53,6 +55,11 @@ $slider_arrows = get_field("slider_arrows");
                 #$uniqid .card-in-slider_btn {
                     background-color:  $slider_button_color;
                     color:  $slider_button_text_color;
+                }
+                
+                #$uniqid .card-in-slider_btn:hover {
+                    background-color: $slider_button_hover;
+                    color: white;
                 }
                 
                 #$uniqid .card-in-slider {

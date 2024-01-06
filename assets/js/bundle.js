@@ -1,4 +1,5 @@
 import './components/sticky-header.js';
+import './components/utils.js';
 import './components/burger-menu.js';
 import './components/drop-down.js';
 import './components/search-form.js';
