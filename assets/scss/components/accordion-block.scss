@@ -19,7 +19,7 @@
     //align-items: center;
     //padding: 20px;
     gap: 60px;
-    padding: 150px 20px;
+    padding: 150px 20px 130px;
     @media (max-width: $bp-small) {
     flex-direction: column;
     padding: 70px 20px;
@@ -127,7 +127,7 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     p {
-      padding: 20px;
+      padding: 20px 10px;
       text-align: justify;
       line-height: 22px;
       font-size: 18px;

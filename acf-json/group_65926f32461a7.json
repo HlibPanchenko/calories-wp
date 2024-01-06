@@ -206,8 +206,101 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_6599190b4f7c8",
+                    "label": "Можете добавить фон для текста, по умолчанию он прозрачный.",
+                    "name": "slider_card_background",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 1,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_65991f3760654",
+                    "label": "Можете притонировать картинку, указывайте цвет с прозрачностью если хотите просто притонировать, или без нее, если хотите чтобы фоном был просто цвет",
+                    "name": "slider_block_tinting",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 1,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
+                },
+                {
+                    "key": "field_6599210842852",
+                    "label": "Border для карточки, по умолчанию прозрачный",
+                    "name": "slider_block_border",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 1,
+                    "return_format": "string",
+                    "parent_repeater": "field_658dc59237ba3"
                 }
             ]
+        },
+        {
+            "key": "field_65992441436a3",
+            "label": "Цвет точек слайдера",
+            "name": "slider_dots",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_65992459436a4",
+            "label": "Цвет стрелочек",
+            "name": "slider_arrows",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 1,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -228,5 +321,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704366665
+    "modified": 1704535147
 }

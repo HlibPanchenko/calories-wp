@@ -1,7 +1,13 @@
 <?php
 
+$uniqid_arrow1 = uniqid('swiper-block-');
+$uniqid_arrow2 = uniqid('swiper-block-');
+
 
 $slider_elements = get_field('slider_elements'); // repeater
+$slider_dots = get_field("slider_dots");
+$slider_arrows = get_field("slider_arrows");
+
 ?>
 
 
@@ -26,6 +32,11 @@ $slider_elements = get_field('slider_elements'); // repeater
             $slider_button_color = $slider_element["slider_button_color"];
             $slider_button_text_color = $slider_element["slider_button_text_color"];
             $slider_button_text = $slider_element["slider_button_text"];
+            $slider_card_background = $slider_element["slider_card_background"];
+            $slider_block_tinting = $slider_element["slider_block_tinting"];
+            $slider_block_border = $slider_element["slider_block_border"];
+
+
 
             ?>
 
@@ -43,13 +54,36 @@ $slider_elements = get_field('slider_elements'); // repeater
                     background-color:  $slider_button_color;
                     color:  $slider_button_text_color;
                 }
-                EOT;
+                
+                #$uniqid .card-in-slider {
+                    background-color: $slider_card_background;
+                }
+                
+                 #$uniqid .slider-block_tinting {
+                    background-color: $slider_block_tinting;
+                }
+                
+                #$uniqid .slider-block_content {
+                    border: 1px solid $slider_block_border;
+
+                }
+                
+               #$uniqid_arrow1 , #$uniqid_arrow2  {
+                    border-color: $slider_arrows; 
+                    color: $slider_arrows;
+                }
+               
+               .swiper-pagination-bullet {
+                    background: $slider_dots;
+               }
+             EOT;
                 ?>
             </style>
 
             <!-- Slides -->
             <div class="swiper-slide slider-block" id="<?php echo $uniqid; ?>">
                 <img src="<?php echo esc_url($slider_image); ?>" alt="Изображение слайдера">
+                <div class="slider-block_tinting"></div>
                 <div class="slider-block_container">
 
                     <div class="slider-block_content card-in-slider">
@@ -72,8 +106,8 @@ $slider_elements = get_field('slider_elements'); // repeater
     <div class="swiper-pagination"></div>
 
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev" id="<?php echo $uniqid_arrow1; ?>"></div>
+    <div class="swiper-button-next" id="<?php echo $uniqid_arrow2; ?>"></div>
 
     <!-- If we need scrollbar -->
     <!--            <div class="swiper-scrollbar"></div>-->
