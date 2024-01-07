@@ -45,6 +45,76 @@
         ]
     );
 
+new \Kirki\Field\Typography(
+    [
+        'settings'    => 'theme_global_font',
+        'label'       => esc_html__( 'Шрифт для всего сайта', 'kirki' ),
+//        'description' => esc_html__( 'Описание настроек для заголовка слайдера', 'kirki' ),
+        'section'     => 'global_settings',
+        'priority'    => 10,
+        'transport'   => 'auto',
+        'default'     => [
+            'font-family'     => 'Roboto',
+        ],
+        'choices' => [
+            'fonts' => [
+                'google' => [ 'Roboto', 'Open Sans', 'Lato', 'Noto Serif', 'Noto Sans' ],
+            ],
+        ],
+        'output'      => [
+            [
+                'element' => 'body',
+                'property' => 'font-family',
+            ],
+        ],
+    ]
+);
+
+
+new \Kirki\Section(
+    'swiper_settings',
+    [
+        'title'       => esc_html__('Swiper settings', 'calories_first'),
+        'description' => esc_html__('Описание настроек для слайдера', 'calories_first'),
+        'panel'       => 'theme_settings',
+        'priority'    => 160,
+    ]
+);
+
+new \Kirki\Field\Typography(
+    [
+        'settings'    => 'title_in_swiper',
+        'label'       => esc_html__( 'Заголовок в слайдере', 'kirki' ),
+        'description' => esc_html__( 'Описание настроек для заголовка слайдера', 'kirki' ),
+        'section'     => 'swiper_settings',
+        'priority'    => 10,
+        'transport'   => 'auto',
+        'default'     => [
+            'font-family'     => 'Roboto',
+            'variant'         => '700',
+            'font-style'      => 'normal',
+//            'color'           => '#333333',
+            'font-size'       => '64px',
+            'line-height'     => '1',
+            'letter-spacing'  => '0',
+            'text-transform'  => 'uppercase',
+            'text-decoration' => 'none',
+            'text-align'      => 'left',
+        ],
+        'choices' => [
+            'fonts' => [
+                'google' => [ 'Roboto', 'Open Sans', 'Lato', 'Noto Serif', 'Noto Sans' ],
+            ],
+        ],
+        'output'      => [
+            [
+                'element' => '.card-in-slider_title',
+            ],
+        ],
+    ]
+);
+
+
     new \Kirki\Field\Textarea(
         [
         'settings' => 'theme_fonts_link',
