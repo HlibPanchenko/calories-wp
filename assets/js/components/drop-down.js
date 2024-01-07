@@ -17,14 +17,15 @@ jQuery(document).ready(function($) {
                     // Добавляем элемент с стрелочкой после текста ссылки
                     $currentItem.append('<span class="dropdown-arrow"></span>');
                 }
-                // Добавляем элемент с стрелочкой после текста ссылки
-                // $currentItem.append('<span class="dropdown-arrow"></span>');
             }
         });
 
         // Обработчик клика на стрелочке
-        $("#menu-main-menu-in-header").on("click", ".dropdown-arrow", function () {
-            var listItem = $(this).closest("li");
+        $("#menu-main-menu-in-header").on("click", ".has-submenu", function () {
+        // $("#menu-main-menu-in-header").on("click", ".dropdown-arrow", function () {
+        //     var listItem = $(this).closest("li");
+            var listItem = $(this);
+            console.log(listItem);
 
             // Закрыть все другие дропдауны
             $("#menu-main-menu-in-header li").not(listItem).removeClass("dropdown-open").find('.dropdown-menu-in-burger').remove();
@@ -32,7 +33,8 @@ jQuery(document).ready(function($) {
             // все стрелочки у всех li кроме текущего возвращаем в исходное положение
             $("#menu-main-menu-in-header li").not(listItem).find('.dropdown-arrow').removeClass("dropdown-arrow_opened");
             // переворичиваем стрелочку
-            $(this).toggleClass("dropdown-arrow_opened");
+            // $(this).toggleClass("dropdown-arrow_opened");
+            listItem.find('.dropdown-arrow').toggleClass("dropdown-arrow_opened");
             // Переключение класса и создание/удаление элемента .dropdown-menu
             listItem.toggleClass("dropdown-open");
 

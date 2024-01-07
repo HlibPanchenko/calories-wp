@@ -18,9 +18,12 @@
                        <div class="main-footer_content">
                            <div class="main-footer_left">
                                <div class="main-footer_logo">
-                                   <img class="logo-in-footer_whole"
-                                        src="<?php echo get_template_directory_uri() ?>/assets/images/CALORIES.365%20vector%20green.png?>"
-                                        alt="logo">
+                                   <a href="<?php echo esc_url(home_url('/')); ?>">
+                                       <img class="logo-in-footer_whole"
+                                            src="<?php echo get_template_directory_uri() ?>/assets/images/CALORIES.365%20vector%20green.png?>"
+                                            alt="logo">
+                                   </a>
+
                                </div>
                                <div class="main-footer_info">
                                    <ul class="main-footer_list">

@@ -24,12 +24,6 @@ jQuery(document).ready(function ($) {
         // Закрываем все вложенные менюшки при закрытии бургера
         if (!$(".main-header_burger").hasClass("active")) {
             $(".main-nav .main-nav_list li").find('.dropdown-menu-in-burger').remove();
-            // // /*удаляем стрелочки на больших экранах*/
-            // // /*если ширина окна больше чем 768*/
-            // if ($(window).width() > 768) {
-            //     $("#menu-main-menu-in-header li").find('.dropdown-arrow').remove();
-            // }
-
         }
     });
 

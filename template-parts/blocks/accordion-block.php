@@ -32,7 +32,12 @@ $accordion_header_text = get_field('accordion_header_text');
          background:$accordion_background_title;
          color: $accordion_color_title;
          border-bottom: 1px solid  $accordion_borderbottom_title;
-    }
+    }   
+    
+    #$uniqid .accordion-1_text {
+         color: $accordion_color_title;
+    }   
+        
          
      #$uniqid .accordion-1_dropdown {
          background:$accordion_background_text;
