@@ -37,8 +37,10 @@
   //left: 0;
   width: 100%;
   z-index: 1001;
-  background-color: white;
-  box-shadow: -2px 3px 24px -13px black;
+  background-color: $header-bg-color;
+  //background-color: white;
+  box-shadow: -2px 3px 24px -13px $header_boxshadow_color;
+  //box-shadow: -2px 3px 24px -13px black;
   }
 }
 
@@ -46,8 +48,11 @@
 .main-header {
   position: relative;
   z-index: 999;
-  background-color: white;
-  box-shadow: -2px 3px 24px -13px black;
+  //background-color: white;
+  background-color: $header-bg-color;
+  color: $header-color;
+  box-shadow: -2px 3px 24px -13px $header_boxshadow_color;
+  //box-shadow: -2px 3px 24px -13px black;
   //margin-bottom: 20px;
   &_container {
     max-width: 1400px;
@@ -137,8 +142,9 @@
           align-self: center;
           max-height: 40px;
           padding: 10px 30px;
-          color: black;
+          //color: $header-color;
           //color: #fff;
+          color: inherit;
           font-weight: 600;
           font-size: .95em;
           border-radius: 2px;
@@ -149,7 +155,8 @@
         }
 
         &_signin {
-          background: $main-color;
+          //background: $main-color;
+          background: $header_buttons_bg_color;
           //background: $pink_color;
           //border: navajowhite;
           align-self: center;
@@ -161,8 +168,8 @@
           border-radius: 2px;
           text-transform: uppercase;
           &:hover {
-            background-color: $pink_color;
-            //background-color: $dark-green;
+            //background-color: $pink_color;
+            background-color: $header_buttons_hover_color;
           }
         }
 
@@ -190,7 +197,13 @@
 /*search form*/
 .search-block {
 
-  img {
+  &_svg {
+    path {
+      stroke: $header-color;
+    }
+  }
+
+  img, &_svg {
     cursor: pointer;
     transition: transform 0.3s ease;
     &:hover {
@@ -234,12 +247,14 @@
     width: 40px;
     height: 40px;
     display: flex;
-    border: 1px solid $main-color;
-    border-radius: 0 2px 2px 0; /* Пример: тут бордер-радиус будет применен только к правой стороне блока */
+    border: 1px solid $header_buttons_bg_color;
+    //border: 1px solid $main-color;
+    border-radius: 0 2px 2px 0; /* бордер-радиус будет применен только к правой стороне блока */
     justify-content: center;
     align-items: center;
     color: #fff !important;
-    background-color: $main-color;
+    //background-color: $main-color;
+    background-color: $header_buttons_bg_color;
 
     span {
 
@@ -261,6 +276,11 @@
     background-color: transparent;
     border: none;
     //margin-left: -5px;
+    svg {
+      path {
+        stroke: $header-color;
+      }
+    }
     img {
       display: block !important;
     }
@@ -335,7 +355,8 @@
       margin-top: 8px;
       position: absolute;
       left: 0;
-      background: #fff;
+      background: $header-dropdown-bg-color;
+      //background: #fff;
       border-top: none;
       -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
       -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
@@ -360,7 +381,8 @@
         cursor: pointer;
         text-align: center;
         &:hover {
-          background-color: #ececec;
+          background-color: $header-dropdown-hover-color;
+          //background-color: #ececec;
         }
       }
     }
@@ -392,8 +414,7 @@
 
     span {
       position: absolute;
-      background-color: black;
-      //background-color: #fff;
+      background-color: $header-color;
       left: 0;
       width: 100%;
       height: 2px;
@@ -403,8 +424,8 @@
     &::before,
     &::after {
       content: "";
-      background-color: black;
-      //background-color: #fff;
+      background-color: $header-color;
+      //background-color: black;
       position: absolute;
       width: 100%;
       height: 2px;
@@ -452,12 +473,14 @@
     width: 100vw;
     //height: 100%;
     height: 100vh;
+    //touch-action: none;
     overflow-x: hidden;
     overflow-y: hidden;
     //overflow-y: auto;
     //overflow: auto; // чтобы мы могли скроллить когда у нас не помещаются все элементы меню, когда экран в горизонтальном положении (22 минута в видео у фрилансера)
     transition: all 0.3s ease 0s;
-    background-color: $main-color;
+    background-color: $header-bg-color;
+    //background-color: $main-color;
     padding: 70px 10px 20px 10px;
     &.active {
       top: 0; // при нажатии на кнопку меню выпадает

@@ -1,0 +1,12 @@
+body {
+  background-color: $content-bg-color;
+  color: $content-font-color;
+  //font-family: $font-main-family;
+  a {
+    color: inherit;
+  }
+}
+
+.lock-scroll {
+  overflow: hidden;
+}

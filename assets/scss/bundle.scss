@@ -1,6 +1,7 @@
 // Import your partials or other SCSS files
 @import "utils/reset.scss";
 @import 'utils/_calories-variables.scss';
+@import 'components/_global.scss';
 @import 'components/css-scrollbars.scss';
 @import 'components/recipes-block.scss';
 @import 'components/header.scss';
@@ -9,13 +10,13 @@
 @import 'components/full-width-section.scss';
 @import 'components/swiper.scss';
 @import 'components/layout.scss';
-@import 'components/recipies-day.scss';
-@import 'components/recent-posts.scss';
+//@import 'components/recipies-day.scss';
+//@import 'components/recent-posts.scss';
 @import 'components/posts-block.scss';
-@import 'components/health-section.scss';
+//@import 'components/health-section.scss';
 @import 'components/footer.scss';
 @import 'components/recipes.scss';
-@import 'components/running-text.scss';
+//@import 'components/running-text.scss';
 @import 'components/search-block.scss';
 @import 'components/sort-block.scss';
 @import 'components/loader.scss';

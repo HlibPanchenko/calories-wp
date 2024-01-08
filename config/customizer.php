@@ -9,6 +9,7 @@
         ]
     );
 
+    /*Секция гдобальный настроек*/
     new \Kirki\Section(
         'global_settings',
         [
@@ -45,6 +46,36 @@
         ]
     );
 
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'global_background_color',
+        'label'       => __('Background Color', 'calories_first'),
+        'section'     => 'global_settings',
+        'default'     => '#ffffff',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--global-bg-color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'global_font_color',
+        'label'       => __('Font Color', 'calories_first'),
+        'section'     => 'global_settings',
+        'default'     => '#000000',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--global-font-color',
+            ],
+        ],
+    ]
+);
+
 new \Kirki\Field\Typography(
     [
         'settings'    => 'theme_global_font',
@@ -71,6 +102,137 @@ new \Kirki\Field\Typography(
 );
 
 
+/*Секция настроек header*/
+new \Kirki\Section(
+    'header_settings',
+    [
+        'title'       => esc_html__('Header Settings', 'kirki'),
+        'description' => esc_html__('My Section Description.', 'kirki'),
+        'panel'       => 'theme_settings',
+        'priority'    => 160,
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_background_color',
+        'label'       => __('Background Color in header', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#ffffff',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header-bg-color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_dropdown_background_color',
+        'label'       => __('Background Color in dropdown', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#ffffff',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header-dropdown-bg-color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_dropdown_hover_color',
+        'label'       => __('Hover Color in dropdown', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#ececec',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header-dropdown-hover-color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_color',
+        'label'       => __('Color in header', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#000000',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header-color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_buttons_bg_color',
+        'label'       => __('Color for buttons', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#73ae37',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header_buttons_bg_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_buttons_hover_color',
+        'label'       => __('Hover color for buttons', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#ff00a8',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header_buttons_hover_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'header_boxshadow_color',
+        'label'       => __('Box-shadow color', 'calories_first'),
+        'section'     => 'header_settings',
+        'default'     => '#000000',
+        'output'   => [
+            [
+                'element'  => ':root',
+                'property' => '--header_boxshadow_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Radio_Buttonset(
+    [
+        'settings'    => 'is_search_block',
+        'label'       => esc_html__( 'Show search block', 'kirki' ),
+        'section'     => 'header_settings',
+        'default'     => true,
+        'priority'    => 10,
+        'choices'     => [
+            true   => esc_html__( 'Show', 'kirki' ),
+            false => esc_html__( 'Hide', 'kirki' ),
+        ],
+    ]
+);
+
+/*Секция настроек слайдера*/
 new \Kirki\Section(
     'swiper_settings',
     [
@@ -114,128 +276,85 @@ new \Kirki\Field\Typography(
     ]
 );
 
-
-    new \Kirki\Field\Textarea(
-        [
-        'settings' => 'theme_fonts_link',
-        'label'    => esc_html__('Fonts Link', 'kirki'),
-        'section'  => 'global_settings',
-        'default'  => 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap',
-        'priority' => 10,
-        ]
-    );
-
-    new \Kirki\Field\Text(
-        [
-        'settings' => 'theme_fonts_heading',
-        'label'    => esc_html__('Heading Font', 'kirki'),
-        'section'  => 'global_settings',
-        'default'  => esc_html__("Nunito", 'kirki'),
-        'priority' => 10,
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--font-heading-family',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Field\Text(
-        [
-        'settings' => 'theme_fonts_content',
-        'label'    => esc_html__('Content Font', 'kirki'),
-        'section'  => 'global_settings',
-        'default'  => esc_html__("Nunito", 'kirki'),
-        'priority' => 10,
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--font-content-family',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Section(
-        'header_settings',
-        [
-        'title'       => esc_html__('Header Settings', 'kirki'),
-        'description' => esc_html__('My Section Description.', 'kirki'),
-        'panel'       => 'theme_settings',
-        'priority'    => 160,
-        ]
-    );
-
-    new \Kirki\Field\Color(
-        [
-        'settings'    => 'header_background_color',
-        'label'       => __('Background Color', 'kirki'),
-        'section'     => 'header_settings',
-        'default'     => '#171717',
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--header-bg-color',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Field\Color(
-        [
-        'settings'    => 'header_submenu_background_color',
-        'label'       => __('Submenu Background Color', 'kirki'),
-        'section'     => 'header_settings',
-        'default'     => '#303030',
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--header-submenu-bg-color',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Field\Color(
-        [
-        'settings'    => 'header_link_color',
-        'label'       => __('Link Color', 'kirki'),
-        'section'     => 'header_settings',
-        'default'     => '#ffffff',
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--header-link-color',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Field\Color(
-        [
-        'settings'    => 'header_link_active_color',
-        'label'       => __('Link Active Color', 'kirki'),
-        'section'     => 'header_settings',
-        'default'     => '#E20F0F',
-        'output'   => [
-            [
-                'element'  => ':root',
-                'property' => '--header-link-active-color',
-            ],
-        ],
-        ]
-    );
-
-    new \Kirki\Field\Checkbox_Toggle(
-        [
-        'settings'    => 'float_header_enable',
-        'label'       => esc_html__('Enable Float Header', 'kirki'),
-        'section'     => 'header_settings',
-        'default'     => '0',
-        'priority'    => 10,
-        ]
-    );
+//    new \Kirki\Section(
+//        'header_settings',
+//        [
+//        'title'       => esc_html__('Header Settings', 'kirki'),
+//        'description' => esc_html__('My Section Description.', 'kirki'),
+//        'panel'       => 'theme_settings',
+//        'priority'    => 160,
+//        ]
+//    );
+//
+//    new \Kirki\Field\Color(
+//        [
+//        'settings'    => 'header_background_color',
+//        'label'       => __('Background Color', 'kirki'),
+//        'section'     => 'header_settings',
+//        'default'     => '#171717',
+//        'output'   => [
+//            [
+//                'element'  => ':root',
+//                'property' => '--header-bg-color',
+//            ],
+//        ],
+//        ]
+//    );
+//
+//    new \Kirki\Field\Color(
+//        [
+//        'settings'    => 'header_submenu_background_color',
+//        'label'       => __('Submenu Background Color', 'kirki'),
+//        'section'     => 'header_settings',
+//        'default'     => '#303030',
+//        'output'   => [
+//            [
+//                'element'  => ':root',
+//                'property' => '--header-submenu-bg-color',
+//            ],
+//        ],
+//        ]
+//    );
+//
+//    new \Kirki\Field\Color(
+//        [
+//        'settings'    => 'header_link_color',
+//        'label'       => __('Link Color', 'kirki'),
+//        'section'     => 'header_settings',
+//        'default'     => '#ffffff',
+//        'output'   => [
+//            [
+//                'element'  => ':root',
+//                'property' => '--header-link-color',
+//            ],
+//        ],
+//        ]
+//    );
+//
+//    new \Kirki\Field\Color(
+//        [
+//        'settings'    => 'header_link_active_color',
+//        'label'       => __('Link Active Color', 'kirki'),
+//        'section'     => 'header_settings',
+//        'default'     => '#E20F0F',
+//        'output'   => [
+//            [
+//                'element'  => ':root',
+//                'property' => '--header-link-active-color',
+//            ],
+//        ],
+//        ]
+//    );
+//
+//    new \Kirki\Field\Checkbox_Toggle(
+//        [
+//        'settings'    => 'float_header_enable',
+//        'label'       => esc_html__('Enable Float Header', 'kirki'),
+//        'section'     => 'header_settings',
+//        'default'     => '0',
+//        'priority'    => 10,
+//        ]
+//    );
 
     new \Kirki\Section(
         'content_settings',

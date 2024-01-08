@@ -1,5 +1,19 @@
 /*scss variables*/
 
+/*global*/
+$content-bg-color: var(--global-bg-color);
+$content-font-color: var(--global-font-color);
+
+/*header*/
+$header-bg-color: var(--header-bg-color);
+$header-dropdown-bg-color: var(--header-dropdown-bg-color);
+$header-dropdown-hover-color: var(--header-dropdown-hover-color);
+$header-color: var(--header-color);
+$header_buttons_bg_color: var(--header_buttons_bg_color);
+$header_buttons_hover_color: var(--header_buttons_hover_color);
+$header_boxshadow_color: var(--header_boxshadow_color);
+
+
 /*colors*/
 //$main-color: #73ae37;
 $main-color: var(--theme-main-color);

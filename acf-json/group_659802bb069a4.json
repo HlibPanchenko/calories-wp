@@ -83,7 +83,7 @@
                 "id": ""
             },
             "default_value": "",
-            "enable_opacity": 0,
+            "enable_opacity": 1,
             "return_format": "string"
         },
         {
@@ -276,5 +276,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704469071
+    "modified": 1704723366
 }

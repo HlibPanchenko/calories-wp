@@ -1,4 +1,9 @@
 jQuery(document).ready(function ($) {
+
+    function lockScroll() {
+        document.body.classList.toggle('lock-scroll');
+    }
+
     // Добавьте обработчик изменения размера окна
     $(window).on("resize", function() {
         // /*удаляем стрелочки на больших экранах*/
@@ -10,6 +15,8 @@ jQuery(document).ready(function ($) {
     });
 
     $(".main-header_burger").on("click", function (event) {
+        /*запрещаем scroll у body*/
+        lockScroll();
         /*при открытии бургера закрываем все открытые вложенные менюшки в хедере*/
         $(".dropdown-menu").remove();
 
