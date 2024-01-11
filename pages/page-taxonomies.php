@@ -12,17 +12,17 @@ get_header();
 
 
     <article class="main-article page-taxonomies">
-        <section class="all-recepies all-popular-recepies">
+        <section class="all-recepies">
             <div class="all-recepies_container">
                 <div class="all-recepies_header">
 
-                    <div class="all-recepies_breadcrumbs">
+                    <div class="all-recepies_breadcrumbs page-taxonomies_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
 
-                    <div class="all-recepies_description">
-                        Описание страницы.
-                    </div>
+<!--                    <div class="all-recepies_description">-->
+<!--                        Описание страницы.-->
+<!--                    </div>-->
 
                 </div>
                 <div class="all-recepies_catalog catalog-posts">
@@ -65,7 +65,7 @@ get_header();
                                                  alt="Default Image" class="card-layout_img">
                                         <?php endif; ?>
                                     </div>
-                                    <div class="card-layout_info">
+                                    <div class="card-layout_info page-taxonomies_info">
                                         <div class="card-layout_title"><?php echo $term->name; ?></div>
                                     </div>
                                 </a>

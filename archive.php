@@ -7,12 +7,12 @@ get_header();
 
 <main id="primary" class="main-wrapper">
 
-    <article class="main-article all-popular-article">
-        <section class="all-recepies all-popular-recepies">
+    <article class="main-article archive-page">
+        <section class="all-recepies">
             <div class="all-recepies_container">
                 <div class="all-recepies_header">
 
-                    <div class="all-recepies_breadcrumbs">
+                    <div class="all-recepies_breadcrumbs archive-page_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
 
@@ -62,7 +62,7 @@ get_header();
                                                 ?>
                                             </div>
                                         </div>
-                                        <div class="card_content">
+                                        <div class="card_content archive-page_content">
                                             <div class="card_title"><?php echo UtilsClass::limit_title_to_one_line(get_the_title(), 50, '...'); ?></div>
                                             <!--                                            <div class="card_title">-->
                                             <?php //the_title();

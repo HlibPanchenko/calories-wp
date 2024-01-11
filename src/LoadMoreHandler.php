@@ -58,7 +58,7 @@ class LoadMoreHandler
                                  alt="Default Image" class="card-layout_img">
                         <?php endif; ?>
                     </div>
-                    <div class="card-layout_info">
+                    <div class="card-layout_info page-taxonomies_info">
                         <div class="card-layout_title"><?php echo esc_html($term->name); ?></div>
                     </div>
                 </a>

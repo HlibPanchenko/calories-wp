@@ -43,7 +43,8 @@
       font-size: 16px;
     }
     nav {
-  color: black;
+  //color: black;
+  //color: black;
       a {
         color: inherit;
         &:hover {
@@ -179,7 +180,7 @@
   &_title{
     text-transform: uppercase;
     font-weight: 700;
-    color: black;
+    //color: black;
     font-size: 24px;
     line-height: 30px;
     letter-spacing: 0.0625rem;
@@ -189,7 +190,7 @@
 
   }
   &_info{
-    color: black;
+    //color: black;
     text-align: justify;
     flex: 1;
     line-height: 22px;

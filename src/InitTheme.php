@@ -135,10 +135,28 @@ class InitTheme
                 'name' => esc_html__('Сайдбар таксономий', 'calories_first'),
                 'id' => 'sidebar-recipe-taxonomies',
                 'description' => esc_html__('Добавьте сюда виджеты', 'calories_first'),
-                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'class' => 'first',
+                'before_widget' => '<div class="widget-sb-1">',
                 'after_widget' => '</div>',
                 'before_title' => '<h2 class="widget-title">',
                 'after_title' => '</h2>',
+                'before_sidebar' => '<div class="sidebar-1">',
+                'after_sidebar'  => '</div>'
+            )
+        );
+
+        register_sidebar(
+            array(
+                'name' => esc_html__('Сайдбар 2', 'calories_first'),
+                'id' => 'sidebar-recipe-second',
+                'description' => esc_html__('Добавьте сюда виджеты', 'calories_first'),
+                'class' => 'second',
+                'before_widget' => '<div class="widget-sb-2">',
+                'after_widget' => '</div>',
+                'before_title' => '<h2 class="widget-title">',
+                'after_title' => '</h2>',
+                'before_sidebar' => '<div class="sidebar-2">',
+                'after_sidebar'  => '</div>'
             )
         );
     }

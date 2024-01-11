@@ -1,5 +1,6 @@
 .main-footer {
-  background-color: white;
+  background-color: $footer-bg-color;
+  //background-color: white;
   -webkit-box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
   -moz-box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
   box-shadow: -7px 9px 35px -10px rgba(0, 0, 0, 1);
@@ -53,8 +54,10 @@
   &_link{
     margin-bottom: 10px;
     cursor: pointer;
+    color: $footer-link-color;
+
     &:last-child {
-      color: $pink_color;
+      color: $footer_accent_color;
       font-size: 20px;
       font-weight: 500;
     }
@@ -67,16 +70,14 @@
   }
 
   &_menu {
-    //height: 250px;
-    //max-height: 500px;
-    //width: 420px;
     max-width: 100%;
   }
 
   &_bottom{
     display: flex;
     justify-content: center;
-    border-top: 2px solid #e0e0e0;
+    color: $footer-link-color;
+    border-top: 2px solid $footer_border_top_color;
     //padding: 20px 0;
     line-height: 22px;
     font-size: 18px;
@@ -103,7 +104,8 @@
       font-size: 22px;
       font-weight: 700;
       letter-spacing: 0.0625rem;
-      color: $main-color;
+      color: $footer-title-color;
+      //color: $main-color;
       margin-bottom: 10px;
     }
   }
@@ -124,9 +126,9 @@
         width: 33%;
       }
      a {
-       color: black;
+       color: $footer-link-color;
        &:hover {
-         color: $pink-color;
+         color: $footer_accent_color;
        }
      }
     }

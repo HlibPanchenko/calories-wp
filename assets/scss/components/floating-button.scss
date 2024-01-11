@@ -3,23 +3,35 @@
   visibility: hidden;
   position: fixed;
   bottom: 40px;
-  right: 20px;
   width: 50px;
   height: 50px;
-  background-color: $main-color;
+  background-color: $float_button_to_top_background;
+  //background-color: $main-color;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: $float_button_to_top_color;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+
+svg {
+  path {
+    stroke: $float_button_to_top_color;
+    fill: $float_button_to_top_color;
+  }
+}
+}
+
+.float_button_right {
+  right: 20px;
+
+}
+
+.float_button_left {
+  left: 20px;
 }
 
 .arrow-up {
-  //width: 20px;
-  //height: 20px;
-  //border: solid white;
-  //border-width: 0 3px 3px 0;
-  //transform: rotate(-135deg);
+
 }

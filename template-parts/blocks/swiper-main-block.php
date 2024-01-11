@@ -8,13 +8,15 @@ $slider_elements = get_field('slider_elements'); // repeater
 $slider_dots = get_field("slider_dots");
 $slider_arrows = get_field("slider_arrows");
 
+$margin_btm_title = get_theme_mod('mr_btm_title_swiper', '18px');
+$margin_btm_text = get_theme_mod('mr_btm_text_swiper', '36px');
+//$margin_btm = get_theme_mod('mr_btm_title_swiper', '18px')['margin-bottom'];
+//var_dump($margin_btm);
 ?>
 
 
-
-
 <!-- Slider main container -->
-<section class="swiper-main" >
+<section class="swiper-main">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
 
@@ -36,8 +38,6 @@ $slider_arrows = get_field("slider_arrows");
             $slider_block_tinting = $slider_element["slider_block_tinting"];
             $slider_block_border = $slider_element["slider_block_border"];
             $slider_button_hover = $slider_element["slider_button_hover"];
-
-
 
 
             ?>
@@ -95,10 +95,12 @@ $slider_arrows = get_field("slider_arrows");
 
                     <div class="slider-block_content card-in-slider">
                         <div class="card-in-slider_box">
-                            <div class="card-in-slider_title"><?php echo esc_html($slider_title) ?></div>
-                            <div class="card-in-slider_text"><?php echo esc_html($slider_content) ?></div>
+                            <div class="card-in-slider_title"
+                                 style="margin-bottom: <?php echo $margin_btm_title ?>"><?php echo esc_html($slider_title) ?></div>
+                            <div class="card-in-slider_text"
+                                 style="margin-bottom: <?php echo $margin_btm_text ?>"><?php echo esc_html($slider_content) ?></div>
                             <a href="<?php echo esc_url(home_url('/' . $slider_link)); ?>" class="card-in-slider_btn">
-                                <?php echo esc_html( $slider_button_text) ?>
+                                <?php echo esc_html($slider_button_text) ?>
                             </a>
                         </div>
 

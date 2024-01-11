@@ -31,8 +31,13 @@ $accordion_header_text = get_field('accordion_header_text');
      #$uniqid .accordion-1_btn {
          background:$accordion_background_title;
          color: $accordion_color_title;
-         border-bottom: 1px solid  $accordion_borderbottom_title;
+        border-bottom: 1px solid $accordion_borderbottom_title;
+         
     }   
+    
+    #$uniqid .last-item {
+        border-bottom: none;
+    }
     
     #$uniqid .accordion-1_text {
          color: $accordion_color_title;
@@ -63,15 +68,18 @@ $accordion_header_text = get_field('accordion_header_text');
 
                 </header>
                 <div class="accordion_block_accordion accordion-1">
-                    <?php foreach ($accordion_block as $item) : ?>
+
+                    <?php $count = count($accordion_block); ?>
+
+                    <?php foreach ($accordion_block as $key => $item) : ?>
                         <?php
                         $accordion_block_title = $item["accordion_title"]; // title
                         $accordion_block_text = $item["accordion_text"]; // text
-//                    var_dump($accordion_block_title);
-//                    var_dump($accordion_block_text);
+
+                        $is_last_item = ($key == $count - 1) ? 'last-item' : '';
                         ?>
 
-                        <div class="accordion-1_btn">
+                        <div class="accordion-1_btn <?php echo $is_last_item; ?>">
                             <div class="accordion-1_text"><?php echo esc_html($accordion_block_title) ?></div>
                             <span class="accordion-1_arrow"></span>
                         </div>

@@ -1,4 +1,9 @@
 .page-taxonomies {
+
+ &_breadcrumbs {
+   color: $content-font-color;
+  }
+
   &_list {
 
     .catalog-posts {
@@ -14,5 +19,21 @@
     }
 
 
+  }
+
+  &_info {
+    color: $content-font-color;
+    .card-layout_title {
+      color: $content-font-color;
+    }
+  }
+
+  .load-more_btn {
+    background: $header_buttons_bg_color;
+    color: $header_buttons_text_color;
+
+    &:hover {
+      background-color: $header_buttons_hover_color;
+    }
   }
 }
