@@ -466,13 +466,13 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    //align-items: center;
     top: -100%; // Чтобы изначально выпадающее меню не было видно
     left: 0;
     //margin: 0 auto;
     width: 100vw;
     //height: 100%;
-    height: 100vh;
+    height: 100dvh;
     //touch-action: none;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -481,7 +481,7 @@
     transition: all 0.3s ease 0s;
     background-color: $header-bg-color;
     //background-color: $main-color;
-    padding: 70px 10px 20px 10px;
+    padding: 90px 10px 20px 10px;
     &.active {
       top: 0; // при нажатии на кнопку меню выпадает
     }
@@ -489,7 +489,7 @@
     &_list {
       //flex-direction: column; // выстраиваем наши пункты меню в столбик
       justify-content: center;
-      height: 80%;
+      height: 90%;
       //max-height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
