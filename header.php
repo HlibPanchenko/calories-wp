@@ -27,28 +27,39 @@ Header
             <div class="main-header_box">
 
                 <div class="main-header_logo logo-in-header">
-<!--                    <a href="--><?php //echo esc_url(home_url('/')); ?><!--" rel="home">-->
-                        <?php the_custom_logo(); ?>
-                        <!--                    <img class="logo-in-header_whole"-->
-                        <!--                         src="-->
-                        <?php //echo get_template_directory_uri() ?><!--/assets/images/CALORIES.365%20vector%20green.png?>"-->
-                        <!--                         alt="logo">-->
-                        <!--                    <img class="logo-in-header_sign"-->
-                        <!--                         src="-->
-                        <?php //echo get_template_directory_uri() ?><!--/assets/images/logo-main-4-sign.png?>"-->
-                        <!--                         alt="logo">-->
-                        <!--                    <img class="logo-in-header_text"-->
-                        <!--                         src="-->
-                        <?php //echo get_template_directory_uri() ?><!--/assets/images/logo-main-4-text.png?>"-->
-                        <!--                         alt="logo">-->
+                    <?php
+                    // получаем ссылку на логотип
+                    $custom_logo__url = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full');
 
-<!--                    </a>-->
+                    if ($custom_logo__url) :
+                        ?>
+
+
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                            <img class="logo-in-header_whole"
+                                 src="<?php echo $custom_logo__url[0] ?>"
+                                 alt="logo">
+                        </a>
+
+                    <?php endif; ?>
+
+                    <!--                    --><?php //the_custom_logo(); ?>
+
+                    <!--                    <img class="logo-in-header_sign"-->
+                    <!--                         src="-->
+                    <?php //echo get_template_directory_uri() ?><!--/assets/images/logo-main-4-sign.png?>"-->
+                    <!--                         alt="logo">-->
+                    <!--                    <img class="logo-in-header_text"-->
+                    <!--                         src="-->
+                    <?php //echo get_template_directory_uri() ?><!--/assets/images/logo-main-4-text.png?>"-->
+                    <!--                         alt="logo">-->
+
                 </div>
                 <div class="main-header_info">
                     <?php
                     // Получение значения опции is_search_block
-                    $is_search_block = Kirki::get_option('','is_search_block', 'true');
-//                    var_dump($is_search_block);
+                    $is_search_block = Kirki::get_option('', 'is_search_block', 'true');
+                    //                    var_dump($is_search_block);
                     // Проверка условия и вывод блока
                     if ($is_search_block) :
 //                    if ($is_search_block === 'true') :

@@ -1,12 +1,12 @@
 /*logo*/
 .logo-in-header {
-  &_whole {
-    display: none;
-    @media (min-width: $bp-small+1) {
-      display: block;
-      height: 20px;
-    }
-  }
+  //&_whole {
+  //  display: none;
+  //  @media (min-width: $bp-small+1) {
+  //    display: block;
+  //    height: 20px;
+  //  }
+  //}
 
   &_sign {
    display: none;
@@ -91,6 +91,7 @@
     &_logo {
       display: block;
       height: 30px;
+
       @media (max-width: $bp-small) {
         height: 20px;
 
@@ -101,12 +102,16 @@
       }
       a {
         display: inline-block;
-        width: 100%;
+        //width: 100%;
         height: 100%;
       }
         img {
-          width: 100%;
-          height: 100%;
+          //width: 100%;
+          //height: 100%;
+          max-width: 230px !important;
+          max-height: 100%;
+
+          //height: 30px;
           object-fit: cover;
         }
       transition: transform 0.3s ease;
