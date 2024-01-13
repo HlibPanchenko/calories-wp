@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
         $(".main-header_auth").css("display", "none");
         /*лого*/
         if (window.innerWidth  <= 768) {
-            $(".main-header_logo").addClass("show");
+            $(".logo-in-header_whole").addClass("show");
+            // $(".main-header_logo").addClass("show");
         }
 
     });
@@ -28,7 +29,8 @@ jQuery(document).ready(function ($) {
 
         /*лого*/
         if (window.innerWidth  <= 768) {
-            $(".main-header_logo").removeClass("show");
+            $(".logo-in-header_whole").removeClass("show");
+            // $(".main-header_logo").removeClass("show");
         }
     });
 
