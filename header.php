@@ -27,7 +27,7 @@ Header
             <div class="main-header_box">
 
                 <div class="main-header_logo logo-in-header">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+<!--                    <a href="--><?php //echo esc_url(home_url('/')); ?><!--" rel="home">-->
                         <?php the_custom_logo(); ?>
                         <!--                    <img class="logo-in-header_whole"-->
                         <!--                         src="-->
@@ -42,7 +42,7 @@ Header
                         <?php //echo get_template_directory_uri() ?><!--/assets/images/logo-main-4-text.png?>"-->
                         <!--                         alt="logo">-->
 
-                    </a>
+<!--                    </a>-->
                 </div>
                 <div class="main-header_info">
                     <?php
