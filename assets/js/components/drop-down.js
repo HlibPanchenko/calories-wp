@@ -8,6 +8,8 @@ jQuery(document).ready(function($) {
 
             // Удаляем все элементы с классом "dropdown-arrow"
             $currentItem.find(".dropdown-arrow").remove();
+            $(".dropdown-menu-in-burger_wrapper").find('.dropdown-menu-in-burger').removeClass("dropdown-menu-in-burger_opened");
+
 
 
             if ($subMenu.length > 0) {
@@ -41,15 +43,19 @@ jQuery(document).ready(function($) {
             if (listItem.hasClass("dropdown-open")) {
                 /*+ проверка есть ли у этого ли класс "burger-item"*/
                 if (listItem.hasClass("burger-item")) {
-                    var dropdownInBurger = $('<div class="dropdown-menu-in-burger"><ul class="dropdown-burger_list"></ul></div>');
+                    var dropdownInBurger = $('<div class="dropdown-menu-in-burger_wrapper"><div class="dropdown-menu-in-burger"><ul class="dropdown-burger_list"></ul></div></div>');
                     var subMenuItems = listItem.find('.sub-menu').html();
                     dropdownInBurger.find('ul').html(subMenuItems);
                     listItem.append(dropdownInBurger);
+                    dropdownInBurger.find('.dropdown-menu-in-burger').addClass('dropdown-menu-in-burger_opened');
+
                     // console.log('burger menu')
                 }
             } else {
+                $(".dropdown-menu-in-burger_wrapper").find('.dropdown-menu-in-burger').removeClass("dropdown-menu-in-burger_opened");
                 listItem.find('.dropdown-menu-in-burger').remove();
                 listItem.find('.dropdown-arrow').removeClass("dropdown-arrow_opened");
+
                 // console.log('close')
             }
 
