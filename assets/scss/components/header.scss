@@ -9,7 +9,7 @@
   //}
 
   &_sign {
-   display: none;
+    display: none;
     @media (max-width: 556px) {
       display: block;
       height: 35px;
@@ -29,18 +29,18 @@
 /*sticky header*/
 .fixed-header {
   @media (min-width: $bp-medium + 0.1em) {
-  //@media (min-width: $bp-small + 0.1em) {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  //left: 0;
-  width: 100%;
-  z-index: 1001;
-  background-color: $header-bg-color;
-  //background-color: white;
-  box-shadow: -2px 3px 24px -13px $header_boxshadow_color;
-  //box-shadow: -2px 3px 24px -13px black;
+    //@media (min-width: $bp-small + 0.1em) {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    //left: 0;
+    width: 100%;
+    z-index: 1001;
+    background-color: $header-bg-color;
+    //background-color: white;
+    box-shadow: -2px 3px 24px -13px $header_boxshadow_color;
+    //box-shadow: -2px 3px 24px -13px black;
   }
 }
 
@@ -68,11 +68,10 @@
   }
 
 
-
   &_top {
-  //display: flex;
-  //  justify-content: space-between;
-  //  align-items: center;
+    //display: flex;
+    //  justify-content: space-between;
+    //  align-items: center;
     height: 60px;
     //margin: 10px 0;
     @media (max-width: $bp-small) {
@@ -88,88 +87,94 @@
     width: 100%;
   }
 
-    &_logo {
-      display: block;
-      height: 30px;
+  &_logo {
+    display: block;
+    height: 30px;
+    //width: 100%;
+    @media (max-width: $bp-small) {
+      height: 20px;
+    }
+
+    a {
+      display: inline-block;
       //width: 100%;
-      @media (max-width: $bp-small) {
-        height: 20px;
-      }
-      a {
-        display: inline-block;
-        //width: 100%;
-        height: 100%;
-      }
-        .logo-in-header_whole {
-          max-width: 230px;
-          max-height: 100%;
-          object-fit: cover;
-          @media (max-width: $bp-small) {
-            &.show {
-              display: none;
-            }
-          }
-        }
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: translate(0, -3px);
-      }
-      }
+      height: 100%;
+    }
 
-    &_info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      //border: 1px solid black;
-      gap: 15px;
+    .logo-in-header_whole {
+      max-width: 230px;
+      max-height: 100%;
+      object-fit: cover;
       @media (max-width: $bp-small) {
-        //display: none;
-      }
-  }
-
-      &_auth {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        @media (max-width: $bp-small) {
+        &.show {
           display: none;
         }
       }
+    }
 
-        &_login {
-          background: transparent;
-          align-self: center;
-          max-height: 40px;
-          padding: 10px 30px;
-          color: inherit;
-          font-weight: 600;
-          font-size: .95em;
-          border-radius: 2px;
-          text-transform: uppercase;
-          &:hover{
-            text-decoration: underline;
-          }
-        }
+    transition: transform 0.3s ease;
 
-        &_signin {
-          //background: $main-color;
-          background: $header_buttons_bg_color;
-          //background: $pink_color;
-          //border: navajowhite;
-          align-self: center;
-          max-height: 40px;
-          padding: 10px 30px;
-          color: $header_buttons_text_color;
-          font-weight: 600;
-          font-size: .95em;
-          border-radius: 2px;
-          text-transform: uppercase;
-          &:hover {
-            //background-color: $pink_color;
-            background-color: $header_buttons_hover_color;
-          }
-        }
+    &:hover {
+      transform: translate(0, -3px);
+    }
+  }
+
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //border: 1px solid black;
+    gap: 15px;
+    @media (max-width: $bp-small) {
+      //display: none;
+    }
+  }
+
+  &_auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: $bp-small) {
+      display: none;
+    }
+  }
+
+  &_login {
+    background: transparent;
+    align-self: center;
+    max-height: 40px;
+    padding: 10px 30px;
+    color: inherit;
+    font-weight: 600;
+    font-size: .95em;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &_signin {
+    //background: $main-color;
+    background: $header_buttons_bg_color;
+    //background: $pink_color;
+    //border: navajowhite;
+    align-self: center;
+    max-height: 40px;
+    padding: 10px 30px;
+    color: $header_buttons_text_color;
+    font-weight: 600;
+    font-size: .95em;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    &:hover {
+      //background-color: $pink_color;
+      background-color: $header_buttons_hover_color;
+    }
+  }
 
 
   &_bottom {
@@ -179,18 +184,18 @@
     align-items: center;
     width: 100%;
     //@media (max-width: $bp-small) {
-      @media (max-width: $bp-medium) {
+    @media (max-width: $bp-medium) {
       min-height: 0;
       height: 0;
       padding: 0;
     }
   }
 
-    &_nav {
-
-    }
+  &_nav {
 
   }
+
+}
 
 /*search form*/
 .search-block {
@@ -204,6 +209,7 @@
   img, &_svg {
     cursor: pointer;
     transition: transform 0.3s ease;
+
     &:hover {
       transform: translate(0, -3px);
     }
@@ -242,7 +248,7 @@
     }
   }
 
-  &_btn{
+  &_btn {
     width: 40px;
     height: 40px;
     display: flex;
@@ -258,6 +264,7 @@
     span {
 
     }
+
     img {
       display: block !important;
     }
@@ -280,6 +287,7 @@
         stroke: $header-color;
       }
     }
+
     img {
       display: block !important;
     }
@@ -306,7 +314,7 @@
       gap: 15px;
     }
 
-    >li {
+    > li {
       position: relative;
       //color: white;
       //font-family: 'Roboto', sans-serif;
@@ -317,29 +325,31 @@
       letter-spacing: 0.0625rem;
       text-transform: uppercase;
       padding: 8px;
-      cursor: pointer;
-      @media (min-width: $bp-medium) {
-      //@media (min-width: $bp-small+1) {
-      &:hover {
-        //&:after {
-        //  content: "";
-        //  position: absolute;
-        //  //top: 25px;
-        //  left: 0;
-        //  right: 0;
-        //  bottom: 0;
-        //  height: 3px;
-        //  background-color: $main-color;
-        //  display: block;
-        //  overflow: hidden;
-        //}
 
-        //  при наведении на li элемент в списке с классом .main-nav_list, должен быть отображен элемент с классом .sub-menu
-        .sub-menu {
-          display: block;
+      @media (min-width: $bp-medium) {
+        cursor: pointer;
+        //@media (min-width: $bp-small+1) {
+        &:hover {
+          //&:after {
+          //  content: "";
+          //  position: absolute;
+          //  //top: 25px;
+          //  left: 0;
+          //  right: 0;
+          //  bottom: 0;
+          //  height: 3px;
+          //  background-color: $main-color;
+          //  display: block;
+          //  overflow: hidden;
+          //}
+
+          //  при наведении на li элемент в списке с классом .main-nav_list, должен быть отображен элемент с классом .sub-menu
+          .sub-menu {
+            display: block;
+          }
         }
       }
-      }
+
       a {
         display: inline-block;
         color: inherit;
@@ -349,42 +359,43 @@
 
       }
 
-    .sub-menu {
-      display: none;
-      margin-top: 8px;
-      position: absolute;
-      left: 0;
-      background: $header-dropdown-bg-color;
-      //background: #fff;
-      border-top: none;
-      -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-      -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-      box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-      width: 180px;
-      max-height: calc(100vh - 9.25rem);
-      z-index: -1;
-      margin-left: -2px;
-      overflow-y: scroll;
+      .sub-menu {
+        display: none;
+        margin-top: 8px;
+        position: absolute;
+        left: 0;
+        background: $header-dropdown-bg-color;
+        //background: #fff;
+        border-top: none;
+        -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+        -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+        box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+        width: 180px;
+        max-height: calc(100vh - 9.25rem);
+        z-index: -1;
+        margin-left: -2px;
+        overflow-y: scroll;
 
 
-      li {
+        li {
 
-        line-height: 1.5rem;
-        text-underline-offset: 0.1875rem;
-        //padding: 10px 5px;
-        //font-family: 'Roboto', sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        text-transform: uppercase;
-        //flex: 1 0 25%;
-        cursor: pointer;
-        text-align: center;
-        &:hover {
-          background-color: $header-dropdown-hover-color;
-          //background-color: #ececec;
+          line-height: 1.5rem;
+          text-underline-offset: 0.1875rem;
+          //padding: 10px 5px;
+          //font-family: 'Roboto', sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          text-transform: uppercase;
+          //flex: 1 0 25%;
+          cursor: pointer;
+          text-align: center;
+
+          &:hover {
+            background-color: $header-dropdown-hover-color;
+            //background-color: #ececec;
+          }
         }
       }
-    }
 
     }
   }
@@ -407,6 +418,7 @@
     z-index: 3;
     cursor: pointer;
     transition: transform 0.3s ease;
+
     &:hover {
       transform: translate(0, -3px);
     }
@@ -420,6 +432,7 @@
       top: 9px;
       transition: all 0.3s ease 0s;
     }
+
     &::before,
     &::after {
       content: "";
@@ -473,6 +486,7 @@
     transition: all 0.3s ease 0s;
     background-color: $header-bg-color;
     padding: 90px 10px 20px 10px;
+
     &.active {
       top: 0; // при нажатии на кнопку меню выпадает
     }
@@ -486,13 +500,15 @@
       overflow-y: scroll;
 
 
-      >li {
+      > li {
         position: relative;
         width: 90%;
-                &:not(:last-child) {
-        border-bottom: 1px solid white;
-        padding-bottom: 20px;
-                  }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid white;
+          padding-bottom: 20px;
+        }
+
         a {
           color: white;
           font-size: 20px;
@@ -501,12 +517,13 @@
           margin-right: 20px;
 
           &:hover {
-            color:rgb(255, 0, 168) ;
+            color: rgb(255, 0, 168);
           }
         }
       }
     }
-  }}
+  }
+}
 
 /*dropdown in burger*/
 .dropdown-arrow {
@@ -527,6 +544,7 @@
   transition: .3s ease;
   cursor: pointer;
   padding: 7px;
+
   &_opened {
     transform: rotate(135deg);
     top: 20px;
@@ -543,6 +561,7 @@
     /*https://keithjgrant.com/posts/2023/04/transitioning-to-height-auto/*/
     display: flex;
   }
+
   &_opened {
     margin-top: 20px;
     max-height: 100%;
