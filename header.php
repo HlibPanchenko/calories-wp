@@ -11,6 +11,9 @@ use Kirki\Compatibility\Kirki;
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
           name='viewport'/>
+    <title>Калории 365</title>
+    <link rel="icon" href="<?php echo get_template_directory_uri() ?>/assets/images/favicon.ico" type="image/png">
+    <meta property="og:image" content="<?php echo get_template_directory_uri() ?>/assets/images/og_img_calories.png">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
