@@ -515,6 +515,7 @@
           text-transform: uppercase;
           font-weight: 700;
           margin-right: 20px;
+          cursor: none;
 
           &:hover {
             color: rgb(255, 0, 168);
@@ -542,7 +543,7 @@
   border-bottom: 2px solid #fff;
   transform: rotate(-45deg);
   transition: .3s ease;
-  cursor: pointer;
+  //cursor: pointer;
   padding: 7px;
 
   &_opened {
