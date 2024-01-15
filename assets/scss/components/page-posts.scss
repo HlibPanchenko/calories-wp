@@ -1,4 +1,9 @@
 .posts-page {
+
+  .all-recepies_header {
+    min-height: 0;
+  }
+
   &_breadcrumbs {
     color: $content-font-color;
 
@@ -6,4 +11,20 @@
     &_content {
     color: $content-font-color;
   }
+
+  .catalog-posts_list {
+    @media (max-width: $bp-small) {
+      gap: 20px;
+    }
+  }
+
+  .catalog-posts_card {
+    min-height: 250px !important;
+    max-height: 370px !important;
+    @media (max-width: $bp-small) {
+      max-height: 300px !important;
+
+    }
+  }
 }
+

@@ -1,7 +1,12 @@
 .single_wrapper {
   background-color: $single-bg-color;
 
+  .single-recipe_breadcrumbs {
+    color: $single_content_color;
+  }
+
   .taxonomy {
+    color: $single_link_color;
 
     &-label {
       color: $single_content_color;

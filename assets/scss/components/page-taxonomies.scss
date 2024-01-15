@@ -1,7 +1,11 @@
 .page-taxonomies {
 
- &_breadcrumbs {
-   color: $content-font-color;
+  .all-recepies_header {
+    min-height: 0;
+  }
+
+  &_breadcrumbs {
+    color: $content-font-color;
   }
 
   &_list {
@@ -11,7 +15,8 @@
     }
 
     .card-layout {
-      height: 270px !important;
+      min-height: 250px !important;
+      max-height: 300px !important;
     }
 
     .card-layout_header {
@@ -23,6 +28,7 @@
 
   &_info {
     color: $content-font-color;
+
     .card-layout_title {
       color: $content-font-color;
     }

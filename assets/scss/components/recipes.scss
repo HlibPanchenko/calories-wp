@@ -135,7 +135,7 @@
     margin-bottom: 50px;
     @media (max-width: $bp-small) {
       justify-content: center;
-
+      gap: 20px;
     }
 
   }
@@ -143,10 +143,15 @@
 }
 
 .card {
-  //border: 1px solid green;
-  min-height: 280px;
-  max-height: 350px;
+  min-height: 250px;
+  max-height: 370px;
+  overflow: hidden;
   transition: transform 0.3s ease;
+
+  @media (max-width: $bp-small) {
+    max-height: 330px;
+
+  }
   &:hover {
     transform: translateY(-5px);
   }
@@ -185,6 +190,9 @@
     line-height: 30px;
     letter-spacing: 0.0625rem;
     margin-bottom: 5px;
+    @media (max-width: $bp-small) {
+      font-size: 22px;
+    }
   }
   &_subtitle{
 
