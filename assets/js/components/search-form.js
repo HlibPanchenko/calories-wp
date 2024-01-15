@@ -13,6 +13,9 @@ jQuery(document).ready(function ($) {
             // $(".main-header_logo").addClass("show");
         }
 
+        // Устанавливаем фокус на поле ввода
+        $("#general-search__search-input").focus();
+
     });
 
     // Назначаем обработчик события на клик по кнопке "Close"

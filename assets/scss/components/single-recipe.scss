@@ -19,6 +19,7 @@
       .item-one_num {
         border-right: 1px solid var(--single_recipe_info_sub_color);
         padding-right: 10px;
+        color: $single_recipe_info_m_color;
         span {
           font-size: 15px;
           text-transform: lowercase;
@@ -28,6 +29,7 @@
         font-size: 15px;
         text-transform: lowercase;
         margin-left: 10px;
+        color: $single_recipe_info_sub_color;
       }
 
     }
@@ -51,6 +53,7 @@
       border-bottom: 1px solid var(--single_recipe_info_sub_color);
       padding-bottom: 5px;
       width: 64px;
+      color: $single_recipe_info_m_color;
 
       span {
         font-size: 15px;
@@ -63,7 +66,7 @@
       font-size: 15px;
       text-transform: lowercase;
       margin-top: 5px;
-
+      color: $single_recipe_info_sub_color;
     }
   }
 }
@@ -186,6 +189,7 @@
       line-height: 1.25rem;
       letter-spacing: .0625rem;
       margin-bottom: 5px;
+      color: $single_recipe_link_color;
 
       &-label {
         text-decoration: underline;

@@ -6,8 +6,10 @@
     &-label {
       color: $single_content_color;
     }
+
     a {
       color: $single_link_color;
+
       &:hover {
         color: $single_hover_link_color;
       }
@@ -15,6 +17,7 @@
   }
 
 }
+
 .single_wrapper .left-recipe_title {
   color: $single_title_color;
 }
@@ -26,6 +29,10 @@
 .single_wrapper .left-recipe_img {
   width: 100%;
   height: 500px;
+
+  @media (max-width: $bp-small) {
+    height: 275px;
+  }
 
   img {
     width: 100%;

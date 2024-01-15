@@ -95,9 +95,7 @@
   }
 
   &_content {
-    //height: 50%;
-    //height: 100%;
-    padding: 10px;
+    //padding: 10px;
     display: flex;
     flex-direction: column;
     //justify-content: space-between;
@@ -140,6 +138,9 @@ text-align: justify;
     font-size: 16px;
     color: black;
     flex: 1;
+    p {
+      line-height: 20px;
+    }
   }
 
   &_taxonomies {
@@ -191,6 +192,7 @@ text-align: justify;
 }
 
 .news-card {
+  //border: 1px solid white;
   display: inline-block;
   max-width: 100%;
   //max-width: 290px;
@@ -198,7 +200,6 @@ text-align: justify;
   min-height: 170px;
   max-height: 240px;
   height: 100%;
-  //background-color: white;
   background-color: inherit;
 
   transition: transform 0.3s ease;
@@ -231,15 +232,14 @@ text-align: justify;
   }
 
   &_content {
-    height: 80px;
-    //height: 40%;
-    padding: 5px 5px 5px 10px;
+    //height: 80px;
+    height: calc(100% - 120px);
+    padding: 5px 0 10px;
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
     gap: 10px;
     @media (max-width: $bp-small) {
-      height: 100px;
+      //height: 100px;
 
     }
   }
@@ -249,10 +249,8 @@ text-align: justify;
     text-transform: uppercase;
     font-weight: 700;
     color: black;
-    //margin-right: 10px;
-    //margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    //align-items: center;
     max-width: 100%;
     flex: 1;
     line-height: 1.2;

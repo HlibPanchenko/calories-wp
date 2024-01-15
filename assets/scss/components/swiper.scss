@@ -333,8 +333,8 @@
   color: #000;
   overflow: hidden;
 
-  @media (max-width: $bp-xsmall) {
-    height: 400px;
+  @media (max-width: $bp-small) {
+    height: 275px;
 
   }
   .swiper-button-next,
@@ -374,14 +374,14 @@
 
 /* Стили для нижнего слайдера (.swiper-bottom) */
 .swiper-bottom {
-  //position: absolute;
   height: 120px;
-  //width: 500px;
   width: 100%;
-
   box-sizing: border-box;
   padding: 10px 0;
   overflow: hidden;
+  @media (max-width: $bp-small) {
+    height: 90px;
+  }
 }
 
 .swiper-bottom .swiper-slide {
