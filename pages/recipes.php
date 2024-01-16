@@ -185,9 +185,11 @@ use src\UtilsClass;
 
 
 
-                            <span class="loader"></span>
+<!--                            <span class="loader"></span>-->
 
                         <div class="catalog-posts_list">
+                            <span class="loader"></span>
+
                             <?php
 
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -265,6 +267,8 @@ use src\UtilsClass;
                             <?php wp_reset_postdata(); ?>
 
                         </div>
+
+
 
                             <div class="pagination">
                                 <?php

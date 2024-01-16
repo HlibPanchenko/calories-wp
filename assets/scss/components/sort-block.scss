@@ -25,11 +25,15 @@
 
   }
   &_item{
-
+    position: relative;
     width: 330px;
     border-radius: 25px;
     @media (min-width: $bp-xlarge) {
       width: 250px;
+    }
+
+    @media (max-width: $bp-small) {
+      width: 100%;
     }
   }
   &_wrapper{
@@ -98,6 +102,10 @@
     @media (min-width: $bp-xlarge) {
       width: 250px;
     }
+
+    @media (max-width: $bp-small) {
+      width: 100%;
+    }
   }
 }
 
@@ -120,8 +128,6 @@
   }
 
   &_checkbox{
-
-
     line-height: 1.5rem;
     text-underline-offset: 0.1875rem;
     padding: 10px;

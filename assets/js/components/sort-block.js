@@ -39,13 +39,6 @@ jQuery(document).ready(function ($) {
         selectedData.slugs ??= {};
 
         // Проверяем, существует ли уже запись для данного фильтра
-        // if (!selectedData.slugs[filterID]) {
-        //     // Если не существует, создаем запись с ключом filterID и значением filterText
-        //     selectedData.slugs[filterID] = filterText;
-        // } else {
-        //     // Если запись уже существует, обновляем ее значение
-        //     selectedData.slugs[filterID] = filterText;
-        // }
         if (!selectedData.slugs[filterID]) {
             // Если не существует, создаем запись с ключом filterID и значением filterText
             selectedData.slugs[filterID] = filterText;
@@ -53,7 +46,6 @@ jQuery(document).ready(function ($) {
             // Если запись уже существует, удаляем ее
             delete selectedData.slugs[filterID];
         }
-
 
         if (sortBy.startsWith('taxonomy_')) {
             // Обработка для таксономий
@@ -96,7 +88,9 @@ jQuery(document).ready(function ($) {
 // Функция для отправки данных на сервер
     function sendRequestToServer(data, pageNumber = 1) {
 
-        $('.catalog-posts_list').empty();
+        // $('.catalog-posts_list').empty();
+        $('.catalog-posts_list').children().not('.loader').remove();
+
         $('.pagination').empty();
 
         showLoader();
@@ -124,7 +118,9 @@ jQuery(document).ready(function ($) {
 
     function updateRecipeList(response) {
         var $catalogPostsList = $('.catalog-posts_list');
-        $catalogPostsList.empty();
+        // $catalogPostsList.empty();
+        /*удаляем все кроме лоудера*/
+        // $catalogPostsList.children().not('.loader').remove();
         // $('.pagination').empty();
 
         if (response.status === 'success') {
@@ -209,6 +205,17 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
         var page = $(this).attr('href');
         console.log(selectedData);
+        /*отправлять пользователя в начало блока с клаассом catalog-posts_list*/
+        // Определяем блок с классом catalog-posts_list
+        var catalogListBlock = $('.catalog-posts_list');
+        var choosenFilters = $('.catalog-posts_choosenFilters');
+
+        // Отправляем пользователя в начало блока
+        $('html, body').animate({
+            // scrollTop: catalogListBlock.offset().top
+            scrollTop: choosenFilters.offset().top
+        }, 500);
+
         sendRequestToServer(selectedData, page);
     });
 
