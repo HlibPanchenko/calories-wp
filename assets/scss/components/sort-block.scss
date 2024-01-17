@@ -5,16 +5,14 @@
   margin-top: 20px;
   margin-bottom: 30px;
 
-  &_side{
+  &_side {
     height: 100%;
     background-color: $background-light-gray;
   }
 
-  &_list{
+  &_list {
     display: flex;
-    //justify-content: center;
     justify-content: space-between;
-    //align-items: center;
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
@@ -24,7 +22,11 @@
     }
 
   }
-  &_item{
+}
+
+.sort-dropdown-design_first {
+  .sort-block_item {
+
     position: relative;
     width: 330px;
     border-radius: 25px;
@@ -36,12 +38,14 @@
       width: 100%;
     }
   }
-  &_wrapper{
+
+  .sort-block_wrapper {
     width: 100%;
   }
-  &_header{
-    border: 0.5px solid #e0e0e0;
-    background-color: white;
+
+  .sort-block_header {
+    border: 0.5px solid $recipes_page_input_border;
+    background-color: $recipes_page_input_bg;
     border-radius: 2px;
     font-size: 16px;
     display: flex;
@@ -50,39 +54,37 @@
     padding-left: 20px;
     width: 100%;
     cursor: pointer;
-  &.no-border {
-    border-bottom: none;
+
+    &.no-border {
+      border-bottom: none;
+    }
   }
-  }
 
-
-
-  &_text{
-    //text-transform: uppercase;
-    //font-weight: 500;
+  .sort-block_text {
     line-height: 22px;
     letter-spacing: 0.0625rem;
     font-size: 17px;
-    color: #797979;
-
+    color: $recipes_page_input_color;
   }
-  &_btn {
+
+  .sort-block_btn {
     width: 50px;
     height: 50px;
     display: flex;
-    border: 1px solid #73ae37;
+    border: 1px solid $recipes_page_btn_bg;
     border-radius: 0 2px 2px 0;
     justify-content: center;
     align-items: center;
     color: #fff !important;
-    background-color: #73ae37;
+    background-color: $recipes_page_btn_bg;
   }
-  &_arrow{
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 6px solid white;
+
+  .sort-block_arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $recipes_page_btn_color;
     transition: transform 0.3s ease-out;
 
 
@@ -92,11 +94,10 @@
     transform: rotate(180deg);
   }
 
-  &_dropdown{
+  .sort-block_dropdown {
     position: absolute;
-    //width: 330px;
     width: 330px;
-    background-color: white;
+    background-color: $recipes_page_dropdown_bg;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     @media (min-width: $bp-xlarge) {
@@ -108,6 +109,93 @@
     }
   }
 }
+
+.sort-dropdown-design_second {
+  .sort-block_item {
+    position: relative;
+    width: 330px;
+    border-radius: 25px;
+    @media (min-width: $bp-xlarge) {
+      width: 250px;
+    }
+
+    @media (max-width: $bp-small) {
+      width: 100%;
+    }
+  }
+
+  .sort-block_wrapper {
+    width: 100%;
+  }
+
+  .sort-block_header {
+    border-bottom: 2px solid $recipes_page_sort_border;
+    //background-color: transparent;
+    background-color: $recipes_page_input_bg;
+    font-size: 22px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    &.no-border {
+      border-bottom: none;
+    }
+  }
+
+  .sort-block_text {
+    //text-transform: uppercase;
+    line-height: 22px;
+    letter-spacing: 0.0625rem;
+    font-size: 19px;
+    color: $recipes_page_input_color;
+  }
+
+  .sort-block_btn {
+    width: 30px;
+    //width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    //background-color: yellow;
+  }
+
+  .sort-block_arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $recipes_page_sort_arrow_color;
+    transition: transform 0.3s ease-out;
+
+
+  }
+
+  .rotate-arrow {
+    transform: rotate(180deg);
+  }
+
+  .sort-block_dropdown {
+    position: absolute;
+    width: 330px;
+    background-color: $recipes_page_dropdown_bg;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    @media (min-width: $bp-xlarge) {
+      width: 250px;
+    }
+
+    @media (max-width: $bp-small) {
+      width: 100%;
+    }
+  }
+}
+
 
 .dropdown-sort {
   max-height: 0;
@@ -121,13 +209,14 @@
     overflow-y: scroll;
   }
 
-  label{
+  label {
     display: flex;
     align-items: center;
     gap: 15px;
+    color: $recipes_page_dropdown_color;
   }
 
-  &_checkbox{
+  &_checkbox {
     line-height: 1.5rem;
     text-underline-offset: 0.1875rem;
     padding: 10px;
@@ -136,15 +225,14 @@
     font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
-    //line-height: 22px;
-    //font-size: 18px;
     letter-spacing: 0.0625rem;
+
     &:hover {
-      background-color: #ececec;
+      background-color: $recipes_page_dropdown_bg_hover;
     }
   }
 
-  &_input{
+  &_input {
     appearance: none;
     -webkit-appearance: none;
     display: flex;
@@ -152,7 +240,7 @@
     justify-content: center;
     font-size: 2rem;
     //padding: 0.1rem;
-    border: 3px solid $main-color;
+    border: 3px solid $recipes_page_checkbox_color;
     //border-radius: 0.5rem;
     &::before {
       content: "";
@@ -160,7 +248,7 @@
       height: 15px;
       //clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
       transform: scale(0);
-      background-color: $main-color;
+      background-color: $recipes_page_checkbox_color;
     }
 
     &:checked::before {
@@ -169,19 +257,21 @@
   }
 }
 
-.catalog-posts_choosenFilters {}
+.catalog-posts_choosenFilters {
+}
 
 .choosenFilters {
   //padding: 20px 0;
   @media (max-width: $bp-small) {
     //padding: 20px 20px 20px 40px;
   }
+
   &_title {
     margin-bottom: 10px;
   }
 
   &_list {
-display: flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 10px;
     padding-bottom: 20px;
@@ -192,20 +282,23 @@ display: flex;
     min-width: 80px;
     max-width: 300px;
     height: 35px;
-    background-color: #73ae37;
+    background-color: $recipes_page_choosen_bg;
     border-radius: 2px;
     //border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: $recipes_page_choosen_color;
     font-size: 18px;
     padding: 5px 10px;
     gap: 2px;
     cursor: pointer;
+
     &:hover {
-      background-color: $pink_color;
+      background-color: $recipes_page_choosen_bg_hover;
+      color: $recipes_page_choosen_color_hover;
     }
+
     .remove-filter {
       position: relative;
       top: 0;
@@ -216,21 +309,25 @@ display: flex;
       font-size: 0;
       background-color: transparent;
 
-    &:before,
-   &:after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 2px;
-      height: 20px;
-      background-color: white;
-      transform: rotate(45deg) translate(-50%, -50%);
-      transform-origin: top left;
-      content: '';
-    }
-  &:after {
-    transform: rotate(-45deg) translate(-50%, -50%);
-  }
+      &:before,
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 20px;
+        background-color: $recipes_page_choosen_color;
+        transform: rotate(45deg) translate(-50%, -50%);
+        transform-origin: top left;
+        content: '';
+        &:hover {
+          background-color: $recipes_page_choosen_color_hover;
+        }
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(-50%, -50%);
+      }
     }
   }
 }

@@ -1350,8 +1350,462 @@ new \Kirki\Field\Color(
     ]
 );
 
-/*sidebars*/
+/*recipes page*/
+new \Kirki\Section(
+    'recipes_page_settings',
+    [
+        'title' => esc_html__('Recipes Page Settings', 'calories_first'),
+        'panel' => 'theme_settings',
+        'priority' => 160,
+    ]
+);
 
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_bg',
+        'label' => __('If is not set, will be used global bg color', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_bg',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_color',
+        'label' => __('If is not set, will be used global font color', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#000000',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#000000'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_title_color',
+        'label' => __('Title color', 'calories_first'),
+        'section' => 'recipes_page_settings',
+//        'default' => '#ff00a8',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+//            'colors' => ['#ff00a8'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_title_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_accent_color',
+        'label' => __('Accent color', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ff00a8',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ff00a8'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_accent_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'recipes_page_title',
+        'label' => esc_html__('Title', 'calories_first'),
+        'description' => esc_html__('Оберните слова в span, если хотите выделить их акцентным цветом', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => esc_html__('Добро пожаловать на страницу всех <span>рецептов</span> !', 'calories_first'),
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'recipes_page_description',
+        'label' => esc_html__('Description', 'calories_first'),
+        'description' => esc_html__('Оберните слова в <span class="span-recepies-1">, если хотите выделить их акцентным цветом', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => esc_html__(' Ищите вдохновение для ваших кулинарных творений среди нашего разнообразного ассортимента.
+                                <span class="span-recepies-1">Используйте блок поиска для быстрого поиска и настройте фильтры</span>, чтобы отобразить только те
+                                рецепты, которые соответствуют вашим предпочтениям. Приятного кулинарного путешествия!', 'calories_first'),
+    ]
+);
+
+
+new \Kirki\Field\Checkbox(
+    [
+        'settings' => 'recipes_page_s_show',
+        'label' => esc_html__('Show search form', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => true,
+    ]
+);
+
+new \Kirki\Field\Radio_Buttonset(
+    [
+        'settings' => 'recipes_page_choose_design_dropdown',
+        'label' => esc_html__('Choose design for dropdown', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '1',
+        'priority' => 10,
+        'choices' => [
+            '1' => esc_html__('With Borders', 'calories_first'),
+            '2' => esc_html__('Without', 'calories_first'),
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_btn_bg',
+        'label' => __('Button color in input', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#73ae37',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#73ae37'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_btn_bg',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_btn_color',
+        'label' => __('Font color in search button', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_btn_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_sort_arrow_color',
+        'label' => __('Color of arrow in sort button', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#000000',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#000000'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_sort_arrow_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_input_bg',
+        'label' => __('Background color input', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_input_bg',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_input_color',
+        'label' => __('Font color input', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#000000',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#000000'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_input_color',
+            ],
+        ],
+    ]
+);
+
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_input_border',
+        'label' => __('Border color search block', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_input_border',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_sort_border',
+        'label' => __('Border color sort block', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_sort_border',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_dropdown_bg',
+        'label' => __('Background color dropdown', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_dropdown_bg',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_dropdown_bg_hover',
+        'label' => __('Background color hover dropdown', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_dropdown_bg_hover',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_dropdown_color',
+        'label' => __('Font color dropdown', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#000000',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#000000'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_dropdown_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_checkbox_color',
+        'label' => __('Checkbox color dropdown', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#73ae37',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#73ae37'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_checkbox_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_choosen_bg',
+        'label' => __('Background color for choosen items', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#73ae37',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#73ae37'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_choosen_bg',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_choosen_bg_hover',
+        'label' => __('Hover background color for choosen items', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ff00a8',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ff00a8'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_choosen_bg_hover',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_choosen_color',
+        'label' => __('Color for choosen items', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_choosen_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'recipes_page_choosen_color_hover',
+        'label' => __('Hover color for choosen items', 'calories_first'),
+        'section' => 'recipes_page_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--recipes_page_choosen_color_hover',
+            ],
+        ],
+    ]
+);
+/*sidebars*/
 new \Kirki\Section(
     'sidebars_settings',
     [
@@ -1693,11 +2147,11 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Dimension(
     [
-        'settings'    => 'pagination_border_radius_setting',
-        'label'       => esc_html__( 'Border radius', 'calories_first' ),
-        'description' => esc_html__( 'Use px', 'calories_first' ),
-        'section'     => 'pagination_settings',
-        'default'     => '4px',
+        'settings' => 'pagination_border_radius_setting',
+        'label' => esc_html__('Border radius', 'calories_first'),
+        'description' => esc_html__('Use px', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '4px',
         'output' => [
             [
                 'element' => ':root',
@@ -1706,3 +2160,5 @@ new \Kirki\Field\Dimension(
         ],
     ]
 );
+
+

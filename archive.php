@@ -8,16 +8,16 @@ get_header();
 <main id="primary" class="main-wrapper">
 
     <article class="main-article archive-page">
-        <section class="all-recepies">
-            <div class="all-recepies_container">
-                <div class="all-recepies_header">
+        <section class="layout-posts">
+            <div class="layout-posts_container">
+                <div class="layout-posts_header">
 
-                    <div class="all-recepies_breadcrumbs archive-page_breadcrumbs">
+                    <div class="layout-posts_breadcrumbs archive-page_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
 
                 </div>
-                <div class="all-recepies_catalog catalog-posts">
+                <div class="layout-posts_catalog catalog-posts">
 
                     <span class="loader"></span>
 

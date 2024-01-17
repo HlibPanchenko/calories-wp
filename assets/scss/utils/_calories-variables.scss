@@ -88,6 +88,27 @@ $pagination_border_color: var(--pagination_border_color);
 $pagination_border_current_color: var(--pagination_border_current_color);
 $pagination_border_radius_setting: var(--pagination_border_radius_setting);
 
+/*recipes page*/
+$recipes_page_bg: var(--recipes_page_bg);
+$recipes_page_color: var(--recipes_page_color);
+$recipes_page_accent_color: var(--recipes_page_accent_color);
+$recipes_page_title_color: var(--recipes_page_title_color);
+$recipes_page_btn_bg: var(--recipes_page_btn_bg);
+$recipes_page_btn_color: var(--recipes_page_btn_color);
+$recipes_page_sort_arrow_color: var(--recipes_page_sort_arrow_color);
+$recipes_page_input_bg: var(--recipes_page_input_bg);
+$recipes_page_input_color: var(--recipes_page_input_color);
+$recipes_page_input_border: var(--recipes_page_input_border);
+$recipes_page_sort_border: var(--recipes_page_sort_border);
+$recipes_page_dropdown_bg: var(--recipes_page_dropdown_bg);
+$recipes_page_dropdown_bg_hover: var(--recipes_page_dropdown_bg_hover);
+$recipes_page_dropdown_color: var(--recipes_page_dropdown_color);
+$recipes_page_checkbox_color: var(--recipes_page_checkbox_color);
+$recipes_page_choosen_bg: var(--recipes_page_choosen_bg);
+$recipes_page_choosen_color: var(--recipes_page_choosen_color);
+$recipes_page_choosen_bg_hover: var(--recipes_page_choosen_bg_hover);
+$recipes_page_choosen_color_hover: var(--recipes_page_choosen_color_hover);
+
 /*colors*/
 //$main-color: #73ae37;
 $main-color: var(--theme-main-color);

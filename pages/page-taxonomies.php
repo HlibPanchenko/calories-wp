@@ -12,20 +12,20 @@ get_header();
 
 
     <article class="main-article page-taxonomies">
-        <section class="all-recepies">
-            <div class="all-recepies_container">
-                <div class="all-recepies_header">
+        <section class= layout-posts ">
+            <div class=" layout-posts_container">
+                <div class=" layout-posts_header">
 
-                    <div class="all-recepies_breadcrumbs page-taxonomies_breadcrumbs">
+                    <div class=" layout-posts_breadcrumbs page-taxonomies_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
 
-<!--                    <div class="all-recepies_description">-->
+<!--                    <div class=" layout-posts_description">-->
 <!--                        Описание страницы.-->
 <!--                    </div>-->
 
                 </div>
-                <div class="all-recepies_catalog catalog-posts">
+                <div class=" layout-posts_catalog catalog-posts">
                     <div class="content-layout_wrapper page-taxonomies_list">
                         <?php
                         // Получаем все таксономии для кастомного типа записи "recipe"
@@ -77,7 +77,7 @@ get_header();
                     </div>
 
                 </div>
-                <div class="all-recepies_more load-more">
+                <div class="layout-posts_more load-more">
                     <button class="load-more_btn" data-page="1"
                             data-max-pages="<?php echo esc_attr(ceil(count($all_terms) / 9)); ?>">
                         Показать еще
