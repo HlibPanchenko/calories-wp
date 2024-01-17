@@ -3,10 +3,11 @@ jQuery(document).ready(function ($) {
     var mainWrapper = $('.main-wrapper');
     var fixedClass = 'fixed-header';
     var layoutFixedMarginClass = 'layout-fixed-margin';
+    var threshold = 55;
 
-    $(window).scroll(function () {
+    // Функция для обработки события прокрутки
+    function handleScroll() {
         var scrollY = window.scrollY || window.pageYOffset;
-        var threshold = 55;
 
         if (scrollY > threshold) {
             headerBottom.addClass(fixedClass);
@@ -15,5 +16,13 @@ jQuery(document).ready(function ($) {
             headerBottom.removeClass(fixedClass);
             mainWrapper.removeClass(layoutFixedMarginClass);
         }
-    });
+    }
+
+    // Проверка ширины экрана перед привязкой обработчика событий прокрутки
+    if ($(window).width() > 1024) {
+        $(window).scroll(handleScroll);
+
+        // Выполнить обработку события при загрузке страницы (если необходимо)
+        handleScroll();
+    }
 });
