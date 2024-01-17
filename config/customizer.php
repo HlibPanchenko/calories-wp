@@ -1532,3 +1532,177 @@ new \Kirki\Field\Radio_Buttonset(
         ],
     ]
 );
+
+
+/*pagination*/
+new \Kirki\Section(
+    'pagination_settings',
+    [
+        'title' => esc_html__('Pagination Settings', 'calories_first'),
+        'panel' => 'theme_settings',
+        'priority' => 160,
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_background',
+        'label' => __('Background color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => 'transparent',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['transparent'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_background',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_current_background',
+        'label' => __('Background current color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#73ae37',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#73ae37'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_current_background',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_background_hover',
+        'label' => __('Background color hover', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#eeb82c',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#eeb82c'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_background_hover',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_color',
+        'label' => __('Font color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#000000',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#000000'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_current_color',
+        'label' => __('Font current color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#ffffff',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ffffff'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_current_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_border_color',
+        'label' => __('Border color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#ddd',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#ddd'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_border_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Color(
+    [
+        'settings' => 'pagination_border_current_color',
+        'label' => __('Border current color', 'calories_first'),
+        'section' => 'pagination_settings',
+        'default' => '#73ae37',
+        'choices' => [
+            // добавляет возможность выбора прозрачности цвета (добавится слайдер для управления прозрачностью)
+            'alpha' => true,
+            /*цвет по дефолту*/
+            'colors' => ['#73ae37'],
+        ],
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_border_current_color',
+            ],
+        ],
+    ]
+);
+
+new \Kirki\Field\Dimension(
+    [
+        'settings'    => 'pagination_border_radius_setting',
+        'label'       => esc_html__( 'Border radius', 'calories_first' ),
+        'description' => esc_html__( 'Use px', 'calories_first' ),
+        'section'     => 'pagination_settings',
+        'default'     => '4px',
+        'output' => [
+            [
+                'element' => ':root',
+                'property' => '--pagination_border_radius_setting',
+            ],
+        ],
+    ]
+);

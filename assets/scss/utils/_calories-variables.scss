@@ -78,6 +78,16 @@ $sidebar_second_hover_link_color: var(--sidebar_second_hover_link_color);
 $sidebar_second_title_align: var(--sidebar_second_title_align);
 $sidebar_second_dots_color: var(--sidebar_second_dots_color);
 
+/*pagination*/
+$pagination_background: var(--pagination_background);
+$pagination_current_background: var(--pagination_current_background);
+$pagination_color: var(--pagination_color);
+$pagination_current_color: var(--pagination_current_color);
+$pagination_background_hover: var(--pagination_background_hover);
+$pagination_border_color: var(--pagination_border_color);
+$pagination_border_current_color: var(--pagination_border_current_color);
+$pagination_border_radius_setting: var(--pagination_border_radius_setting);
+
 /*colors*/
 //$main-color: #73ae37;
 $main-color: var(--theme-main-color);
