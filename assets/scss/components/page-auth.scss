@@ -1,0 +1,23 @@
+.auth-page {
+  height: 100%;
+  width: 100%;
+  &_section{
+    background-color: orange;
+    height: 100%;
+    width: 100%;
+
+  }
+
+  &_container{
+    max-width: 1400px;
+    padding: 0 10px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+
+
+    @media (max-width: $bp-large) {
+      max-width: 1200px;
+    }
+  }
+}

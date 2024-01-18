@@ -28,9 +28,11 @@ $blok_postov_link = $blok_postov['block_postov_link'];
               border-bottom: 2px solid $block_postov_color;
      }
      
-    #$uniqid .header-arrow path {
-        stroke: $block_postov_color;
-    }
+    #$uniqid .header-arrow {
+     path {
+        stroke:$block_postov_color;
+           }
+     }
      
      #$uniqid .featured-news_title h3 {
         color: $block_postov_color;

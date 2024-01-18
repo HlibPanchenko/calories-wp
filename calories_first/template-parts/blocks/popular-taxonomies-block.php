@@ -40,9 +40,11 @@ $whitelist_taxonomies = array('dish', 'ingredients', 'cuisine', 'holiday', 'cook
             border-bottom: 2px solid $popular_categories_title_color; 
       }
       
-     #$uniqid .header-layout_svg-wrapper path {
-        stroke: $popular_categories_title_color;
-    }
+     #$uniqid .header-layout_svg-wrapper {
+     path {
+        stroke:$popular_categories_title_color;
+           }
+     }
      
       #$uniqid .card-layout_title {
         color: $popular_categories_text_color;

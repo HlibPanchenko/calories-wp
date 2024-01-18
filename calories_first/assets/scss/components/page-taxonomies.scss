@@ -1,0 +1,45 @@
+.page-taxonomies {
+
+  .layout-posts_header {
+    min-height: 0;
+  }
+
+  &_breadcrumbs {
+    color: $content-font-color;
+  }
+
+  &_list {
+
+    .catalog-posts {
+      margin-bottom: 50px;
+    }
+
+    .card-layout {
+      min-height: 250px !important;
+      max-height: 300px !important;
+    }
+
+    .card-layout_header {
+      //height: 240px !important;
+    }
+
+
+  }
+
+  &_info {
+    color: $content-font-color;
+
+    .card-layout_title {
+      color: $content-font-color;
+    }
+  }
+
+  .load-more_btn {
+    background: $header_buttons_bg_color;
+    color: $header_buttons_text_color;
+
+    &:hover {
+      background-color: $header_buttons_hover_color;
+    }
+  }
+}

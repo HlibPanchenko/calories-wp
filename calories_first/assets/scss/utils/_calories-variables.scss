@@ -1,0 +1,160 @@
+/*scss variables*/
+
+/*global*/
+$content-bg-color: var(--global-bg-color);
+$content-font-color: var(--global-font-color);
+
+/*header*/
+$header-bg-color: var(--header-bg-color);
+$header-dropdown-bg-color: var(--header-dropdown-bg-color);
+$header-dropdown-hover-color: var(--header-dropdown-hover-color);
+$header-color: var(--header-color);
+$header_buttons_bg_color: var(--header_buttons_bg_color);
+$header_buttons_text_color: var(--header_buttons_text_color);
+$header_buttons_hover_color: var(--header_buttons_hover_color);
+$header_boxshadow_color: var(--header_boxshadow_color);
+
+/*slider*/
+//$mr_btm_title_swiper: var(--mr_btm_title_swiper-margin-bottom);
+//$mr_btm_title_swiper: var(--mr_btm_title_swiper);
+
+/*footer*/
+$footer-bg-color: var(--footer-bg-color);
+$footer-title-color: var(--footer-title-color);
+$footer-link-color: var(--footer-link-color);
+$footer_accent_color: var(--footer_accent_color);
+$footer_border_top_color: var(--footer_border_top_color);
+
+/*floating button*/
+$float_button_to_top_background: var(--float_button_to_top_background);
+$float_button_to_top_color: var(--float_button_to_top_color);
+
+/* single.php и single-recipe.php*/
+$single-bg-color: var(--single-bg-color);
+$single_title_color: var(--single_title_color);
+$single_content_color: var(--single_content_color);
+$single_link_color: var(--single_link_color);
+$single_hover_link_color: var(--single_hover_link_color);
+$single_line_show: var(--single_line_show);
+$single_line_color: var(--single_line_color);
+
+
+$single-recipe-bg-color: var(--single-recipe-bg-color);
+$single_recipe_title_color: var(--single_recipe_title_color);
+$single_recipe_content_color: var(--single_recipe_content_color);
+$single_recipe_link_color: var(--single_recipe_link_color);
+$single_recipe_hover_link_color: var(--single_recipe_hover_link_color);
+$single_recipe_line_show: var(--single_recipe_line_show);
+$single_recipe_line_color: var(--single_recipe_line_color);
+$single_recipe_sidebar_background: var(--single_recipe_sidebar_background);
+
+$single_recipe_info_bg: var(--single_recipe_info_bg);
+$single_recipe_info_m_color: var(--single_recipe_info_m_color);
+$single_recipe_info_sub_color: var(--single_recipe_info_sub_color);
+
+$single_recipe_ingredients_bg: var(--single_recipe_ingredients_bg);
+$single_recipe_ingredients_color: var(--single_recipe_ingredients_color);
+
+$single_recipe_steps_bg: var(--single_recipe_steps_bg);
+$single_recipe_steps_title: var(--single_recipe_steps_title);
+$single_recipe_steps_color: var(--single_recipe_steps_color);
+$single_recipe_steps_step_color: var(--single_recipe_steps_step_color);
+$single_recipe_steps_step_choose: var(--single_recipe_steps_step_choose);
+$single_recipe_steps_title_align: var(--single_recipe_steps_title_align);
+$single_recipe_ingredients_title_align: var(--single_recipe_ingredients_title_align);
+
+/*sidebars*/
+$sidebar_first_background: var(--sidebar_first_background);
+$sidebar_second_background: var(--sidebar_second_background);
+
+$sidebar_first_title_color: var(--sidebar_first_title_color);
+$sidebar_first_link_color: var(--sidebar_first_link_color);
+$sidebar_first_hover_link_color: var(--sidebar_first_hover_link_color);
+$sidebar_first_border_bottom_hover_link_color: var(--sidebar_first_border_bottom_hover_link_color);
+
+$sidebar_second_title_color: var(--sidebar_second_title_color);
+$sidebar_second_link_color: var(--sidebar_second_link_color);
+$sidebar_second_hover_link_color: var(--sidebar_second_hover_link_color);
+$sidebar_second_title_align: var(--sidebar_second_title_align);
+$sidebar_second_dots_color: var(--sidebar_second_dots_color);
+
+/*pagination*/
+$pagination_background: var(--pagination_background);
+$pagination_current_background: var(--pagination_current_background);
+$pagination_color: var(--pagination_color);
+$pagination_current_color: var(--pagination_current_color);
+$pagination_background_hover: var(--pagination_background_hover);
+$pagination_border_color: var(--pagination_border_color);
+$pagination_border_current_color: var(--pagination_border_current_color);
+$pagination_border_radius_setting: var(--pagination_border_radius_setting);
+
+/*recipes page*/
+$recipes_page_bg: var(--recipes_page_bg);
+$recipes_page_color: var(--recipes_page_color);
+$recipes_page_accent_color: var(--recipes_page_accent_color);
+$recipes_page_title_color: var(--recipes_page_title_color);
+$recipes_page_btn_bg: var(--recipes_page_btn_bg);
+$recipes_page_btn_color: var(--recipes_page_btn_color);
+$recipes_page_sort_arrow_color: var(--recipes_page_sort_arrow_color);
+$recipes_page_input_bg: var(--recipes_page_input_bg);
+$recipes_page_input_color: var(--recipes_page_input_color);
+$recipes_page_input_border: var(--recipes_page_input_border);
+$recipes_page_sort_border: var(--recipes_page_sort_border);
+$recipes_page_dropdown_bg: var(--recipes_page_dropdown_bg);
+$recipes_page_dropdown_bg_hover: var(--recipes_page_dropdown_bg_hover);
+$recipes_page_dropdown_color: var(--recipes_page_dropdown_color);
+$recipes_page_checkbox_color: var(--recipes_page_checkbox_color);
+$recipes_page_choosen_bg: var(--recipes_page_choosen_bg);
+$recipes_page_choosen_color: var(--recipes_page_choosen_color);
+$recipes_page_choosen_bg_hover: var(--recipes_page_choosen_bg_hover);
+$recipes_page_choosen_color_hover: var(--recipes_page_choosen_color_hover);
+
+/*colors*/
+//$main-color: #73ae37;
+$main-color: var(--theme-main-color);
+$pink_color: #ff00a8;
+$dark-green: #006646;
+$background-light-green: #f5f6ea;
+$background-light-green2: #EAF6EB;
+$background-light-blue: #EAF5F6;
+$background-light-purple: #EBEAF6;
+$background-light-gray: #f7f7f7;
+$background-hex: #e4f1ef;
+$lightgray: #c0c0c0;
+$darkgray: #a7a7a7;
+$contrastgray: #c4c4c4;
+$purple: #C9C6E7;
+$purple-contrast: #A7A2D8;
+$light-orange: #fce586;
+$background-pink: #F7847C;
+$burgundy: rgb(178,55,88);
+$orange: #EEB82C;
+
+/*fonts*/
+//$font-main-family: var(--title_in_swiper), sans-serif;
+
+
+/*screen sizes*/
+$bp-xsmall: 23.75em; //  380px
+/*iphone 14pro max*/
+$bp-xxsmall: 26.875em; //  430px
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+/*media queries*/
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+/*Example:
+ @media #{$mq-medium} {
+    font-size: $base-font-size*1.2;
+    line-height: $base-line-height*1.2;
+  }
+*/

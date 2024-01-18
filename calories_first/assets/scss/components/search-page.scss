@@ -1,0 +1,17 @@
+.search-page {
+  &_breadcrumbs {
+    color: $content-font-color;
+
+  }
+
+  &_query {
+    color: $content-font-color;
+    font-size: 18px;
+    letter-spacing: 0.0625rem;
+
+  }
+
+  &_content {
+    color: $content-font-color;
+  }
+}

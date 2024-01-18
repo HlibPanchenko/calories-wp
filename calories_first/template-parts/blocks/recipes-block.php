@@ -32,9 +32,11 @@ $recipes_block_link = $recipes_block['block_recipes_link'];
         border-bottom: 2px solid $recipes_block_color;
     }
      
-    #$uniqid .header-arrow path {
-        stroke: $recipes_block_color;
-    }
+    #$uniqid .header-arrow {
+     path {
+         stroke:$recipes_block_color;
+         }
+     }
      
      #$uniqid .card-layout_title {
         color:$recipes_block_color;

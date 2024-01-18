@@ -1,0 +1,134 @@
+/*general*/
+.sidebar {
+
+}
+
+/*sidebar 1*/
+.sidebar-1 {
+  background-color: $sidebar_first_background;
+  padding: 15px;
+  margin-bottom: 40px;
+
+
+  .widget-sb-1 {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $sidebar_first_border_bottom_hover_link_color;
+    }
+  }
+
+  h2, .widget-title {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    letter-spacing: .0625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    color: $sidebar_first_title_color;
+  }
+
+  .widget-sb-1 ul, .widget_custom_taxonomy_widget_list {
+    li {
+      margin-bottom: 5px;
+      color: $sidebar_first_link_color;
+      a {
+        color: inherit;
+        line-height: 1.25rem;
+        letter-spacing: .0625rem;
+
+        &:hover {
+          color: $sidebar_first_hover_link_color;
+        }
+      }
+    }
+  }
+}
+/*sidebar 2*/
+
+.sidebar-2 {
+  background-color: $sidebar_second_background;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
+.widget-sb-2 {
+
+  margin-bottom: 15px;
+
+  &:not(:last-child) {
+    //border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.0625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    text-align: $sidebar_second_title_align;
+    color: $sidebar_second_title_color;
+
+    //position: relative;
+    //z-index: 0;
+    //
+    //&:after {
+    //  content: "";
+    //  position: absolute;
+    //  left: 0;
+    //  bottom: -3px;
+    //  width: 7.4375rem;
+    //  height: 4px;
+    //  z-index: -1;
+    //  background: linear-gradient(90deg,$main-color 0,#edfbd7 100%);
+    //}
+  }
+
+  ul {
+    li {
+      position: relative;
+      padding-left: 20px;
+      color: $sidebar_second_link_color;
+      margin-bottom: 5px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+        width: 8px;
+        height: 8px;
+        background-color: $sidebar_second_dots_color;
+      }
+      a {
+        color: inherit;
+        line-height: 1.25rem;
+        letter-spacing: .0625rem;
+
+        &:hover {
+          color: $sidebar_second_hover_link_color;
+        }
+      }
+    }
+  }
+
+  .widget_custom_taxonomy_widget_list {
+    li {
+      margin-bottom: 5px;
+
+      a {
+        color: $sidebar_second_link_color;
+        line-height: 1.25rem;
+        letter-spacing: .0625rem;
+        &:hover {
+          color: $sidebar_second_hover_link_color;
+        }
+      }
+    }
+  }
+}

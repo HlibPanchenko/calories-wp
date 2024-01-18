@@ -1,0 +1,40 @@
+.running {
+  overflow: hidden;
+  font-family: "Pridi", sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  text-transform: uppercase;
+  background-color: $main-color;
+  color: white;
+  //background-color: #FFDC00;
+}
+
+.running_inner {
+  display: flex;
+  //align-items: center;
+}
+
+.running_line {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 10px 15px;
+  min-width: 100%;
+  white-space: nowrap;
+  animation-name: runningLine;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  //animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes runningLine {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}

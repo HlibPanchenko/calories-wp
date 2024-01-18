@@ -69,7 +69,11 @@
 
 
   &_top {
+    //display: flex;
+    //  justify-content: space-between;
+    //  align-items: center;
     height: 60px;
+    //margin: 10px 0;
     @media (max-width: $bp-small) {
       //margin-bottom: 0px;
     }
@@ -153,23 +157,18 @@
   }
 
   &_signin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+    //background: $main-color;
     background: $header_buttons_bg_color;
+    //background: $pink_color;
+    //border: navajowhite;
+    align-self: center;
     max-height: 40px;
-    padding: 10px 15px;
+    padding: 10px 30px;
     color: $header_buttons_text_color;
     font-weight: 600;
-    font-size: 17px;
+    font-size: .95em;
     border-radius: 2px;
-    //text-transform: uppercase;
-
-    div {
-      display: flex;
-      align-items: center;
-    }
+    text-transform: uppercase;
 
     &:hover {
       //background-color: $pink_color;
