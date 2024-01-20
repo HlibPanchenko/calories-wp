@@ -3,6 +3,7 @@ import './components/utils.js';
 import './components/burger-menu.js';
 import './components/drop-down.js';
 import './components/search-form.js';
+import './components/auth-form.js';
 import './components/swiper.js';
 import './components/animation-on-scroll.js';
 import './components/shake-link.js';
