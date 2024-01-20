@@ -13,6 +13,11 @@ if (class_exists('Kirki')) {
     require_once('config/customizer.php');
 }
 
+// Старт сессии
+if (!session_id()) {
+    session_start();
+}
+
 InitTheme::initHooks();
 
 

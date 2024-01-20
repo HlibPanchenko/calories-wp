@@ -1,0 +1,18 @@
+.success-message {
+  position: absolute;
+  //top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: green;
+  color: white;
+  height: 100px;
+  width: 250px;
+  font-size: 24px;
+  z-index: 500;
+  margin-top: 20px;
+
+}
+
+.error-message {
+
+}

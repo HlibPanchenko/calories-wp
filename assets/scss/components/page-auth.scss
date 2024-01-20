@@ -1,11 +1,10 @@
 .auth-page {
-  height: 100%;
+  height: calc(100vh - 100px);
   width: 100%;
   &_section{
     background-color: orange;
     height: 100%;
     width: 100%;
-
   }
 
   &_container{
@@ -20,4 +19,14 @@
       max-width: 1200px;
     }
   }
+
+  &_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
 }

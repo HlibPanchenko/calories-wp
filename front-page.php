@@ -6,6 +6,13 @@ get_header();
 ?>
 
     <main id="primary" class="main-wrapper">
+        <?php
+        if (isset($_SESSION['registration_success'])) {
+            echo '<div class="success-message">' . esc_html($_SESSION['registration_success']) . '</div>';
+            // Очистка сообщения после отображения
+            unset($_SESSION['registration_success']);
+        }
+        ?>
         <article class="main-article">
             <!--        <div class="full-width-section"></div>-->
 <!--            --><?php //get_template_part('template-parts/swiper-main') ?>

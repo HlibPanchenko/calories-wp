@@ -14,6 +14,8 @@ class InitTheme
 
         add_action('widgets_init', [__CLASS__, 'registerSidebars']);
 
+//        AuthHandler::init();
+
         // Инициализация обработчика сортировки
         SortHandler::init();
 
