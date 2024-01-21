@@ -7,10 +7,16 @@ get_header();
 
     <main id="primary" class="main-wrapper">
         <?php
-        if (isset($_SESSION['registration_success'])) {
-            echo '<div class="success-message">' . esc_html($_SESSION['registration_success']) . '</div>';
+        if (isset($_SESSION['login_success'])) {
+            echo '<div class="success-message">' . esc_html($_SESSION['login_success']) . '</div>';
             // Очистка сообщения после отображения
-            unset($_SESSION['registration_success']);
+            unset($_SESSION['login_success']);
+        }
+
+        if (isset($_SESSION['registration_confirm'])) {
+            echo '<div class="success-message">' . esc_html($_SESSION['registration_confirm']) . '</div>';
+            // Очистка сообщения после отображения
+            unset($_SESSION['registration_confirm']);
         }
         ?>
         <article class="main-article">

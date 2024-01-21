@@ -3,7 +3,8 @@
  * Template Name: auth
  */
 
-if ($_POST) {
+//if ($_POST) {
+if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
     $retrieved_nonce = $_REQUEST['_wpnonce'];
     if (!wp_verify_nonce($retrieved_nonce, 'my_register_action')) {
         die('Failed security check');
@@ -70,25 +71,100 @@ if ($_POST) {
         exit;
     }
 
-    // Автоматический вход после регистрации
-    $creds = array(
-        'user_login' => $user_email,
-        'user_password' => $user_password, // Используйте оригинальный пароль
-        'remember' => true,
-    );
+    // После вызова wp_create_user(), но до автоматического входа
+    if (!is_wp_error($user_id)) {
+        // Генерация уникального ключа для подтверждения
+        $activation_key = sha1(mt_rand(10000, 99999) . time() . $user_email);
+        update_user_meta($user_id, 'activation_key', $activation_key);
+        update_user_meta($user_id, 'has_activated', 'false'); // Изначально пользователь не активирован
 
-    $user = wp_signon($creds, false);
+        // Создание URL для активации
+        $activation_link = add_query_arg(array('key' => $activation_key, 'user' => $user_id), get_permalink('1105'));
 
-    if (is_wp_error($user)) {
-        // Обработка ошибок при входе пользователя
-        echo $user->get_error_message();
-        return;
+        // Текст письма
+        $message = 'Пожалуйста, активируйте вашу учетную запись, перейдя по следующей ссылке: ' . $activation_link;
+
+        $headers = array(
+            'From: Calories365 <c63039000@gmail.com>',
+            'content-type: text/html',
+        );
+
+        // Отправка письма
+        wp_mail($user_email, 'Активация учетной записи', $message, $headers);
+
+        $_SESSION['registration_confirm'] = 'На вашу почту отправлено письмо. Подтвердите ее.';
+
+        // Переадресация на страницу благодарности
+        wp_redirect(home_url('/'));
+        exit;
     }
 
-    $_SESSION['registration_success'] = 'Регистрация прошла успешно.';
-    wp_redirect(home_url());
-    exit;
+    // Автоматический вход после регистрации
+//    $creds = array(
+//        'user_login' => $user_email,
+//        'user_password' => $user_password, // Используйте оригинальный пароль
+//        'remember' => true,
+//    );
+//
+//    $user = wp_signon($creds, false);
+//
+//    if (is_wp_error($user)) {
+//        // Обработка ошибок при входе пользователя
+//        echo $user->get_error_message();
+//        return;
+//    }
+//
+//    $_SESSION['registration_success'] = 'Регистрация прошла успешно.';
+//    wp_redirect(home_url());
+//    exit;
 };
+
+if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login') {
+
+    $retrieved_nonce = $_REQUEST['_wpnonce'];
+    if (!wp_verify_nonce($retrieved_nonce, 'my_login_action')) {
+        die('Failed security check');
+    }
+
+//    $user_login = sanitize_user($_POST['user_login']);
+    $user_email = sanitize_user($_POST['user_email']);
+    $user_password = sanitize_text_field($_POST['user_password']);
+    $remember = isset($_POST['remember']);
+
+    // Сохраняем введенный email в сессии
+    $_SESSION['login_email'] = $user_email;
+
+    $creds = array(
+        'user_login'    => $user_email,
+        'user_password' => $user_password,
+        'remember'      => $remember
+    );
+
+    $user = wp_signon($creds, is_ssl());
+
+    if (is_wp_error($user)) {
+        // Сохранить ошибку для отображения
+        $_SESSION['login_errors'] = $user->get_error_message();
+        wp_redirect(home_url('/auth'));
+    } else {
+
+        // Проверка, активирован ли аккаунт
+        $has_activated = get_user_meta($user->ID, 'has_activated', true);
+
+        if ($has_activated !== 'true') {
+            $_SESSION['login_errors'] = 'Ваш аккаунт еще не активирован.';
+            wp_logout(); // Выйти, так как аккаунт не активирован
+            wp_redirect(home_url('/auth'));
+            exit;
+        }
+
+        $_SESSION['login_success'] = 'Вы успешно вошли в ваш аккаунт!';
+
+        // Перенаправить на страницу профиля или другую целевую страницу
+        wp_redirect(home_url('/'));
+        exit;
+    }
+}
 
 get_header();
 
@@ -104,7 +180,13 @@ if ($current_user instanceof WP_User) {
 ?>
 
 <main id="primary" class="main-wrapper">
-
+    <?php
+    if (isset($_SESSION['registration_success'])) {
+        echo '<div class="success-message">' . esc_html($_SESSION['registration_success']) . '</div>';
+        // Очистка сообщения после отображения
+        unset($_SESSION['registration_success']);
+    }
+    ?>
     <article class="main-article auth-page">
         <section class="auth-page_section">
             <div class="auth-page_container">
@@ -123,6 +205,16 @@ if ($current_user instanceof WP_User) {
                                 // Очистка ошибок после отображения
                                 unset($_SESSION['form_errors']);
                             }
+
+                            if (isset($_SESSION['login_errors'])) {
+                                echo '<div class="auth-notify_box">';
+                                echo '<div class="auth-notify_color"></div>'; // Элемент для цветовой индикации
+                                echo '<div class="auth-notify_message">' . $_SESSION['login_errors'] . '</div>';
+                                echo '</div>';
+                                // Очистка сообщения об ошибке после отображения
+                                unset($_SESSION['login_errors']);
+                            }
+
                             ?>
                         </div>
 
@@ -165,17 +257,12 @@ if ($current_user instanceof WP_User) {
                         <div class="auth-page_content" id="login-block">
                             <form id="loginform" class="auth-page_form" method="post">
                                 <?php wp_nonce_field('my_login_action'); ?>
-                                <input type="hidden" name="action" value="my_custom_registration">
+                                <input type="hidden" name="login_action" value="my_custom_login">
                                 <h3 class="auth-page_title">Авторизация</h3>
-
-                                <!--                                <input type="text" name="user_login" id="user_login" class="auth-page_input"-->
-                                <!--                                       placeholder="Name"-->
-                                <!--                                       size="20" value="-->
-                                <?php //echo $user_login_value; ?><!--">-->
-
+                                <?php $login_email = $_SESSION['login_email'] ?? ''; ?>
                                 <input type="email" name="user_email" id="user_email" class="auth-page_input"
                                        placeholder="Email"
-                                       size="25" value="<?php echo $user_email_value; ?>">
+                                       size="25" value="<?php echo esc_attr($login_email); ?>">
 
                                 <input type="password" name="user_password" id="user_password" class="auth-page_input"
                                        placeholder="Password"
