@@ -127,17 +127,17 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
     }
 
 //    $user_login = sanitize_user($_POST['user_login']);
-    $user_email = sanitize_user($_POST['user_email']);
-    $user_password = sanitize_text_field($_POST['user_password']);
+    $user_email = sanitize_user($_POST['user_email_login']);
+    $user_password = sanitize_text_field($_POST['user_password_login']);
     $remember = isset($_POST['remember']);
 
     // Сохраняем введенный email в сессии
     $_SESSION['login_email'] = $user_email;
 
     $creds = array(
-        'user_login'    => $user_email,
+        'user_login' => $user_email,
         'user_password' => $user_password,
-        'remember'      => $remember
+        'remember' => $remember
     );
 
     $user = wp_signon($creds, is_ssl());
@@ -146,8 +146,9 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         // Сохранить ошибку для отображения
         $_SESSION['login_errors'] = $user->get_error_message();
         wp_redirect(home_url('/auth'));
-    } else {
+        exit;
 
+    } else {
         // Проверка, активирован ли аккаунт
         $has_activated = get_user_meta($user->ID, 'has_activated', true);
 
@@ -166,6 +167,50 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
     }
 }
 
+if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['reset-action']) && $_POST['reset-action'] == 'my_custom_reset') {
+
+    $retrieved_nonce = $_REQUEST['_wpnonce'];
+    if (!wp_verify_nonce($retrieved_nonce, 'my_reset_action')) {
+        die('Failed security check');
+    }
+
+    $user_email = sanitize_email($_POST['user_email_reset']);
+    $user = get_user_by('email', $user_email);
+
+    if (!$user) {
+        // Пользователь с таким email не найден
+        $_SESSION['reset_password_errors'] = 'Пользователь с таким email не найден.';
+        wp_redirect(home_url('/auth'));
+        exit;
+    } else {
+        // Сброс пароля и установка нового пароля
+        $new_password = wp_generate_password();
+        wp_set_password($new_password, $user->ID);
+
+        // Отправка email с новым паролем
+        $subject = 'Ваш новый пароль на сайте ' . get_bloginfo('name');
+        $message = "Ваш новый пароль: $new_password";
+
+        $headers = array(
+            'From: Calories365 <c63039000@gmail.com>',
+            'content-type: text/html',
+        );
+
+        // Отправка письма
+        if (wp_mail($user_email, $subject, $message, $headers)) {
+            // Сообщение об успехе
+            $_SESSION['reset_password_success'] = 'На ваш email отправлен новый пароль.';
+            wp_redirect(home_url('/auth'));
+            exit;
+
+        } else {
+            // Не удалось отправить email
+            $_SESSION['reset_password_errors'] = 'Ошибка при отправке email.';
+            wp_redirect(home_url('/auth'));
+            exit;
+        }
+    }
+}
 get_header();
 
 
@@ -187,6 +232,28 @@ if ($current_user instanceof WP_User) {
         unset($_SESSION['registration_success']);
     }
     ?>
+    <div id="reset-modal" class="modal-reset">
+
+        <!-- Modal content -->
+        <div class="modal-reset_content">
+
+            <span class="modal-reset_close">&times;</span>
+            <div class="modal-reset_title">Восстановление пароля</div>
+            <form id="reset-password-form" class="modal-reset_form" method="post">
+                <?php wp_nonce_field('my_reset_action'); ?>
+                <input type="hidden" name="reset-action" value="my_custom_reset">
+                <input type="email" name="user_email_reset" id="user_email_reset" class="auth-page_input"
+                       placeholder="Email"
+                       size="25" value="">
+
+                <button type="submit" name="btnSubmit_reset" id="btnSubmit_reset" class="auth-page_btn">
+                    Восстановить
+                </button>
+            </form>
+        </div>
+
+    </div>
+
     <article class="main-article auth-page">
         <section class="auth-page_section">
             <div class="auth-page_container">
@@ -208,11 +275,28 @@ if ($current_user instanceof WP_User) {
 
                             if (isset($_SESSION['login_errors'])) {
                                 echo '<div class="auth-notify_box">';
-                                echo '<div class="auth-notify_color"></div>'; // Элемент для цветовой индикации
+                                echo '<div class="auth-notify_color"></div>';
                                 echo '<div class="auth-notify_message">' . $_SESSION['login_errors'] . '</div>';
                                 echo '</div>';
                                 // Очистка сообщения об ошибке после отображения
                                 unset($_SESSION['login_errors']);
+                            }
+
+                            if (isset($_SESSION['reset_password_errors'])) {
+                                foreach ($_SESSION['reset_password_errors'] as $error_key => $error_value) {
+                                    echo ' <div class="auth-notify_box">
+                                <div class="auth-notify_color"></div>
+                                <div class="auth-notify_message">' . esc_html($error_value) . '</div>
+                                           </div>';
+                                }
+                                // Очистка ошибок после отображения
+                                unset($_SESSION['reset_password_errors']);
+                            }
+
+                            if (isset($_SESSION['reset_password_success'])) {
+                                echo '<div class="success-message">' . esc_html($_SESSION['reset_password_success']) . '</div>';
+                                // Очистка сообщения после отображения
+                                unset($_SESSION['reset_password_success']);
                             }
 
                             ?>
@@ -260,11 +344,11 @@ if ($current_user instanceof WP_User) {
                                 <input type="hidden" name="login_action" value="my_custom_login">
                                 <h3 class="auth-page_title">Авторизация</h3>
                                 <?php $login_email = $_SESSION['login_email'] ?? ''; ?>
-                                <input type="email" name="user_email" id="user_email" class="auth-page_input"
+                                <input type="email" name="user_email_login" id="user_email_login" class="auth-page_input"
                                        placeholder="Email"
                                        size="25" value="<?php echo esc_attr($login_email); ?>">
 
-                                <input type="password" name="user_password" id="user_password" class="auth-page_input"
+                                <input type="password" name="user_password_login" id="user_password_login" class="auth-page_input"
                                        placeholder="Password"
                                        size="20">
 
@@ -273,7 +357,7 @@ if ($current_user instanceof WP_User) {
                                     <div class="auth-page_link" id="btn-to-renew">Восстановить</div>
                                 </div>
 
-                                <button type="submit" name="btnSubmit" id="btnSubmit" class="auth-page_btn">Войти
+                                <button type="submit" name="btnSubmit_login" id="btnSubmit_login" class="auth-page_btn">Войти
                                 </button>
 
                             </form>
