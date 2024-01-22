@@ -172,6 +172,7 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         }
 
         $_SESSION['login_success'] = 'Вы успешно вошли в ваш аккаунт!';
+        unset($_SESSION['login_email']);
 
         // Перенаправить на страницу профиля или другую целевую страницу
         wp_redirect(home_url('/'));
@@ -225,13 +226,6 @@ get_header();
 
 
 $current_user = wp_get_current_user();
-//if ($current_user instanceof WP_User) {
-//    echo '<div class="current-user-info">';
-//    echo 'Имя пользователя: ' . esc_html($current_user->user_login) . '<br>';
-//    echo 'E-mail: ' . esc_html($current_user->user_email) . '<br>';
-//    echo 'ID пользователя: ' . esc_html($current_user->ID) . '<br>';
-//    echo '</div>';
-//}
 ?>
 
 <main id="primary" class="page-auth-wrapper">

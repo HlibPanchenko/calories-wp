@@ -4,46 +4,65 @@
  */
 
 get_header();
+
+$current_user = wp_get_current_user();
+
 ?>
 
 <main id="primary" class="main-wrapper">
-    <article class="main-article auth-page">
-        <section class="auth-page_section">
-            <div class="auth-page_container">
+    <article class="main-article page-cabinet">
+        <section class=page-cabinet_section">
+            <div class="page-cabinet_container">
+                <div class="page-cabinet_header">
 
-                <?php
-                $current_user = wp_get_current_user();
-                if ($current_user instanceof WP_User) {
-                    echo '<div class="current-user-info">';
-                    echo 'Имя пользователя: ' . esc_html($current_user->user_login) . '<br>';
-                    echo 'E-mail: ' . esc_html($current_user->user_email) . '<br>';
-                    echo 'ID пользователя: ' . esc_html($current_user->ID) . '<br>';
-                    echo '</div>';
-                }
-                ?>
+                    <div class="layout-posts_breadcrumbs page-cabinet_breadcrumbs">
+                        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+                    </div>
 
-                <?php if (is_user_logged_in()): ?>
-                    <!-- Пользователь авторизован, показываем кнопку выхода -->
-                    <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="main-header_signout">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="20px" height="20px"
-                             viewBox="0 0 24 24" stroke="#ffffff">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path>
-                            </g>
-                        </svg>
-                        <div>Выход</div>
-                    </a>
-                <?php endif; ?>
+                    <h1 class="page-cabinet_title">
+                        Личный кабинет
+                    </h1>
 
+                </div>
+                <div class="page-cabinet_content">
+                    <div class="page-cabinet_top top-info">
+                        <div class="top-info_avatar">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/cat-puns-64ef515f6036a.jpg?>" alt="Avatar">
+
+                        </div>
+                        <div class="top-info_name">
+                            <?php echo esc_html($current_user->user_login) ?>
+<!--                            --><?php //echo 'Логин пользователя: ' . '<span>' . esc_html($current_user->user_login) . '</span>' ?>
+                        </div>
+                    </div>
+                    <div class="page-cabinet_mid mid-info">
+                        <div class="mid-info_login">
+                            <div class="mid-info_text">Логин:</div>
+                            <div class="mid-info_credentials"><?php echo esc_html($current_user->user_login) ?></div>
+                        </div>
+                        <div class="mid-info_email">
+                            <div class="mid-info_text">Почта:</div>
+                            <div class="mid-info_credentials"><?php echo esc_html($current_user->user_email) ?></div>
+                        </div>
+
+                    </div>
+                    <div class="page-cabinet_bottom">
+                    </div>
+                </div>
+                <div class="page-cabinet_btn">
+                    <?php if (is_user_logged_in()): ?>
+                        <!-- Пользователь авторизован, показываем кнопку выхода -->
+                        <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="main-header_signout">
+                            <div>Выйти</div>
+                        </a>
+                    <?php endif; ?>
+
+                </div>
             </div>
         </section>
     </article>
 
 </main>
-
-
 <?php
 get_footer();
 ?>
