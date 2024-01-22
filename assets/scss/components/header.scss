@@ -86,6 +86,8 @@
   &_logo {
     display: block;
     height: 30px;
+    position: relative;
+    z-index: 3;
     //width: 100%;
     @media (max-width: $bp-small) {
       height: 20px;
@@ -476,9 +478,11 @@
 @media (max-width: $bp-medium) {
   .main-nav {
     position: fixed;
-    display: flex;
+    display: none;
+    //display: flex;
     justify-content: center;
-    top: -150%; // Чтобы изначально выпадающее меню не было видно
+    //top: -150%; // Чтобы изначально выпадающее меню не было видно
+    top: 0; // при нажатии на кнопку меню выпадает
     //top: -100%; // Чтобы изначально выпадающее меню не было видно
     left: 0;
     width: 100vw;
@@ -490,7 +494,9 @@
     padding: 90px 10px 20px 10px;
 
     &.active {
-      top: 0; // при нажатии на кнопку меню выпадает
+      //top: 0; // при нажатии на кнопку меню выпадает
+      display: flex;
+
     }
 
     &_list {

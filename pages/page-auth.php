@@ -225,16 +225,17 @@ get_header();
 
 
 $current_user = wp_get_current_user();
-if ($current_user instanceof WP_User) {
-    echo '<div class="current-user-info">';
-    echo 'Имя пользователя: ' . esc_html($current_user->user_login) . '<br>';
-    echo 'E-mail: ' . esc_html($current_user->user_email) . '<br>';
-    echo 'ID пользователя: ' . esc_html($current_user->ID) . '<br>';
-    echo '</div>';
-}
+//if ($current_user instanceof WP_User) {
+//    echo '<div class="current-user-info">';
+//    echo 'Имя пользователя: ' . esc_html($current_user->user_login) . '<br>';
+//    echo 'E-mail: ' . esc_html($current_user->user_email) . '<br>';
+//    echo 'ID пользователя: ' . esc_html($current_user->ID) . '<br>';
+//    echo '</div>';
+//}
 ?>
 
-<main id="primary" class="main-wrapper">
+<main id="primary" class="page-auth-wrapper">
+<!--<main id="primary" class="main-wrapper">-->
     <?php
     if (isset($_SESSION['registration_success'])) {
         echo '<div class="success-message">

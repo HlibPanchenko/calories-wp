@@ -3,7 +3,7 @@
 }
 
 .auth-page {
-  min-height: calc(100vh - 100px);
+  //min-height: calc(100vh - 100px);
   width: 100%;
   &_section{
     background-color: white;
@@ -30,7 +30,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    border: 1px solid black;
+    //border: 1px solid black;
   }
 
   &_card {
@@ -207,6 +207,8 @@
       max-width: 320px;
       min-width: 300px;
       min-height: 450px;
+      padding: 50px 20px;
+
     }
   }
   &_close{
@@ -230,6 +232,9 @@
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 34px;
+    @media (max-width: $bp-small) {
+      margin-bottom: 64px;
+    }
   }
   &_form{
     flex: 1;
