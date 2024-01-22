@@ -2,6 +2,12 @@
 /**
  * Template Name: auth
  */
+/*только неавторизованный пользователь может попасть на эту страницу*/
+if (is_user_logged_in()) {
+    wp_redirect(home_url());
+    exit;
+}
+
 
 if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
     $retrieved_nonce = $_REQUEST['_wpnonce'];
@@ -72,6 +78,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
 
     // После вызова wp_create_user(), но до автоматического входа
     if (!is_wp_error($user_id)) {
+        // Установка кастомной роли для нового пользователя
+        $user = new WP_User($user_id);
+        $user->set_role('member_role');
         // Генерация уникального ключа для подтверждения
         $activation_key = sha1(mt_rand(10000, 99999) . time() . $user_email);
         update_user_meta($user_id, 'activation_key', $activation_key);
@@ -229,7 +238,7 @@ $current_user = wp_get_current_user();
 ?>
 
 <main id="primary" class="page-auth-wrapper">
-<!--<main id="primary" class="main-wrapper">-->
+    <!--<main id="primary" class="main-wrapper">-->
     <?php
     if (isset($_SESSION['registration_success'])) {
         echo '<div class="success-message">

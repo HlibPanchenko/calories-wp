@@ -14,6 +14,8 @@ class InitTheme
 
         add_action('widgets_init', [__CLASS__, 'registerSidebars']);
 
+        add_action('init', [__CLASS__, 'create_custom_role']);
+
 //        AuthHandler::init();
 
         // Инициализация обработчика сортировки
@@ -209,5 +211,14 @@ class InitTheme
             'icon' => 'list-view',
             'keywords' => 'accordion, questions'
         ]);
+    }
+
+    public static function create_custom_role(): void {
+        add_role('member_role', 'Member Custom  Role', array(
+            'read' => true, // разрешение на чтение
+            'edit_recipes' => true,
+            'publish_recipes' => true,
+            'delete_recipes' => true,
+        ));
     }
 }
