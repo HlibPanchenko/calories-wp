@@ -3,7 +3,6 @@
  * Template Name: auth
  */
 
-//if ($_POST) {
 if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
     $retrieved_nonce = $_REQUEST['_wpnonce'];
     if (!wp_verify_nonce($retrieved_nonce, 'my_register_action')) {
@@ -120,7 +119,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
 };
 
 if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login') {
-
     $retrieved_nonce = $_REQUEST['_wpnonce'];
     if (!wp_verify_nonce($retrieved_nonce, 'my_login_action')) {
         die('Failed security check');
@@ -140,14 +138,28 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         'remember' => $remember
     );
 
-    $user = wp_signon($creds, is_ssl());
+    $user = wp_signon($creds, false);
+//    $user = wp_signon($creds, is_ssl());
 
     if (is_wp_error($user)) {
         // Сохранить ошибку для отображения
-        $_SESSION['login_errors'] = $user->get_error_message();
+//        $_SESSION['login_errors'] = $user->get_error_message();
+        /*В это случае ВП возвращает свою ошибку, мне не нравится что там ссылка
+        на встроенный action WP, переопределим текст ошибки*/
+        // Получаем сообщение об ошибке
+        $error_message = $user->get_error_message();
+
+        // Убираем ссылку на стандартное восстановление пароля
+        $error_message = strip_tags($error_message, '<strong>'); // Удаляем все теги кроме <strong>
+
+        // Можно также заменить текст в сообщении, если это необходимо
+        $error_message = str_replace('Lost your password?', '', $error_message);
+
+        // Сохраняем обновленное сообщение об ошибке
+        $_SESSION['login_errors'] = $error_message;
+
         wp_redirect(home_url('/auth'));
         exit;
-
     } else {
         // Проверка, активирован ли аккаунт
         $has_activated = get_user_meta($user->ID, 'has_activated', true);
@@ -168,7 +180,6 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
 }
 
 if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['reset-action']) && $_POST['reset-action'] == 'my_custom_reset') {
-
     $retrieved_nonce = $_REQUEST['_wpnonce'];
     if (!wp_verify_nonce($retrieved_nonce, 'my_reset_action')) {
         die('Failed security check');
@@ -202,7 +213,6 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['reset-action']) && $_
             $_SESSION['reset_password_success'] = 'На ваш email отправлен новый пароль.';
             wp_redirect(home_url('/auth'));
             exit;
-
         } else {
             // Не удалось отправить email
             $_SESSION['reset_password_errors'] = 'Ошибка при отправке email.';
@@ -227,9 +237,35 @@ if ($current_user instanceof WP_User) {
 <main id="primary" class="main-wrapper">
     <?php
     if (isset($_SESSION['registration_success'])) {
-        echo '<div class="success-message">' . esc_html($_SESSION['registration_success']) . '</div>';
+        echo '<div class="success-message">
+            <div class="success-message_wrapper">
+                <div class="success-message_color"></div>
+                <div class="success-message_content">
+                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_text">'
+            . esc_html($_SESSION['registration_success']) .
+            '</div>
+                </div>
+            </div>
+          </div>';
         // Очистка сообщения после отображения
         unset($_SESSION['registration_success']);
+    }
+
+    if (isset($_SESSION['reset_password_success'])) {
+        echo '<div class="success-message">
+            <div class="success-message_wrapper">
+                <div class="success-message_color"></div>
+                <div class="success-message_content">
+                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_text">'
+            . esc_html($_SESSION['reset_password_success']) .
+            '</div>
+                </div>
+            </div>
+          </div>';
+        // Очистка сообщения после отображения
+        unset($_SESSION['reset_password_success']);
     }
     ?>
     <div id="reset-modal" class="modal-reset">
@@ -293,12 +329,6 @@ if ($current_user instanceof WP_User) {
                                 unset($_SESSION['reset_password_errors']);
                             }
 
-                            if (isset($_SESSION['reset_password_success'])) {
-                                echo '<div class="success-message">' . esc_html($_SESSION['reset_password_success']) . '</div>';
-                                // Очистка сообщения после отображения
-                                unset($_SESSION['reset_password_success']);
-                            }
-
                             ?>
                         </div>
 
@@ -344,11 +374,13 @@ if ($current_user instanceof WP_User) {
                                 <input type="hidden" name="login_action" value="my_custom_login">
                                 <h3 class="auth-page_title">Авторизация</h3>
                                 <?php $login_email = $_SESSION['login_email'] ?? ''; ?>
-                                <input type="email" name="user_email_login" id="user_email_login" class="auth-page_input"
+                                <input type="email" name="user_email_login" id="user_email_login"
+                                       class="auth-page_input"
                                        placeholder="Email"
                                        size="25" value="<?php echo esc_attr($login_email); ?>">
 
-                                <input type="password" name="user_password_login" id="user_password_login" class="auth-page_input"
+                                <input type="password" name="user_password_login" id="user_password_login"
+                                       class="auth-page_input"
                                        placeholder="Password"
                                        size="20">
 
@@ -357,7 +389,8 @@ if ($current_user instanceof WP_User) {
                                     <div class="auth-page_link" id="btn-to-renew">Восстановить</div>
                                 </div>
 
-                                <button type="submit" name="btnSubmit_login" id="btnSubmit_login" class="auth-page_btn">Войти
+                                <button type="submit" name="btnSubmit_login" id="btnSubmit_login" class="auth-page_btn">
+                                    Войти
                                 </button>
 
                             </form>

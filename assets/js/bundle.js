@@ -6,6 +6,7 @@ import './components/search-form.js';
 import './components/reset-modal.js';
 import './components/auth-form.js';
 import './components/swiper.js';
+import './components/notifications.js';
 import './components/animation-on-scroll.js';
 import './components/shake-link.js';
 import './components/sort-block.js';
