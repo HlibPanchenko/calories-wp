@@ -56,7 +56,7 @@
   //margin-bottom: 20px;
   &_container {
     max-width: 1400px;
-    padding: 0 10px;
+    padding: 0 15px;
     margin: 0 auto;
     height: 100%;
     width: 100%;
@@ -134,7 +134,7 @@
     align-items: center;
     gap: 10px;
     @media (max-width: $bp-small) {
-      display: none;
+      //display: none;
     }
   }
 
@@ -168,6 +168,7 @@
     border-radius: 2px;
     //text-transform: uppercase;
 
+
     div {
       display: flex;
       align-items: center;
@@ -177,8 +178,23 @@
       //background-color: $pink_color;
       background-color: $header_buttons_hover_color;
     }
+
+    @media (max-width: $bp-small) {
+      background: transparent;
+      padding: 0;
+      svg {
+        height: 27px;
+        width: 27px;
+      }
+    }
+
   }
 
+  &_signin_text {
+    @media (max-width: $bp-small) {
+      display: none !important;
+    }
+  }
 
   &_bottom {
     min-height: 30px;
@@ -202,7 +218,8 @@
 
 /*search form*/
 .search-block {
-
+  /*Временно убираем чтобы показывать "Личный аккаунт"*/
+  display: none;
   &_svg {
     path {
       stroke: $header-color;
