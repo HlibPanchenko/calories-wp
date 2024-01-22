@@ -153,8 +153,7 @@
       text-decoration: underline;
     }
   }
-
-  &_signin, &_signout {
+  &_signout {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -166,8 +165,6 @@
     font-weight: 600;
     font-size: 17px;
     border-radius: 2px;
-    //text-transform: uppercase;
-
 
     div {
       display: flex;
@@ -178,22 +175,45 @@
       //background-color: $pink_color;
       background-color: $header_buttons_hover_color;
     }
+  }
+
+  &_signin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: $header_buttons_bg_color;
+    max-height: 40px;
+    padding: 10px 15px;
+    color: $header_buttons_text_color;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 2px;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover {
+      @media (min-width: $bp-small) {
+        background-color: $header_buttons_hover_color;
+      }
+    }
 
     @media (max-width: $bp-small) {
       background: transparent;
       padding: 0;
+      &_text {
+        display: none !important;
+      }
+
       svg {
         height: 27px;
         width: 27px;
       }
     }
 
-  }
-
-  &_signin_text {
-    @media (max-width: $bp-small) {
-      display: none !important;
-    }
   }
 
   &_bottom {

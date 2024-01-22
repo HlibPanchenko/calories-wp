@@ -85,7 +85,7 @@ Header
                         <?php if (is_user_logged_in()): ?>
                             <!-- Пользователь авторизован, показываем кнопку выхода -->
                             <a href="<?php echo esc_url(home_url('/page-cabinet')); ?>"
-                               class="main-header_signout">
+                               class="main-header_signin">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="20px" height="20px"
                                      viewBox="0 0 24 24" stroke="#ffffff">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
