@@ -16,6 +16,8 @@ class InitTheme
 
         add_action('init', [__CLASS__, 'create_custom_role']);
 
+        add_action('acf/save_post', [__CLASS__, 'my_acf_save_post'], 20);
+
 //        AuthHandler::init();
 
         // Инициализация обработчика сортировки
@@ -212,13 +214,26 @@ class InitTheme
             'keywords' => 'accordion, questions'
         ]);
     }
-
+    /*Создание кастомной роли*/
     public static function create_custom_role(): void {
         add_role('member_role', 'Member Custom  Role', array(
             'read' => true, // разрешение на чтение
             'edit_recipes' => true,
             'publish_recipes' => true,
             'delete_recipes' => true,
+            'upload_files' => true, // разрешение на загрузку файлов
         ));
+    }
+
+    public static function my_acf_save_post( $post_id ) {
+        // Убедитесь, что не обрабатываете автоматические ревизии и не сохраняете новый пост
+        if (wp_is_post_revision($post_id) || get_post_type($post_id) != 'recipe') {
+            return;
+        }
+
+        // Перенаправляем на страницу нового рецепта
+        wp_redirect(get_permalink($post_id));
+        $_SESSION['recipe_added'] = 'Ваш рецепт успешно добавлен!';
+        exit;
     }
 }

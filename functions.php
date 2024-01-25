@@ -18,6 +18,10 @@ if (!session_id()) {
     session_start();
 }
 
+//if ( get_role('custom_role') ) {
+//    remove_role('custom_role');
+//}
+
 InitTheme::initHooks();
 
 
