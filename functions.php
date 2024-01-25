@@ -18,8 +18,8 @@ if (!session_id()) {
     session_start();
 }
 
-//if ( get_role('custom_role') ) {
-//    remove_role('custom_role');
+//if ( get_role('member_role') ) {
+//    remove_role('member_role');
 //}
 
 InitTheme::initHooks();

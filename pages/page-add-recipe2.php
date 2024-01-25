@@ -48,7 +48,8 @@ get_header();
                                 'post_type'   => 'recipe',
                                 'post_status' => 'publish'
                             ),
-                            'submit_value'  => 'Добавить рецепт'
+                            'submit_value'  => 'Добавить рецепт',
+                            'html_submit_spinner' => '<span class="acf-spinner"></span>',
                         );
 
                         // Вывод формы ACF на фронтенде

@@ -171,11 +171,11 @@ $sr_sidebar_hover_class = Kirki::get_option('single_recipe_sidebar_hover') ?
 
                         </div>
                         <ul class="step-section_list">
-                            <?php foreach ($recipe_steps as $step) : ?>
+                            <?php foreach ($recipe_steps as $index => $step) : ?>
                                 <li class="step-section_step">
                                     <div class="step-section_num">
                                         <?php if ($step_design == 'step-1') : ?>
-                                            <span><?php echo '0' . esc_html($step['recipe_stepnum']); ?></span>
+                                            <span><?php echo esc_html($index + 1); ?></span>
                                             <div class="step-section_text">
                                                 <span>Ш</span>
                                                 <span>А</span>
@@ -188,7 +188,7 @@ $sr_sidebar_hover_class = Kirki::get_option('single_recipe_sidebar_hover') ?
                                             <!--                                                <span>А</span>-->
                                             <!--                                                <span>Г</span>-->
                                             <!--                                            </div>-->
-                                            <span><?php echo esc_html($step['recipe_stepnum']); ?></span>
+                                            <span><?php echo esc_html($index + 1); ?></span>
                                         <?php endif; ?>
                                     </div>
                                     <div class="step-section_content content-step">

@@ -222,6 +222,7 @@ class InitTheme
             'publish_recipes' => true,
             'delete_recipes' => true,
             'upload_files' => true, // разрешение на загрузку файлов
+            'assign_terms' => true, // разрешение на назначение терминов таксономии
         ));
     }
 
