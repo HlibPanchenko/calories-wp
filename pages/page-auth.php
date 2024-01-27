@@ -26,13 +26,20 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
     // Вывести сообщение в error log
     error_log($error_log_message);
 
+    $form_errors = array();
+
     // Проверка, что все поля не пустые
     if (empty($user_login) || empty($user_password) || empty($user_email)) {
-        return;
+//        return;
+        $form_errors['user_login'] = 'Поля формы пустые';
     }
 
     // Инициализация массива для сбора ошибок
-    $form_errors = array();
+
+    // Проверяем, есть ли в логине русские буквы
+    if (preg_match('/[\p{Cyrillic}]/u', $user_login)) {
+        $form_errors['user_login'] = 'Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.';
+    }
 
     // Проверка длины пароля пользователя
     if (strlen($user_password) < 4 || strlen($user_password) > 16) {
@@ -136,7 +143,12 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
 //    $user_login = sanitize_user($_POST['user_login']);
     $user_email = sanitize_user($_POST['user_email_login']);
     $user_password = sanitize_text_field($_POST['user_password_login']);
-    $remember = isset($_POST['remember']);
+    /*
+     * Теперь, когда пользователь установит флажок "Запомнить меня" и войдет в систему,
+     * WordPress установит куки входа на более длительный срок (обычно на 14 дней),
+     * вместо стандартного срока, который длится до закрытия браузера.
+     * */
+    $remember = isset($_POST['rememberme']) && $_POST['rememberme'] == 'forever';
 
     // Сохраняем введенный email в сессии
     $_SESSION['login_email'] = $user_email;
@@ -389,10 +401,16 @@ $current_user = wp_get_current_user();
                                        placeholder="Password"
                                        size="20">
 
+                                <div class="auth-page_checkbox">
+                                    <input type="checkbox" name="rememberme" id="rememberme" value="forever">
+                                    <label for="rememberme">Запомнить меня</label>
+                                </div>
+
                                 <div class="auth-page_info auth-page_forget">
                                     <div> Забыл пароль?</div>
                                     <div class="auth-page_link" id="btn-to-renew">Восстановить</div>
                                 </div>
+
 
                                 <button type="submit" name="btnSubmit_login" id="btnSubmit_login" class="auth-page_btn">
                                     Войти

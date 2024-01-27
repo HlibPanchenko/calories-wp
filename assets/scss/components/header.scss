@@ -642,3 +642,21 @@
    }
 
 }
+
+.menu-item-197 {
+  position: relative;
+  a {
+    &:after {
+      position: absolute;
+      top: 0;
+      right: -5px;
+      content: 'soon';
+      background-color: red;
+      font-size: 12px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 10px;
+    }
+  }
+
+}

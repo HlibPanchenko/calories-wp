@@ -8,6 +8,23 @@ get_header();
     <main id="primary" class="main-wrapper">
 
 
+        <?php
+        if (isset($_SESSION['recipe_added'])) {
+            echo '<div class="success-message">
+            <div class="success-message_wrapper">
+                <div class="success-message_color"></div>
+                <div class="success-message_content">
+                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_text">'
+                . esc_html($_SESSION['recipe_added']) .
+                '</div>
+                </div>
+            </div>
+          </div>';
+            // Очистка сообщения после отображения
+            unset($_SESSION['recipe_added']);
+        }
+        ?>
 
         <?php
         if (isset($_SESSION['login_success'])) {

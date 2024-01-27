@@ -58,8 +58,9 @@ class AcfFormCustom
         }
 
         // Перенаправляем на страницу нового рецепта
-        wp_redirect(get_permalink($post_id));
-        $_SESSION['recipe_added'] = 'Ваш рецепт успешно добавлен!';
+        $_SESSION['recipe_added'] = 'Ваш рецепт будет опубликован после проверки!';
+//        wp_redirect(get_permalink($post_id));
+        wp_redirect(home_url(''));
         exit;
     }
 

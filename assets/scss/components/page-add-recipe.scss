@@ -1,3 +1,33 @@
+.go-register {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  padding: 30px 20px;
+
+  &_left {
+    flex: 0 0 60%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 55px;
+    @media (max-width: $bp-small) {
+      flex: 1;
+    }
+  }
+  &_right {
+    flex: 0 0 40%;
+    @media (max-width: $bp-small) {
+      display: none;
+    }
+  }
+}
+
 .page-add-recipe {
   width: 100%;
   margin-bottom: 50px;
@@ -55,6 +85,50 @@
     }
   }
 
+  &_redirect {
+    p {
+      text-align: center;
+      line-height: 32px;
+      letter-spacing: 0.0625rem;
+      font-size: 20px;
+      font-weight: 700;
+      color: #979eb2;
+      //color: #667085;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      line-height: 32px;
+      letter-spacing: 0.0625rem;
+      font-size: 20px;
+      color: white;
+      background-color: #73ae37;
+      border-radius: 5px;
+      padding: 10px 15px;
+      &:hover {
+        background-color: $pink_color;
+        color: white;
+      }
+      .header-layout_linktext {
+        color: white;
+        transform: translateX(0);
+        &:hover {
+          border: none;
+        }
+
+      }
+      .header-layout_svg-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg path {
+          stroke: white;
+        }
+      }
+    }
+  }
   &_content{
     width: 100%;
 
@@ -446,6 +520,10 @@ div.mce-statusbar {
   }
 }
 
+tbody.ui-sortable {
+  width: 100%;
+}
+
 .acf-table > thead > tr > th {
   border-width: 0 0 1px 0 !important;
 }
@@ -459,12 +537,34 @@ div.mce-statusbar {
   border-top: none !important;
 }
 
-.acf-repeater .acf-row-handle  {
-  display: none !important;
+.acf-repeater .acf-row-handle.order {
+//.acf-repeater .acf-row-handle  {
+//  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  //width: 100% !important;
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 }
 
 .acf-table {
-  border: none !important;
+  @media (max-width: 768px) {
+    width: 100%;
+    border-collapse: collapse; /* Убирает промежутки между ячейками */
+    border: none !important;
+
+    .acf-row-handle {
+      display: none !important;
+    }
+  }
+
+  td, th {
+    @media (max-width: 768px) {
+      display: block; /* В медиа-запросе ячейки таблицы могут быть превращены в блочные элементы */
+      width: 100%;
+    }
+  }
 }
 
 .acf-table > tbody > tr > td {
@@ -482,14 +582,30 @@ div.mce-statusbar {
 }
 
 .acf-row {
-  @media (max-width: $bp-small) {
+  //display: block; /* Использование block вместо flex может иногда помочь */
+  width: 100% !important; /* !important гарантирует применение этого стиля */
+  //border: 1px solid red;
+}
+
+@media (max-width: 768px) { /* Предположим, что $bp-small равно 768px */
+  .acf-row {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    //border: 1px solid red;
   }
+
+  th.acf-th[data-name="recipe_steptext"] {
+    display: block;
+    width: 100% !important;
+  }
+}
+
   .acf-field {
     //width: 100%;
   }
-}
+
 
 .acf-th[data-key="field_65832495be698"] {
   @media (max-width: $bp-small) {

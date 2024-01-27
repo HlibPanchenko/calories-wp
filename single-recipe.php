@@ -66,13 +66,7 @@ $sr_sidebar_hover_class = Kirki::get_option('single_recipe_sidebar_hover') ?
 
 
 <main id="primary" class="main-wrapper single-recipe_wrapper">
-    <?php
-    if (isset($_SESSION['recipe_added'])) {
-        echo '<p class="success">' . $_SESSION['recipe_added'] . '</p>';
-        // Затем удалите это сообщение из сессии, чтобы оно отображалось только один раз
-        unset($_SESSION['recipe_added']);
-    }
-    ?>
+
     <div class="single-recipe_container">
         <div class="single-recipe_header">
             <div class="all-recepies_breadcrumbs single-recipe_breadcrumbs">
