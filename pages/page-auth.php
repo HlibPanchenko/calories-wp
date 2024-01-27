@@ -146,7 +146,8 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         'user_password' => $user_password,
         'remember' => $remember
     );
-
+    /*возможно из-за этого не смогу залогиниться на локалке, так как локалка http, а не https*/
+//    $user = wp_signon($creds, true);
     $user = wp_signon($creds, false);
 //    $user = wp_signon($creds, is_ssl());
 

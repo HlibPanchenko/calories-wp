@@ -27,7 +27,7 @@ $dropdown_design = Kirki::get_option('recipes_page_choose_design_dropdown') === 
                         </div>
 
                         <div class="all-recepies_description">
-                            <h2> <?php echo html_entity_decode(Kirki::get_option('recipes_page_title')) ?></h2>
+                            <h1> <?php echo html_entity_decode(Kirki::get_option('recipes_page_title')) ?></h1>
                             <p>
                                 <?php echo html_entity_decode(Kirki::get_option('recipes_page_description')) ?>
                             </p>

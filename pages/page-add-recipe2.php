@@ -21,6 +21,28 @@ get_header();
                     <h1 class="page-add-recipe_title">
                         Поделись своим рецептом!
                     </h1>
+                    <div class="page-add-recipe_description">
+                        <div class="page-add-recipe_description-item">
+                            Добро пожаловать на <span> CALORIES.365! </span>
+                        </div>
+                        <br>
+                        <div class="page-add-recipe_description-item">
+                            Мы рады, что вы решили поделиться своим кулинарным творением
+                            с нашим сообществом. Ваш уникальный рецепт может вдохновить многих и принести радость домашнего
+                            приготовления во многие дома. Пожалуйста, <span> следуйте шагам ниже, чтобы добавить ваш рецепт. </span>
+                        </div>
+                        <br>
+                        <div class="page-add-recipe_description-item">
+                            Заполните необходимые поля, чтобы добавить свой рецепт на  <span> CALORIES.365. </span> Укажите название вашего рецепта,
+                            опишите процесс приготовления и ингредиенты, а также добавьте качественные изображения. Не забудьте
+                            поделиться секретами и особыми советами, которые сделают ваш рецепт по-настоящему особенным!
+
+                        </div>
+                        <br>
+                        <div class="page-add-recipe_description-item">
+                            Как только вы опубликуете рецепт, он <span> пройдет модерацию перед публикацией </span> в общем доступе.
+                        </div>
+                    </div>
 
                 </div>
                 <?php
@@ -41,15 +63,17 @@ get_header();
                         <?php
                         // Подготовка аргументов для acf_form
                         $acf_form_args = array(
+                            'field_groups' => array('group_657acfb249ef7'),
                             'post_id'       => 'new_post', // Это создаст новый пост
                             'post_title'    => true,
                             'post_content'  => true,
                             'new_post'      => array(
                                 'post_type'   => 'recipe',
-                                'post_status' => 'publish'
+                                'post_status' => 'pending'
                             ),
-                            'submit_value'  => 'Добавить рецепт',
-                            'html_submit_spinner' => '<span class="acf-spinner"></span>',
+//                            'uploader' => 'basic',
+                            'submit_value'  => 'Опубликовать',
+//                            'html_submit_spinner' => '<span class="acf-spinner"></span>',
                         );
 
                         // Вывод формы ACF на фронтенде

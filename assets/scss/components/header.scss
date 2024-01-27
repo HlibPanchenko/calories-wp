@@ -528,7 +528,8 @@
     overflow-y: hidden;
     transition: all 0.3s ease 0s;
     background-color: $header-bg-color;
-    padding: 90px 10px 20px 10px;
+    padding: 120px 10px 20px 10px;
+    //padding: 90px 10px 20px 10px;
 
     &.active {
       //top: 0; // при нажатии на кнопку меню выпадает
@@ -619,4 +620,25 @@
   li:not(:last-child) {
     margin-bottom: 15px;
   }
+}
+
+
+.menu-item-1112 {
+  position: relative;
+   a {
+     &:after {
+       position: absolute;
+       top: 0;
+       right: -5px;
+       content: 'new';
+       background-color: #eeb82c;
+       //width: 20px;
+       font-size: 12px;
+       //text-transform:lowercase;
+       height: 20px;
+       padding: 0 5px;
+       border-radius: 10px;
+     }
+   }
+
 }

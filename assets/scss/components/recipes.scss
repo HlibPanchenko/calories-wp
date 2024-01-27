@@ -96,7 +96,8 @@
     }
   }
   &_description {
-    h2 {
+    h1 {
+      font-family: 'PT Serif', serif;
       color: $recipes_page_title_color;
       font-size: 40px;
       letter-spacing: 0.0625rem;
@@ -119,7 +120,7 @@
 
     span{
       color: $recipes_page_accent_color;
-      font-weight: 500;
+      font-weight: 700;
     }
 
     .span-recepies-1 {

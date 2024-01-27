@@ -16,9 +16,11 @@ class InitTheme
 
         add_action('init', [__CLASS__, 'create_custom_role']);
 
-        add_action('acf/save_post', [__CLASS__, 'my_acf_save_post'], 20);
+        add_filter('after_setup_theme', [__CLASS__, 'remove_admin_bar']);
 
-//        AuthHandler::init();
+        add_action('wp_footer', [__CLASS__, 'my_custom_acf_footer_script']);
+
+        AcfFormCustom::init();
 
         // Инициализация обработчика сортировки
         SortHandler::init();
@@ -74,7 +76,7 @@ class InitTheme
     {
         wp_enqueue_style(
             'calories_first-google-fonts',
-            'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+            'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=PT+Serif:wght@400;700&display=swap'
         );
 
         wp_enqueue_script('jquery', [
@@ -147,7 +149,7 @@ class InitTheme
                 'before_title' => '<h2 class="widget-title">',
                 'after_title' => '</h2>',
                 'before_sidebar' => '<div class="sidebar-1">',
-                'after_sidebar'  => '</div>'
+                'after_sidebar' => '</div>'
             )
         );
 
@@ -162,7 +164,7 @@ class InitTheme
                 'before_title' => '<h2 class="widget-title">',
                 'after_title' => '</h2>',
                 'before_sidebar' => '<div class="sidebar-2">',
-                'after_sidebar'  => '</div>'
+                'after_sidebar' => '</div>'
             )
         );
     }
@@ -214,8 +216,10 @@ class InitTheme
             'keywords' => 'accordion, questions'
         ]);
     }
+
     /*Создание кастомной роли*/
-    public static function create_custom_role(): void {
+    public static function create_custom_role(): void
+    {
         add_role('member_role', 'Member Custom  Role', array(
             'read' => true, // разрешение на чтение
             'edit_recipes' => true,
@@ -226,15 +230,38 @@ class InitTheme
         ));
     }
 
-    public static function my_acf_save_post( $post_id ) {
-        // Убедитесь, что не обрабатываете автоматические ревизии и не сохраняете новый пост
-        if (wp_is_post_revision($post_id) || get_post_type($post_id) != 'recipe') {
-            return;
+    public static function remove_admin_bar()
+    {
+        if (!current_user_can('administrator') && !is_admin()) {
+            show_admin_bar(false);
         }
+    }
 
-        // Перенаправляем на страницу нового рецепта
-        wp_redirect(get_permalink($post_id));
-        $_SESSION['recipe_added'] = 'Ваш рецепт успешно добавлен!';
-        exit;
+    public static function my_custom_acf_footer_script()
+    {
+        // Проверяем, что мы находимся на фронтенде
+        if (!is_admin()) {
+            ?>
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    // Изменяем текст кнопки для поля галереи ACF
+                    $('.acf-field[data-name="images_of_recepie"] .acf-gallery-add').html(
+                        '<span class="upper-text">Добавить картинку</span><span class="page-add-recipe_add-img">+</span>'
+                    );
+                    $('.acf-field[data-name="recipe_steps"] .acf-gallery-add').html('' +
+                        '<span class="upper-text">Добавить фото шага</span><span class="page-add-recipe_add-img">+</span>' +
+                        '');
+
+                    $('.acf-field[data-name="ingredients_recipe"] .acf-repeater-add-row').html('' +
+                        '<span class="upper-text">Добавить еще ингредиент</span><span class="page-add-recipe_row">+</span>' +
+                        '');
+
+                    $('.acf-field[data-name="recipe_steps"] .acf-repeater-add-row').html('' +
+                        '<span class="upper-text">Добавить еще шаг</span><span class="page-add-recipe_row">+</span>' +
+                        '');
+                });
+            </script>
+            <?php
+        }
     }
 }
