@@ -250,7 +250,7 @@ get_header();
 $current_user = wp_get_current_user();
 ?>
 
-<main id="primary" class="page-auth-wrapper">
+<main id="primary" class="page-auth-wrapper main-wrapper">
     <!--<main id="primary" class="main-wrapper">-->
     <?php
     if (isset($_SESSION['registration_success'])) {

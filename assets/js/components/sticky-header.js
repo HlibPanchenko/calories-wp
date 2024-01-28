@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
     // Функция для обработки события прокрутки
     function handleScroll() {
         var scrollY = window.scrollY || window.pageYOffset;
-
+        // console.log(scrollY);
         if (scrollY > threshold) {
             headerBottom.addClass(fixedClass);
             mainWrapper.addClass(layoutFixedMarginClass);
