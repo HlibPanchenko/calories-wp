@@ -1,7 +1,8 @@
 import './components/sticky-header.js';
 import './components/utils.js';
-import './components/burger-menu.js';
-import './components/drop-down.js';
+// import './components/burger-menu.js';
+import './components/burger-menu-sidebar.js';
+// import './components/drop-down.js';
 import './components/search-form.js';
 import './components/reset-modal.js';
 import './components/auth-form.js';

@@ -1,6 +1,6 @@
 <?php
 
-if ( ! is_active_sidebar( 'sidebar-recipe-taxonomies' ) ) {
+if ( ! is_active_sidebar( 'sidebar-recipe-second' ) ) {
     return;
 }
 ?>

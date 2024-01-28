@@ -58,6 +58,7 @@ class InitTheme
             array(
                 'menu-navbar-main' => esc_html__('Menu in header', 'calories_first'),
                 'menu-navbar-footer' => esc_html__('Menu in footer', 'calories_first'),
+                'menu-navbar-burger' => esc_html__('Menu in burger', 'calories_first'),
             )
         );
 
@@ -165,6 +166,21 @@ class InitTheme
                 'after_title' => '</h2>',
                 'before_sidebar' => '<div class="sidebar-2">',
                 'after_sidebar' => '</div>'
+            )
+        );
+
+        register_sidebar(
+            array(
+                'name' => esc_html__('Бургер меню', 'calories_first'),
+                'id' => 'sidebar-burger-menu',
+                'description' => esc_html__('Добавьте сюда виджет меню', 'calories_first'),
+                'class' => 'burger-sidebar',
+                'before_widget' => '<div class="burger-menu_widget">',
+                'after_widget' => '</div>',
+                'before_title' => '<h2 class="burger-menu_title">',
+                'after_title' => '</h2>',
+//                'before_sidebar' => '<div class="burger-menu_sidebar">',
+//                'after_sidebar' => '</div>'
             )
         );
     }
