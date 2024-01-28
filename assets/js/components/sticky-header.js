@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     var mainWrapper = $('.main-wrapper');
     var fixedClass = 'fixed-header';
     var layoutFixedMarginClass = 'layout-fixed-margin';
-    var threshold = 55;
+    var threshold = 60;
 
     // Функция для обработки события прокрутки
     function handleScroll() {
@@ -11,10 +11,12 @@ jQuery(document).ready(function ($) {
         // console.log(scrollY);
         if (scrollY > threshold) {
             headerBottom.addClass(fixedClass);
-            mainWrapper.addClass(layoutFixedMarginClass);
+            // mainWrapper.addClass(layoutFixedMarginClass);
+            $('#_avoid_jump').css({display: 'block'});
         } else {
             headerBottom.removeClass(fixedClass);
-            mainWrapper.removeClass(layoutFixedMarginClass);
+            // mainWrapper.removeClass(layoutFixedMarginClass);
+            $('#_avoid_jump').css({display: 'none'});
         }
     }
 

@@ -135,7 +135,8 @@ Header
             </div>
         </div>
     </div>
-
+    <!--блок помогает избавиться от прыжка когда header bottom становится fixed-->
+    <div id="_avoid_jump"></div>
     <div class="main-header_bottom ">
         <div class="main-header_container">
             <div class="main-header_box">
