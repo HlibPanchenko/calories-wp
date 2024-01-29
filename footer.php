@@ -37,11 +37,14 @@
                         </div>
                         <div class="main-footer_info">
                             <ul class="main-footer_list">
-                                <li class="main-footer_link">О нас</li>
-                                <li class="main-footer_link">Контакты</li>
+                                <li class="main-footer_link">
+                                    <a href="<?php echo esc_url(home_url('/about')); ?>"> О нас</a>
+                                   </li>
+                                <li class="main-footer_link">
+                                    <a href="<?php echo esc_url(home_url('/about')); ?>"> Контакты </a>
+                                </li>
                                 <li class="main-footer_link">Про проект</li>
                             </ul>
-
                         </div>
                     </div>
                     <div class="main-footer_right">
