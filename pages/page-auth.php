@@ -187,7 +187,7 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         $has_activated = get_user_meta($user->ID, 'has_activated', true);
 
         if ($has_activated !== 'true') {
-            $_SESSION['login_errors'] = 'Ваш аккаунт еще не активирован.';
+            $_SESSION['login_errors'] = 'Почта аккаунта не подтверждена.';
             wp_logout(); // Выйти, так как аккаунт не активирован
             wp_redirect(home_url('/auth'));
             exit;
@@ -208,42 +208,60 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['reset-action']) && $_
         die('Failed security check');
     }
 
+    $reset_errors = array();
+
     $user_email = sanitize_email($_POST['user_email_reset']);
     $user = get_user_by('email', $user_email);
 
     if (!$user) {
         // Пользователь с таким email не найден
-        $_SESSION['reset_password_errors'] = 'Пользователь с таким email не найден.';
+        $reset_errors['email_failed'] = 'Пользователь с таким email не найден.';
+    }
+
+    // Проверка, активирован ли аккаунт
+    $has_activated = get_user_meta($user->ID, 'has_activated', true);
+
+    if ($has_activated !== 'true') {
+        $reset_errors['email_submit_failed'] = 'Почта аккаунта не подтверждена.';
+    }
+
+    // Если есть ошибки, сохраняем их в сессию
+    if (!empty($reset_errors)) {
+        $_SESSION['reset_password_errors'] = $reset_errors;
+        wp_logout(); // Выйти, так как аккаунт не активирован
+        wp_redirect(home_url('/auth'));
+        exit;
+    }
+
+
+    // Сброс пароля и установка нового пароля
+    $new_password = wp_generate_password();
+    wp_set_password($new_password, $user->ID);
+
+    // Отправка email с новым паролем
+    $subject = 'Ваш новый пароль на сайте ' . get_bloginfo('name');
+    $message = "Ваш новый пароль: $new_password";
+
+    $headers = array(
+        'From: Calories365 <c63039000@gmail.com>',
+        'content-type: text/html',
+    );
+
+    // Отправка письма
+    if (wp_mail($user_email, $subject, $message, $headers)) {
+        // Сообщение об успехе
+        $_SESSION['reset_password_success'] = 'На ваш email отправлен новый пароль.';
         wp_redirect(home_url('/auth'));
         exit;
     } else {
-        // Сброс пароля и установка нового пароля
-        $new_password = wp_generate_password();
-        wp_set_password($new_password, $user->ID);
-
-        // Отправка email с новым паролем
-        $subject = 'Ваш новый пароль на сайте ' . get_bloginfo('name');
-        $message = "Ваш новый пароль: $new_password";
-
-        $headers = array(
-            'From: Calories365 <c63039000@gmail.com>',
-            'content-type: text/html',
-        );
-
-        // Отправка письма
-        if (wp_mail($user_email, $subject, $message, $headers)) {
-            // Сообщение об успехе
-            $_SESSION['reset_password_success'] = 'На ваш email отправлен новый пароль.';
-            wp_redirect(home_url('/auth'));
-            exit;
-        } else {
-            // Не удалось отправить email
-            $_SESSION['reset_password_errors'] = 'Ошибка при отправке email.';
-            wp_redirect(home_url('/auth'));
-            exit;
-        }
+        // Не удалось отправить email
+        $_SESSION['reset_password_errors'] = 'Ошибка при отправке email.';
+        wp_redirect(home_url('/auth'));
+        exit;
     }
 }
+
+
 get_header();
 
 
@@ -335,15 +353,17 @@ $current_user = wp_get_current_user();
                                 unset($_SESSION['login_errors']);
                             }
 
-                            if (isset($_SESSION['reset_password_errors'])) {
+                            if (isset($_SESSION['reset_password_errors']) && is_array($_SESSION['reset_password_errors']) && !empty($_SESSION['reset_password_errors'])) {
                                 foreach ($_SESSION['reset_password_errors'] as $error_key => $error_value) {
-                                    echo ' <div class="auth-notify_box">
+                                    foreach ($_SESSION['reset_password_errors'] as $error_key => $error_value) {
+                                        echo ' <div class="auth-notify_box">
                                 <div class="auth-notify_color"></div>
                                 <div class="auth-notify_message">' . esc_html($error_value) . '</div>
                                            </div>';
+                                    }
+                                    // Очистка ошибок после отображения
+                                    unset($_SESSION['reset_password_errors']);
                                 }
-                                // Очистка ошибок после отображения
-                                unset($_SESSION['reset_password_errors']);
                             }
 
                             ?>
