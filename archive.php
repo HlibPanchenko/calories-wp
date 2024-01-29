@@ -15,6 +15,21 @@ get_header();
                     <div class="layout-posts_breadcrumbs archive-page_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
+                    <!--выводить название таксономии-->
+                    <h1 class="layout-posts_title">
+                        <?php
+                        if (is_category()) {
+                            single_cat_title(); // для категорий
+                        } elseif (is_tag()) {
+                            single_tag_title(); // для тегов
+                        } elseif (is_tax()) {
+                            single_term_title(); // для пользовательских таксономий
+                        } else {
+                            echo 'Архив';
+                        }
+                        ?>
+                    </h1>
+
 
                 </div>
                 <div class="layout-posts_catalog catalog-posts">

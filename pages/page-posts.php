@@ -20,10 +20,8 @@ get_header();
                     <div class="layout-posts_breadcrumbs posts-page_breadcrumbs">
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
+                    <h1 class="layout-posts_title"><?php the_title(); ?></h1>
 
-<!--                    <div class="layout-posts_description">-->
-<!--                        Описание страницы.-->
-<!--                    </div>-->
 
                 </div>
                 <div class="layout-posts_catalog catalog-posts">

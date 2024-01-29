@@ -15,3 +15,19 @@
 .main-article {
 
 }
+
+.layout-posts_title {
+  font-family: "PT Serif", serif;
+  color: black;
+  font-size: 40px;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 0 20px 0;
+  line-height: 1.2;
+  text-align: left;
+
+  @media (max-width: $bp-small) {
+    font-size: 30px;
+  }
+}
