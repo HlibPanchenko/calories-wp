@@ -83,7 +83,7 @@
 
   &_container{
     max-width: 1400px;
-    padding: 20px 10px;
+    padding: 20px;
     margin: 0 auto;
     @media (max-width: $bp-large) {
       max-width: 1200px;
@@ -165,7 +165,7 @@
 
   &_text{
     padding: 0px 0 20px;
-    text-align: justify;
+    //text-align: justify;
     //line-height: 1.5;
     line-height: 32px;
     letter-spacing: .0625rem;

@@ -14,7 +14,7 @@ get_header();
             <div class="success-message_wrapper">
                 <div class="success-message_color"></div>
                 <div class="success-message_content">
-                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_close">&times;</div>
                     <div class="success-message_text">'
                 . esc_html($_SESSION['recipe_added']) .
                 '</div>
@@ -32,7 +32,7 @@ get_header();
             <div class="success-message_wrapper">
                 <div class="success-message_color"></div>
                 <div class="success-message_content">
-                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_close">&times;</div>
                     <div class="success-message_text">'
                 . esc_html($_SESSION['login_success']) .
                 '</div>
@@ -48,9 +48,9 @@ get_header();
             <div class="success-message_wrapper">
                 <div class="success-message_color"></div>
                 <div class="success-message_content">
-                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_close">&times;</div>
                     <div class="success-message_text">'
-                . esc_html($_SESSION['registration_confirm']) .
+               . $_SESSION['registration_confirm'] .
                 '</div>
                 </div>
             </div>

@@ -106,8 +106,18 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
 
         // Отправка письма
         wp_mail($user_email, 'Активация учетной записи', $message, $headers);
+        /*ссылка на страницу отправки сообщения на почту еще раз*/
+        $send_mail_again_url = home_url('/send-mail-again');
 
-        $_SESSION['registration_confirm'] = 'На вашу почту отправлено письмо. Подтвердите ее.';
+        $_SESSION['registration_confirm'] = '
+    <div class="notify_top">
+        На вашу почту отправлено письмо для подтверждения почты. 
+    </div>
+    <div class="notify_bottom">
+        Важно!! Письмо может попасть в спам. <br>
+        <a href="' . $send_mail_again_url . '">Получить письмо еще раз!</a>
+    </div>';
+
 
         // Переадресация на страницу благодарности
         wp_redirect(home_url('/'));
@@ -268,7 +278,7 @@ get_header();
 $current_user = wp_get_current_user();
 ?>
 
-<main id="primary" class="page-auth-wrapper main-wrapper">
+<main id="primary" class="page-auth-wrapper">
     <!--<main id="primary" class="main-wrapper">-->
     <?php
     if (isset($_SESSION['registration_success'])) {
@@ -276,7 +286,7 @@ $current_user = wp_get_current_user();
             <div class="success-message_wrapper">
                 <div class="success-message_color"></div>
                 <div class="success-message_content">
-                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_close">&times;</div>
                     <div class="success-message_text">'
             . esc_html($_SESSION['registration_success']) .
             '</div>
@@ -292,7 +302,7 @@ $current_user = wp_get_current_user();
             <div class="success-message_wrapper">
                 <div class="success-message_color"></div>
                 <div class="success-message_content">
-                    <span class="success-message_close">&times;</span>
+                    <div class="success-message_close">&times;</div>
                     <div class="success-message_text">'
             . esc_html($_SESSION['reset_password_success']) .
             '</div>
@@ -329,6 +339,10 @@ $current_user = wp_get_current_user();
         <section class="auth-page_section">
             <div class="auth-page_container">
                 <div class="auth-page_box">
+                    <div class="auth-page_floated-btn">
+                        <a href="<?php echo home_url('/send-mail-again') ?>">Не пришло письмо активации аккаунта?</a>
+
+                    </div>
                     <div class="auth-page_card">
                         <div class="auth-page_message error-auth-notify auth-notify">
                             <?php
