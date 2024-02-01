@@ -1,5 +1,49 @@
+@keyframes rotation-cabinet {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .page-cabinet {
   width: 100%;
+  margin-bottom: 100px;
+  //position: relative;
+
+
+  &_loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    //display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Чтобы создать полупрозрачный фон */
+    z-index: 999;
+
+    &._loader-active {
+      display: flex;
+    }
+
+    .loader-cabinet {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #73ae37;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation-cabinet 1s linear infinite;
+    }
+
+  }
   &_section{
     background-color: white;
     height: 100%;
@@ -22,21 +66,23 @@
     padding-top: 30px;
   }
   &_title{
+    display: inline;
     font-size: 40px;
     letter-spacing: 0.0625rem;
-    //text-transform: uppercase;
     font-weight: 700;
     color: black;
-    padding: 30px 0;
+    padding: 30px 0 0;
     font-family: "PT Serif", serif;
+    border-bottom: 4px solid #fcb900;
 
     @media (max-width: $bp-small) {
-      padding: 0 0 10px;
+      padding: 0;
       font-size: 30px;
     }
   }
 
   &_content {
+    margin-top: 40px;
     width: 100%;
     background: #F2F2F2;
     border-radius: 5px;
@@ -62,6 +108,9 @@
       }
     }
   }
+
+  &_posts{}
+
 }
 
 .top-info {
@@ -133,5 +182,152 @@
   &_credentials{
     flex: 1;
 
+  }
+}
+
+/*manage posts block*/
+.manage-posts {
+  width: 100%;
+  &_title {
+    display: inline;
+    font-size: 35px;
+    letter-spacing: 0.0625rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: black;
+    padding: 30px 0 0;
+    font-family: "PT Serif", serif;
+    border-bottom: 4px solid #fcb900;
+
+    @media (max-width: $bp-small) {
+      padding: 0;
+      font-size: 25px;
+    }
+  }
+  &_active{
+    margin-top: 40px;
+    width: 100%;
+  }
+  &_hidden{
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
+.user-posts {
+  &_title{
+    background-color: #F2F2F2;
+    gap: 25px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 15px;
+    font-size: 20px;
+    letter-spacing: 0.0625rem;
+    font-weight: 700;
+    color: black;
+    font-family: "PT Serif", serif;
+  }
+  &_content{
+    width: 100%;
+
+  }
+  &_card{
+
+  }
+}
+
+.post-of-user {
+  width: 100%;
+  border-bottom: 1px solid #dedede;
+  padding: 20px 10px;
+  min-height: 200px;
+  max-height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  @media (max-width: $bp-small) {
+    max-height: 380px;
+    flex-direction: column;
+  }
+
+  &_link {
+
+  }
+  &_content{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: $bp-small) {
+      flex-direction: column;
+    }
+  }
+
+  &_img {
+    /*максимальная высота родителя минус падинги*/
+  max-height: 210px;
+  //max-height: 100%;
+  flex: 0 0 200px;
+    @media (max-width: $bp-small) {
+      //max-height: 180px;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &_text{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &_name{
+    font-size: 18px;
+    letter-spacing: 0.0625rem;
+    font-weight: 700;
+    color: black;
+    font-family: "PT Serif", serif;
+    margin-bottom: 10px;
+  }
+  &_date{
+    color: #9b9b9b;
+  }
+
+  &_btns{
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+
+    @media (max-width: $bp-small) {
+      justify-content: flex-end;
+    }
+
+  }
+  &_btn{
+   cursor: pointer;
+
+    &:hover {
+      svg path {
+        stroke: red;
+        fill: red;
+      }
+    }
+  }
+
+  &_error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 15px;
+    color: #9b9b9b;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
   }
 }

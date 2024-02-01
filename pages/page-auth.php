@@ -369,17 +369,14 @@ $current_user = wp_get_current_user();
 
                             if (isset($_SESSION['reset_password_errors']) && is_array($_SESSION['reset_password_errors']) && !empty($_SESSION['reset_password_errors'])) {
                                 foreach ($_SESSION['reset_password_errors'] as $error_key => $error_value) {
-                                    foreach ($_SESSION['reset_password_errors'] as $error_key => $error_value) {
-                                        echo ' <div class="auth-notify_box">
+                                    echo ' <div class="auth-notify_box">
                                 <div class="auth-notify_color"></div>
                                 <div class="auth-notify_message">' . esc_html($error_value) . '</div>
                                            </div>';
-                                    }
-                                    // Очистка ошибок после отображения
-                                    unset($_SESSION['reset_password_errors']);
                                 }
+                                // Очистка ошибок после отображения
+                                unset($_SESSION['reset_password_errors']);
                             }
-
                             ?>
                         </div>
 

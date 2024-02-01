@@ -91,3 +91,15 @@
 .error-message {
 
 }
+
+.success-message.manage-users-message {
+  position: fixed;
+
+  @media (min-width: $bp-small) {
+    position: fixed;
+    right: 40px;
+    left: unset;
+    transform: unset;
+    bottom: 10px;
+  }
+}

@@ -15,6 +15,8 @@ class InitTheme
         add_action('widgets_init', [__CLASS__, 'registerSidebars']);
 
         add_action('init', [__CLASS__, 'create_custom_role']);
+        /*вызываем один раз*/
+//        add_action('init', [__CLASS__,'add_capabilities_to_custom_role']);
 
         add_filter('after_setup_theme', [__CLASS__, 'remove_admin_bar']);
 
@@ -24,6 +26,8 @@ class InitTheme
 
         // Инициализация обработчика сортировки
         SortHandler::init();
+
+        UserPostsHandler::init();
 
         LoadMoreHandler::init();
 
@@ -244,6 +248,19 @@ class InitTheme
             'upload_files' => true, // разрешение на загрузку файлов
             'assign_terms' => true, // разрешение на назначение терминов таксономии
         ));
+    }
+
+    public static function add_capabilities_to_custom_role() {
+        // Получаем объект роли
+        $role = get_role('member_role');
+
+        // Проверяем, существует ли роль
+        if ($role) {
+            // Добавляем новые capabilities
+            $role->add_cap('delete_recipes');
+            $role->add_cap('delete_published_recipes');
+            // Другие capabilities могут быть добавлены здесь
+        }
     }
 
     public static function remove_admin_bar()
