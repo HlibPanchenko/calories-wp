@@ -56,7 +56,7 @@ class UserPostsHandler
         if (get_post_status($post_id) === false) {
             self::add_session_message('error', 'Пост не найден');
             wp_send_json_error('Пост не найден');
-            return;
+            die;
         }
 
         // Проверяем тип поста
@@ -73,7 +73,7 @@ class UserPostsHandler
             wp_send_json_error('Неподдерживаемый тип поста');
             return;
         }
-        self::add_session_message('success', 'Пост успешно активирован');
+        self::add_session_message('success', 'Теперь ваша публикация видна для других пользователей');
 
         wp_send_json_success(['message' => 'Пост успешно активирован']);
 

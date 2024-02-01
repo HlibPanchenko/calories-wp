@@ -10,8 +10,6 @@
 .page-cabinet {
   width: 100%;
   margin-bottom: 100px;
-  //position: relative;
-
 
   &_loader {
     position: fixed;
@@ -21,7 +19,6 @@
     bottom: 0;
     height: 100vh;
     width: 100%;
-    //display: flex;
     display: none;
     justify-content: center;
     align-items: center;
@@ -44,6 +41,7 @@
     }
 
   }
+
   &_section{
     background-color: white;
     height: 100%;
@@ -82,106 +80,95 @@
   }
 
   &_content {
-    margin-top: 40px;
+    margin: 40px 0;
     width: 100%;
     background: #F2F2F2;
     border-radius: 5px;
 
   }
-  &_top {
-  }
-  &_mid {}
-  &_bottom {
 
-  }
+  &_credentials {
 
-  &_btn {
-    display: flex;
-    justify-content: flex-end;
-    margin: 50px 0;
-
-    .main-header_signout {
-      background-color: red;
-      padding: 10px 25px;
-      &:hover {
-        background-color: #cc1515;
-      }
-    }
   }
 
   &_posts{}
-
 }
 
-.top-info {
-  display: flex;
-  align-items: center;
-  gap: 100px;
-  padding: 40px 25px;
-  border-bottom: 1px solid #dedede;
-
-  @media (max-width: $bp-small) {
-    gap: 20px;
-    flex-direction: column;
-  }
-
-    &_avatar{
-    width: 100px; /* Ширина */
-    height: 100px; /* Высота */
-    border-radius: 50%; /* Делаем круг */
-    overflow: hidden; /* Скрываем лишнее */
-    display: flex; /* Используем Flexbox для центрирования изображения */
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    img {
-      width: 100%; /* Задаем ширину изображения 100% от родителя */
-      height: 100%; /* Высота изменяется автоматически */
-      /* Если изображение не квадратное, вы можете добавить object-fit для корректного заполнения пространства */
-      object-fit: cover;
-    }
-  }
-  &_name{
-    flex: 1;
-    color: black;
-    font-size: 30px;
-    letter-spacing: 0.0625rem;
-    span {
-      font-weight: 500;
-    }
-
-    @media (max-width: $bp-small) {
-      font-size: 22px;
-    }
-  }
-}
-
-.mid-info {
-  padding: 40px 25px;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0.0625rem;
+.user-credentials {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding: 20px;
+  @media (max-width: $bp-small) {
+    padding: 10px;
+  }
 
-  &_login, &_email{
+  &_box{
     background-color: white;
-    display: flex;
-    gap: 25px;
     border-radius: 5px;
-    padding: 10px 10px 10px 15px;
-    flex-wrap: wrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    padding: 30px 20px;
+    display: flex;
+    margin-bottom: 40px;
+
+    @media (max-width: $bp-small) {
+      padding: 30px 10px;
+    }
 
   }
-  &_text{
-    color: #eeb82c;
-    font-weight: 700;
+  &_avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    @media (max-width: $bp-small) {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
   }
-  &_credentials{
+  &_info{
     flex: 1;
+  }
+  &_login{
+    font-size: 22px;
+    letter-spacing: 0.0625rem;
+    font-weight: 700;
+    color: black;
+    font-family: "PT Serif", serif;
+    margin: 10px 0;
+    @media (max-width: $bp-small) {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+    }
+  }
+  &_email{
+    font-size: 18px;
+    color: #9b9b9b;
+    @media (max-width: $bp-small) {
+      font-size: 16px;
+    }
+  }
+  &_control{
+    display: flex;
+    justify-content: flex-end;
+    a {
+      background-color: #F33950;
+      color: white;
 
+      &:hover {
+      background-color: red;
+      }
+    }
   }
 }
 
@@ -195,7 +182,6 @@
     line-height: 1.4;
     font-weight: 700;
     color: black;
-    padding: 30px 0 0;
     font-family: "PT Serif", serif;
     border-bottom: 4px solid #fcb900;
 
@@ -212,6 +198,14 @@
     margin-top: 40px;
     width: 100%;
   }
+}
+
+.manage-posts_hidden .post-of-user {
+//.manage-posts_hidden .post-of-user_content {
+  opacity: 0.5; /* Делает элемент полупрозрачным */
+  filter: grayscale(100%); /* Преобразует изображение в черно-белое */
+  background-color: #f0f0f0; /* Светло-серый фон, можно настроить по вкусу */
+  user-select: none; /* Отключает возможность выделения текста */
 }
 
 .user-posts {
@@ -247,7 +241,7 @@
   gap: 10px;
   overflow: hidden;
   @media (max-width: $bp-small) {
-    max-height: 380px;
+    max-height: 450px;
     flex-direction: column;
   }
 
@@ -299,25 +293,47 @@
   &_btns{
     flex: 0 0 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     height: 100%;
     width: 100%;
 
     @media (max-width: $bp-small) {
-      justify-content: flex-end;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
   }
   &_btn{
-   cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 140px;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 15px;
+    color: white;
+    -webkit-box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
+    -moz-box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
+    box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:first-child {
+      background-color: #75D00F;
+    }
+
+    &:last-child {
+      background-color: #F33950;
+    }
 
     &:hover {
-      svg path {
-        stroke: red;
-        fill: red;
-      }
+      transform: translateY(-2px);
     }
+
   }
 
   &_error {

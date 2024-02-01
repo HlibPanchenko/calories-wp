@@ -24,8 +24,8 @@ jQuery(document).ready(function ($) {
                     // $('.page-cabinet_loader').removeClass('_loader-active');
 
                 } else {
-                    console.error(response.data.message);
-                    document.body.style.overflow = 'auto';
+                    /*чтобы пользователь увидел ошибки с сессии обновляем страницу*/
+                    location.reload();
                 }
             },
             error: function () {
@@ -61,8 +61,11 @@ jQuery(document).ready(function ($) {
                     // Чтобы перерисовать DOM
                     location.reload();
                 } else {
-                    console.error(response.data.message);
-                    document.body.style.overflow = 'auto';
+                    /*чтобы пользователь увидел ошибки с сессии обновляем страницу*/
+                    location.reload();
+                    // console.error(response.data.message);
+                    // $('.page-cabinet_loader').removeClass('_loader-active');
+                    // document.body.style.overflow = 'auto';
                 }
             },
             error: function () {
@@ -102,9 +105,8 @@ jQuery(document).ready(function ($) {
                         // Чтобы перерисовать DOM
                         location.reload();
                     } else {
-                        console.error(response.data.message);
-                        $('.page-cabinet_loader').removeClass('_loader-active');
-                        document.body.style.overflow = 'auto';
+                        /*чтобы пользователь увидел ошибки с сессии обновляем страницу*/
+                        location.reload();
                     }
                 },
                 error: function () {

@@ -47,13 +47,10 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['action']) && $_POST['
         $send_mail_again_url = home_url('/send-mail-again');
 
         $_SESSION['registration_confirm'] = '
-            <div class="notify_top">
-                 На вашу почту отправлено письмо для подтверждения почты. 
-            </div>
-             <div class="notify_bottom">
+                 На вашу почту отправлено письмо для подтверждения почты. <br>
                  Важно!! Письмо может попасть в спам. <br>
                  <a href="' . $send_mail_again_url . '">Получить письмо еще раз!</a>
-            </div>';
+            ';
 
         wp_redirect(home_url('/'));
         exit;

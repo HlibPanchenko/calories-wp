@@ -1,18 +1,23 @@
+/*Option 1 - error*/
+.error-message.success-message {
+  background-color: $error-color;
+
+}
+ /*Option 1 Success*/
 .success-message {
   position: absolute;
-  //top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
+  //background-color: #73ae37;
+  background-color: $success-color;
   border-radius: 10px;
-  color: black;
-  min-height: 100px;
-  //height: 100%;
+  color: white;
+  min-height: 75px;
   max-height: 190px;
   min-width: 320px;
   max-width: 350px;
   font-size: 16px;
-  z-index: 500;
+  z-index: 999;
   margin-top: 20px;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -20,44 +25,28 @@
 
   &_wrapper {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    //align-items: center;
     justify-content: space-between;
   }
 
-  &_color {
-    //height: 100%;
-    //width: 25px;
-    //background-color: #73ae37;
+  &_svg {
+    display: flex;
+    align-items: center;
+    padding: 20px 5px 20px 10px;
+
+    svg {
+
+    }
   }
 
   &_content {
     flex: 1;
-    height: 100%;
+    min-height: 100%;
     display: flex;
-    flex-direction: column;
-    //justify-content: space-between;
-    align-items: flex-end;
-
-
-  }
-  &_close {
-    //position: absolute;
-    //top: 4px;
-    //right: 6px;
-    background-color: #73ae37;
-    text-align: end;
-    padding: 3px 10px 0 0;
-    font-size: 30px;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-    color: white;
-    cursor: pointer;
-    &:hover {
-      color: $pink_color;
-    }
+    align-items: center;
   }
 
   &_text {
@@ -66,24 +55,23 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    text-align: justify;
+    //align-items: center;
+    //text-align: justify;
     gap: 10px;
     padding: 10px;
-    .notify_top {
-
-    }
-
-    .notify_bottom {
-      font-weight: 700;
-      color: red;
 
       a {
-        display: inline-block;
-        border-bottom: 1px dashed red;
-        //text-decoration: dashed;
-        margin-top: 5px;
-      }
+        color: inherit;
+        text-decoration: underline;
+    }
+  }
+  &_close {
+    font-size: 30px;
+    color: white;
+    padding: 10px 10px 0 0 ;
+    cursor: pointer;
+    &:hover {
+      color: $pink_color;
     }
   }
 }
@@ -94,10 +82,12 @@
 
 .success-message.manage-users-message {
   position: fixed;
+  top: 0;
 
   @media (min-width: $bp-small) {
     position: fixed;
     right: 40px;
+    top: unset;
     left: unset;
     transform: unset;
     bottom: 10px;

@@ -34,6 +34,11 @@ class AcfFormCustom
                 // Возвращаем false, чтобы поле не отображалось
                 return false;
             }
+
+            if ($field['_name'] == 'recipe_is_active') {
+                // Возвращаем false, чтобы поле не отображалось
+                return false;
+            }
         }
         // Возвращаем оригинальный массив поля, если это не то поле, которое мы хотим скрыть
         return $field;

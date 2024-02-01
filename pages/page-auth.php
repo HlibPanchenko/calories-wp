@@ -110,38 +110,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
         $send_mail_again_url = home_url('/send-mail-again');
 
         $_SESSION['registration_confirm'] = '
-    <div class="notify_top">
-        На вашу почту отправлено письмо для подтверждения почты. 
-    </div>
-    <div class="notify_bottom">
-        Важно!! Письмо может попасть в спам. <br>
-        <a href="' . $send_mail_again_url . '">Получить письмо еще раз!</a>
-    </div>';
-
+                На вашу почту отправлено письмо для подтверждения почты. <br>
+                 Важно!! Письмо может попасть в спам. <br>
+                 <a href="' . $send_mail_again_url . '">Получить письмо еще раз!</a>';
 
         // Переадресация на страницу благодарности
         wp_redirect(home_url('/'));
         exit;
     }
-
-    // Автоматический вход после регистрации
-//    $creds = array(
-//        'user_login' => $user_email,
-//        'user_password' => $user_password, // Используйте оригинальный пароль
-//        'remember' => true,
-//    );
-//
-//    $user = wp_signon($creds, false);
-//
-//    if (is_wp_error($user)) {
-//        // Обработка ошибок при входе пользователя
-//        echo $user->get_error_message();
-//        return;
-//    }
-//
-//    $_SESSION['registration_success'] = 'Регистрация прошла успешно.';
-//    wp_redirect(home_url());
-//    exit;
 };
 
 if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login') {
@@ -188,7 +164,8 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         $error_message = str_replace('Lost your password?', '', $error_message);
 
         // Сохраняем обновленное сообщение об ошибке
-        $_SESSION['login_errors'] = $error_message;
+        $_SESSION['login_errors'] = 'Неправильный логин или пароль';
+//        $_SESSION['login_errors'] = $error_message;
 
         wp_redirect(home_url('/auth'));
         exit;
@@ -283,32 +260,33 @@ $current_user = wp_get_current_user();
     <?php
     if (isset($_SESSION['registration_success'])) {
         echo '<div class="success-message">
-            <div class="success-message_wrapper">
-                <div class="success-message_color"></div>
-                <div class="success-message_content">
-                    <div class="success-message_close">&times;</div>
-                    <div class="success-message_text">'
-            . esc_html($_SESSION['registration_success']) .
-            '</div>
-                </div>
+        <div class="success-message_wrapper">
+            <div class="success-message_svg">
+                <svg width="34px" height="34px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896zm-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336L456.192 600.384z"></path></g></svg>
+
             </div>
-          </div>';
+            <div class="success-message_content">
+                <div class="success-message_text">' . esc_html($_SESSION['registration_success']) . '</div>
+            </div>
+            <div class="success-message_close">&times;</div>
+        </div>
+    </div>';
         // Очистка сообщения после отображения
         unset($_SESSION['registration_success']);
     }
 
     if (isset($_SESSION['reset_password_success'])) {
         echo '<div class="success-message">
-            <div class="success-message_wrapper">
-                <div class="success-message_color"></div>
-                <div class="success-message_content">
-                    <div class="success-message_close">&times;</div>
-                    <div class="success-message_text">'
-            . esc_html($_SESSION['reset_password_success']) .
-            '</div>
-                </div>
+        <div class="success-message_wrapper">
+            <div class="success-message_svg">
+                <svg width="34px" height="34px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896zm-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336L456.192 600.384z"></path></g></svg>
             </div>
-          </div>';
+            <div class="success-message_content">
+                <div class="success-message_text">' . esc_html($_SESSION['reset_password_success']) . '</div>
+            </div>
+            <div class="success-message_close">&times;</div>
+        </div>
+    </div>';
         // Очистка сообщения после отображения
         unset($_SESSION['reset_password_success']);
     }
