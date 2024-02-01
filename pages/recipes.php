@@ -210,6 +210,13 @@ $dropdown_design = Kirki::get_option('recipes_page_choose_design_dropdown') === 
                                 'order' => 'DESC',
                                 'orderby' => 'date',
                                 'paged' => $paged,
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'recipe_is_active', // Название ACF поля
+                                        'value' => '1', // ACF true возвращает строку '1'
+                                        'compare' => '=' // Условие равенства
+                                    )
+                                )
                             );
                             $recipe_query = new WP_Query($args);
 

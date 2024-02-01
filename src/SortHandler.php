@@ -27,6 +27,13 @@ class SortHandler
             'post_type' => 'recipe',
             'posts_per_page' => $posts_per_page,
             'offset' => $offset,
+            'meta_query' => array(
+                array(
+                    'key' => 'recipe_is_active',
+                    'value' => '1',
+                    'compare' => '='
+                )
+            )
         );
 
         // Добавьте аргументы на основе данных, пришедших из AJAX

@@ -411,6 +411,13 @@
   }
 }
 
+/*Обнудение стилей Вордпресса*/
+
+.media-frame-title h1 {
+  @media (max-width: $bp-small) {
+    display: none !important;
+  }
+}
 .wp-editor-tabs {
   display: none;
 }
@@ -556,6 +563,22 @@ tbody.ui-sortable {
 
     .acf-row-handle {
       display: none !important;
+    }
+    /*Удалаение шага приготовления и ингредиента*/
+    .acf-row-handle.remove {
+      display: block !important;
+      .acf-icon.-minus {
+        display: block !important;
+        width: 15px !important;
+        height: 15px !important;
+      }
+      .acf-icon.-plus  {
+        display: none !important;
+      }
+      .acf-icon.-duplicate {
+        display: none !important;
+
+      }
     }
   }
 

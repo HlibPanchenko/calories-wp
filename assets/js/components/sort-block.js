@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
         var sortBy = $(this).closest('.sort-block_item').attr('id');
         var filterID = this.id;
         var filterText = $(this).data('filtertext');
-        console.log('Состояние чекбокс поменялось');
+        // console.log('Состояние чекбокс поменялось');
         selectedData.slugs ??= {};
 
         // Проверяем, существует ли уже запись для данного фильтра
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
                 page: pageNumber,
             },
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 updateRecipeList(response);
             },
             error: function(error) {
@@ -204,7 +204,7 @@ jQuery(document).ready(function ($) {
     // $(document).on('click', '.pagination a', function(event) {
         event.preventDefault();
         var page = $(this).attr('href');
-        console.log(selectedData);
+        // console.log(selectedData);
         /*отправлять пользователя в начало блока с клаассом catalog-posts_list*/
         // Определяем блок с классом catalog-posts_list
         var catalogListBlock = $('.catalog-posts_list');
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
     });
 
     function renderChoosenFilters(selectedFilters) {
-        console.log('перерисовка фильтров');
+        // console.log('перерисовка фильтров');
         // Выбираем контейнер для отображения выбранных фильтров
         var choosenFiltersList = $('.choosenFilters_list');
 
@@ -246,7 +246,7 @@ jQuery(document).ready(function ($) {
         // Добавляем обработчик события для кнопок удаления
         // choosenFiltersList.on('click', '.remove-filter', function() {
         choosenFiltersList.on('click', '.choosenFilters_item', function() {
-            console.log('Сработал обработчик события для кнопок удаления, тут вызываем функцию handleRemoveFilter')
+            // console.log('Сработал обработчик события для кнопок удаления, тут вызываем функцию handleRemoveFilter')
             // var filterID = $(this).data('filter-id');
             var filterItem = $(this);
             var filterID = $(this).find('.remove-filter').data('filter-id');
@@ -271,7 +271,7 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        console.log('handleRemoveFilter вызван');
+        // console.log('handleRemoveFilter вызван');
 
         // Удаляем элемент из DOM
         filterItem.remove();

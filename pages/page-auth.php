@@ -376,13 +376,13 @@ $current_user = wp_get_current_user();
                                        placeholder="Name"
                                        size="20" value="<?php echo $user_login_value; ?>">
 
-                                <input type="password" name="user_password" id="user_password" class="auth-page_input"
-                                       placeholder="Password"
-                                       size="20">
-
                                 <input type="email" name="user_email" id="user_email" class="auth-page_input"
                                        placeholder="Email"
                                        size="25" value="<?php echo $user_email_value; ?>">
+
+                                <input type="password" name="user_password" id="user_password" class="auth-page_input"
+                                       placeholder="Password"
+                                       size="20">
 
                                 <button type="submit" name="btnSubmit" id="btnSubmit" class="auth-page_btn">Создать
                                     аккаунт
