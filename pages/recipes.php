@@ -28,11 +28,43 @@ $dropdown_design = Kirki::get_option('recipes_page_choose_design_dropdown') === 
 
                         <div class="all-recepies_description">
                             <h1> <?php echo html_entity_decode(Kirki::get_option('recipes_page_title')) ?></h1>
-                            <p>
-                                <?php echo html_entity_decode(Kirki::get_option('recipes_page_description')) ?>
-                            </p>
+<!--                            <p>-->
+<!--                                --><?php //echo html_entity_decode(Kirki::get_option('recipes_page_description')) ?>
+<!--                            </p>-->
+<!--                            <div class="all-recepies_guide guide-recipe">-->
+<!--                                <div class="guide-recipe_img">-->
+<!--                                    <svg width="91px" height="91px" viewBox="-1.26 -1.26 20.52 20.52" fill="#ffffff" stroke="#ffffff">-->
+<!--                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>-->
+<!--                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>-->
+<!--                                        <g id="SVGRepo_iconCarrier">-->
+<!--                                            <path fill="#ffffff" d="M9,14a1.5,1.5,0,1,1,1.5068-1.5A1.5035,1.5035,0,0,1,9,14Z"></path>-->
+<!--                                            <path fill="#ffffff" d="M9,2A7,7,0,1,1,2,9,7.0079,7.0079,0,0,1,9,2M9,0a9,9,0,1,0,9,9A9,9,0,0,0,9,0Z"></path>-->
+<!--                                            <path fill="#ffffff" d="M10,4H8a1,1,0,0,0-.97,1.2425l1,4a1,1,0,0,0,1.94,0l1-4A1,1,0,0,0,10,4Zm0,2h0Z"></path>-->
+<!--                                        </g>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="guide-recipe_content">-->
+<!--                                    <h2 class="guide-recipe_title">БЫстрый поиск</h2>-->
+<!--                                    <ul class="guide-recipe_tips">-->
+<!--                                        <li class="guide-recipe_tip">Нажмите на "Показать фильтры"</li>-->
+<!--                                        <li class="guide-recipe_tip">Используйте блок поиска</li>-->
+<!--                                        <li class="guide-recipe_tip">Настройте фильтры</li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+
+                        <div class="all-recepies_show-filters">
+                            <p id="show-filters"> Показать фильтры </p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" >
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M4 5L10 5M10 5C10 6.10457 10.8954 7 12 7C13.1046 7 14 6.10457 14 5M10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5M14 5L20 5M4 12L16 12M16 12C16 13.1046 16.8954 14 18 14C19.1046 14 20 13.1046 20 12C20 10.8954 19.1046 10 18 10C16.8954 10 16 10.8954 16 12ZM8 19L20 19M8 19C8 17.8954 7.10457 17 6 17C4.89543 17 4 17.8954 4 19C4 20.1046 4.89543 21 6 21C7.10457 21 8 20.1046 8 19Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round">
+                                    </path> </g></svg>
 
                         </div>
+
                         <?php if (true == get_theme_mod('recipes_page_s_show', true)) :
                             get_template_part('search-form-big');
                         endif;
@@ -206,7 +238,7 @@ $dropdown_design = Kirki::get_option('recipes_page_choose_design_dropdown') === 
 
                             $args = array(
                                 'post_type' => 'recipe',
-                                'posts_per_page' => 8,
+                                'posts_per_page' => 12,
                                 'order' => 'DESC',
                                 'orderby' => 'date',
                                 'paged' => $paged,

@@ -164,7 +164,6 @@
     a {
       background-color: #F33950;
       color: white;
-
       &:hover {
       background-color: red;
       }
@@ -237,12 +236,14 @@
   max-height: 250px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  //align-items: center;
   gap: 10px;
   overflow: hidden;
   @media (max-width: $bp-small) {
     max-height: 450px;
     flex-direction: column;
+    gap: 40px;
+
   }
 
   &_link {
@@ -279,7 +280,7 @@
     flex-direction: column;
   }
   &_name{
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 0.0625rem;
     font-weight: 700;
     color: black;
@@ -295,13 +296,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    //gap: 15px;
     height: 100%;
     width: 100%;
 
     @media (max-width: $bp-small) {
       flex-direction: row;
       justify-content: space-between;
+
     }
 
   }
@@ -310,17 +312,23 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    width: 140px;
+    //flex: 0 0 140px;
     font-weight: 600;
+    width: 140px;
     font-size: 17px;
     padding: 10px 15px;
     color: white;
     -webkit-box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
     -moz-box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
     box-shadow: 0px 5px 10px -9px rgba(34, 60, 80, 0.16);
-    border-radius: 5px;
+    //border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease;
+
+    @media (max-width: $bp-small) {
+      flex: 1 0 50%;
+      width: unset;
+    }
 
     &:first-child {
       background-color: #75D00F;
@@ -331,7 +339,7 @@
     }
 
     &:hover {
-      transform: translateY(-2px);
+      //transform: translateY(-2px);
     }
 
   }

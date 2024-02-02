@@ -1,6 +1,13 @@
 import {truncateText} from './/utils.js';
 
 jQuery(document).ready(function ($) {
+    $('#show-filters').click(function() {
+        // Переключение стиля отображения для формы поиска
+        $('.search-big').toggle();
+
+        // Переключение стиля отображения для блока сортировки
+        $('.all-recepies_sort.sort-block').toggle();
+    });
 
     // При клике на заголовок sort-block_header
     $('.sort-block_header').click(function () {

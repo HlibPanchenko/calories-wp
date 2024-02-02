@@ -3,6 +3,8 @@
  * Template Name: page-cabinet
  */
 
+use src\UtilsClass;
+
 get_header();
 
 $current_user = wp_get_current_user();
@@ -154,7 +156,9 @@ $the_query = new WP_Query($args);
                                                     </div>
                                                     <div class="post-of-user_text">
                                                         <div class="post-of-user_name"><?php the_title(); ?></div>
-                                                        <div class="post-of-user_date"><?php echo get_the_date('j F Y'); ?></div>
+                                                        <div class="post-of-user_date">
+                                                            <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y/m/d'))  ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -279,7 +283,9 @@ $the_query = new WP_Query($args);
                                                 </div>
                                                 <div class="post-of-user_text">
                                                     <div class="post-of-user_name"><?php the_title(); ?></div>
-                                                    <div class="post-of-user_date"><?php echo get_the_date('j F Y'); ?></div>
+                                                    <div class="post-of-user_date">
+                                                        <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y/m/d'))  ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="post-of-user_btns">

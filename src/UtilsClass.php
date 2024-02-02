@@ -30,6 +30,33 @@ class UtilsClass
         return $time_markup;
     }
 
+    public static function human_readable_time_diff($date_from) {
+        $timestamp = strtotime($date_from);
+        $difference = time() - $timestamp;
+
+        // Секунды в разных временных промежутках
+        $minute = 60;
+        $hour = $minute * 60;
+        $day = $hour * 24;
+        $month = $day * 30;
+        $year = $day * 365;
+
+        // Расчет разницы
+        if ($difference < $minute) {
+            return $difference . " секунд назад";
+        } elseif ($difference < $hour) {
+            return floor($difference / $minute) . " минут назад";
+        } elseif ($difference < $day) {
+            return floor($difference / $hour) . " часов назад";
+        } elseif ($difference < $month) {
+            return floor($difference / $day) . " дней назад";
+        } elseif ($difference < $year) {
+            return floor($difference / $month) . " месяцев назад";
+        } else {
+            return floor($difference / $year) . " лет назад";
+        }
+    }
+
     public static function get_taxonomy_terms($taxonomy_keys)
     {
         $result = array();

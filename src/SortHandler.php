@@ -17,7 +17,7 @@ class SortHandler
         $page = isset($_POST['page']) ? absint($_POST['page']) : 1;
 
 //        $posts_per_page = get_option('posts_per_page');
-        $posts_per_page = 8;
+        $posts_per_page = 12;
         $offset = ($page - 1) * $posts_per_page;
 
 //        error_log(print_r($selectedData, true));
