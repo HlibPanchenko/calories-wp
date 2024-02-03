@@ -24,6 +24,8 @@ class InitTheme
 
         AcfFormCustom::init();
 
+        UserAuthHandler::init();
+
         // Инициализация обработчика сортировки
         SortHandler::init();
 

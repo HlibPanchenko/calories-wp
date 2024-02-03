@@ -90,8 +90,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'my_custom_registration') {
         $user->set_role('member_role');
         // Генерация уникального ключа для подтверждения
         $activation_key = sha1(mt_rand(10000, 99999) . time() . $user_email);
-        update_user_meta($user_id, 'activation_key', $activation_key);
-        update_user_meta($user_id, 'has_activated', 'false'); // Изначально пользователь не активирован
+//        update_user_meta($user_id, 'activation_key', $activation_key);
+//        update_user_meta($user_id, 'has_activated', 'false'); // Изначально пользователь не активирован
+
+        // Сохранение ключа активации в ACF-поле
+        update_field('activation_key', $activation_key, 'user_' . $user_id);
+
+        // Изначально пользователь не активирован
+        update_field('has_activated', false, 'user_' . $user_id);
 
         // Создание URL для активации
         $activation_link = add_query_arg(array('key' => $activation_key, 'user' => $user_id), get_permalink('1105'));
@@ -171,9 +177,14 @@ if (isset($_POST['login_action']) && $_POST['login_action'] == 'my_custom_login'
         exit;
     } else {
         // Проверка, активирован ли аккаунт
-        $has_activated = get_user_meta($user->ID, 'has_activated', true);
+//        $has_activated = get_user_meta($user->ID, 'has_activated', true);
+        /*Возвращает либо 0 либо 1*/
+        $has_activated = get_field('has_activated', 'user_' . $user->ID);
+        $_SESSION['has_activated'] = $has_activated;
 
-        if ($has_activated !== 'true') {
+
+        if ($has_activated == 0) {
+//        if ($has_activated !== 'true') {
             $_SESSION['login_errors'] = 'Почта аккаунта не подтверждена.';
             wp_logout(); // Выйти, так как аккаунт не активирован
             wp_redirect(home_url('/auth'));
@@ -206,9 +217,11 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['reset-action']) && $_
     }
 
     // Проверка, активирован ли аккаунт
-    $has_activated = get_user_meta($user->ID, 'has_activated', true);
+//    $has_activated = get_user_meta($user->ID, 'has_activated', true);
+    $has_activated = get_field('has_activated', 'user_' . $user->ID);
 
-    if ($has_activated !== 'true') {
+
+    if ($has_activated  == 0) {
         $reset_errors['email_submit_failed'] = 'Почта аккаунта не подтверждена.';
     }
 
@@ -258,6 +271,7 @@ $current_user = wp_get_current_user();
 <main id="primary" class="page-auth-wrapper">
     <!--<main id="primary" class="main-wrapper">-->
     <?php
+
     if (isset($_SESSION['registration_success'])) {
         echo '<div class="success-message">
         <div class="success-message_wrapper">

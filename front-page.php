@@ -6,7 +6,6 @@ get_header();
 ?>
 
     <main id="primary" class="main-wrapper">
-
         <?php
         if (isset($_SESSION['recipe_added'])) {
             echo '<div class="success-message">

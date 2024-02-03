@@ -59,10 +59,14 @@
     font-weight: 700;
     color: black;
     padding: 20px 0 30px;
+
   }
 
   &_description {
-    margin-bottom: 50px;
+    @media (max-width: $bp-small) {
+      display: none;
+    }
+      margin-bottom: 50px;
     &-item {
       text-align: justify;
       line-height: 32px;
@@ -408,6 +412,7 @@
 
   .recipe-add_title {
     padding-left: 20px;
+    display: none;
   }
 }
 
