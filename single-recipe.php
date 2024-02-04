@@ -95,15 +95,23 @@ $sr_sidebar_hover_class = Kirki::get_option('single_recipe_sidebar_hover') ?
 
                 <div class="left-recipe_title"><?php the_title() ?></div>
                 <div class="left-recipe_description">
-                    <!--                        <div class="left-recipe_description-header">-->
-                    <!--                            <img src="-->
-                    <?php //echo get_template_directory_uri() ?><!--/dist/images/list.png" alt="list">-->
-                    <!---->
-                    <!--                            <span>Описание:</span> <br>-->
-                    <!--                        </div>-->
+                                            <div class="left-recipe_description-header">
+                                                <svg fill="#000000" width="34px" height="34px" viewBox="0 0 24 24">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path d="M21,2H3A1,1,0,0,0,2,3V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V3A1,1,0,0,0,21,2ZM4,4H20V6H4ZM20,20H4V8H20ZM6,12a1,1,0,0,1,1-1H17a1,1,0,0,1,0,2H7A1,1,0,0,1,6,12Zm0,4a1,1,0,0,1,1-1h5a1,1,0,0,1,0,2H7A1,1,0,0,1,6,16Z">
+                                                        </path></g></svg>
+
+                                                <span>Описание:</span> <br>
+                                            </div>
                     <div class="left-recipe_text">
                         <?php the_content(); ?>
-
+                    </div>
+                    <div class="_show-all-description">
+                        <div class="_show-all-description_btn">
+                            Читать полностью
+                        </div>
                     </div>
                     <div class="left-recipe_taxonomies">
                         <?php

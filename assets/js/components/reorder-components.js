@@ -12,15 +12,11 @@ jQuery(document).ready(function ($) {
         if ($(window).width() < mediumBreakpoint) {
             // Вставка элементов перед metaBlock
             // console.log('true');
-            rightRecipeIngredients.appendTo(metaBlock);
             rightRecipeInfo.appendTo(metaBlock);
+            rightRecipeIngredients.appendTo(metaBlock);
 
         } else {
             // Проверка наличия детей у rightRecipeIngredients и rightRecipeInfo
-
-            // console.log('Metablock empty: ', metaBlock.empty().length>1);
-            // console.log(metaBlock.empty());
-            // console.log(metaBlock.empty().length>1);
             if (metaBlock.children().length > 0) {
                 // Удаление всех элементов из metaBlock
                 console.log('не пустой');
@@ -29,13 +25,6 @@ jQuery(document).ready(function ($) {
                 rightRecipeIngredients.prependTo(rightRecipe);
                 rightRecipeInfo.prependTo(rightRecipe);
             }
-
-            // Вставка элементов в rightRecipe, только если у rightRecipe нет детей
-            // if (rightRecipe.children().length === 0) {
-            //     rightRecipeIngredients.appendTo(rightRecipe);
-            //     rightRecipeInfo.appendTo(rightRecipe);
-            //     // console.log('false');
-            // }
         }
     }
 
