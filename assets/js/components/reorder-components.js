@@ -19,7 +19,6 @@ jQuery(document).ready(function ($) {
             // Проверка наличия детей у rightRecipeIngredients и rightRecipeInfo
             if (metaBlock.children().length > 0) {
                 // Удаление всех элементов из metaBlock
-                console.log('не пустой');
                 metaBlock.empty();
                 // возвращаем на место
                 rightRecipeIngredients.prependTo(rightRecipe);
@@ -28,9 +27,8 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    // Используйте $(window).on('load', function () {...}), чтобы убедиться, что скрипт выполняется после полной загрузки страницы
-    $(window).on('load', function () {
+
         rearrangeElements();
         $(window).resize(rearrangeElements);
-    });
+
 });

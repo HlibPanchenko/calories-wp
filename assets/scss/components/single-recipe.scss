@@ -178,7 +178,7 @@
     }
 
 
-    span {
+    h2 {
       font-family: 'Montserrat', sans-serif;
       font-size: 27px;
       line-height: 1.25rem;
@@ -208,11 +208,13 @@
       letter-spacing: .0625rem;
       font-size: 18px;
     }
-
+  &._hide-on-phones {
     @media (max-width: $bp-small) {
       max-height: 110px;
       overflow: hidden;
     }
+  }
+
     p {
       margin-bottom: 10px;
     }
@@ -255,7 +257,9 @@
 .step-section {
   background-color: $single_recipe_steps_bg;
   color: $single_recipe_steps_color;
-  margin-bottom: 50px;
+  @media (min-width: $bp-medium) {
+    margin-bottom: 50px;
+  }
 
 
   &_header{
@@ -412,7 +416,20 @@
     background-color: $single_recipe_ingredients_bg;
     color: $single_recipe_ingredients_color;
   }
-  &_sidebar{}
+  &_sidebar{
+    &-title {
+      display: none;
+      font-size: 26px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: black;
+      text-align: center;
+      line-height: 26px;
+      @media (max-width: $bp-medium) {
+        display: block;
+      }
+    }
+  }
 }
 
 .other_posts {
