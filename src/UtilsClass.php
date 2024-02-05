@@ -45,17 +45,44 @@ class UtilsClass
         if ($difference < $minute) {
             return $difference . " секунд назад";
         } elseif ($difference < $hour) {
-            return floor($difference / $minute) . " минут назад";
+            $minutes = floor($difference / $minute);
+            return self::getTimeAgoString($minutes, 'минут', 'минуту', 'минуты');
         } elseif ($difference < $day) {
-            return floor($difference / $hour) . " часов назад";
+            $hours = floor($difference / $hour);
+            return self::getTimeAgoString($hours, 'часов', 'час', 'часа');
         } elseif ($difference < $month) {
-            return floor($difference / $day) . " дней назад";
+            $days = floor($difference / $day);
+            return self::getTimeAgoString($days, 'дней', 'день', 'дня');
         } elseif ($difference < $year) {
-            return floor($difference / $month) . " месяцев назад";
+            $months = floor($difference / $month);
+            return self::getTimeAgoString($months, 'месяцев', 'месяц', 'месяца');
         } else {
-            return floor($difference / $year) . " лет назад";
+            $years = floor($difference / $year);
+            return self::getTimeAgoString($years, 'лет', 'год', 'года');
         }
     }
+
+    private static function getTimeAgoString($value, $plural, $singular, $few) {
+        $absValue = abs($value);
+        $lastDigit = $absValue % 10;
+        $lastTwoDigits = $absValue % 100;
+
+        if ($lastTwoDigits >= 11 && $lastTwoDigits <= 19) {
+            return $value . ' ' . $plural . ' назад';
+        }
+
+        if ($lastDigit == 1) {
+            return $value . ' ' . $singular . ' назад';
+        }
+
+        if ($lastDigit >= 2 && $lastDigit <= 4) {
+            return $value . ' ' . $few . ' назад';
+        }
+
+        return $value . ' ' . $plural . ' назад';
+    }
+
+
 
     public static function get_taxonomy_terms($taxonomy_keys)
     {

@@ -86,7 +86,7 @@ $the_query = new WP_Query($args);
                     <div class="page-cabinet_credentials user-credentials">
                         <div class="user-credentials_box">
                             <div class="user-credentials_avatar">
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/images/cat-puns-64ef515f6036a.jpg?>"
+                                <img src="<?php echo get_template_directory_uri() ?>/dist/images/cat-puns-64ef515f6036a.jpg?>"
                                      alt="Avatar">
                             </div>
                             <div class="user-credentials_info">
@@ -157,7 +157,7 @@ $the_query = new WP_Query($args);
                                                     <div class="post-of-user_text">
                                                         <div class="post-of-user_name"><?php the_title(); ?></div>
                                                         <div class="post-of-user_date">
-                                                            <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y/m/d'))  ?>
+                                                            <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y-m-d H:i:s'))  ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -284,7 +284,7 @@ $the_query = new WP_Query($args);
                                                 <div class="post-of-user_text">
                                                     <div class="post-of-user_name"><?php the_title(); ?></div>
                                                     <div class="post-of-user_date">
-                                                        <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y/m/d'))  ?>
+                                                        <?php echo UtilsClass::human_readable_time_diff(get_the_date('Y-m-d H:i:s'))  ?>
                                                     </div>
                                                 </div>
                                             </div>

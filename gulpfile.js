@@ -57,7 +57,7 @@ export const libStyles = () => {
 
 
 export const images = () => {
-    return gulp.src('assets/images/**/*.{jpg,jpeg,png,svg,gif,webp}')
+    return gulp.src('assets/images/**/*.{jpg,jpeg,png,svg,gif,webp,ico}')
         .pipe(gulpif(PRODUCTION, imagemin()))
         .pipe(gulp.dest('dist/images'));
 }
@@ -105,7 +105,7 @@ export const libScripts = () => {
 /*в терминал пишем  gulp watchForChanges - постоянно отслеживать изменения в этих директориях, будет запускать сам команды.*/
 export const watchForChanges = () => {
     gulp.watch('assets/scss/**/*.scss', styles);
-    gulp.watch('assets/images/**/*.{jpg,jpeg,png,svg,gif}', images);
+    gulp.watch('assets/images/**/*.{jpg,jpeg,png,svg,gif,ico}', images);
     gulp.watch(['assets/**/*','!assets/{images,js,scss}','!assets/{images,js,scss}/**/*'], copy);
     // gulp.watch('assets/js/**/*.js', scripts);
     gulp.watch(['assets/js/**/*.js', '!assets/js/libs/**/*.{js}'], scripts);
