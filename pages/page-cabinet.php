@@ -375,6 +375,10 @@ $the_query = new WP_Query($args);
                 </div>
             </div>
         </section>
+
+        <?php get_template_part('template-parts/floating-button') ?>
+
+
     </article>
 
 </main>

@@ -66,7 +66,7 @@
         </div>
         <div class="main-footer_bottom">
             <div class="main-footer_container">
-                © 2023 - 2024 Калории 365 | Никакие права не защищены :)
+                © 2023 - 2024 Калории 365 | Все права защищены.
             </div>
         </div>
     </div>

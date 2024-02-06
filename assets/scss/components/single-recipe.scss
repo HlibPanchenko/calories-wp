@@ -2,9 +2,10 @@
 ._show-all-description {
   display: none;
   width: 100%;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   margin: 15px 0 25px;
+  gap: 5px;
 
   @media (max-width: $bp-small) {
     display: flex;
@@ -15,9 +16,24 @@
     letter-spacing: 0.0625rem;
     //text-transform: uppercase;
     font-weight: 700;
-    border-bottom: 2px dashed #eeb82c;
-    padding: 10px 0 10px;
+    border-bottom: 1px dashed black;
   }
+  &_arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-left: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    transform: rotate(-45deg);
+    transition: 0.3s ease;
+    cursor: pointer;
+    padding: 3px;
+    &.opened {
+      transform: rotate(135deg);
+      margin-top: 4px;
+    }
+  }
+
 }
 
 /*2 разных дизайна для блока БЖУ*/

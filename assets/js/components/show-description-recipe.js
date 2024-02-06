@@ -1,16 +1,15 @@
 jQuery(document).ready(function ($) {
-    $('._show-all-description_btn').on('click', function () {
-        // Изменяем стили при каждом клике
+    $('._show-all-description').on('click', function () {
         $('.left-recipe_text').toggleClass('expanded');
 
-        // Получаем текущий текст кнопки
-        var buttonText = $(this).text();
+        var buttonText = $('._show-all-description_btn').text();
 
-        // Изменяем текст кнопки в зависимости от текущего состояния
         if (buttonText.trim() === 'Читать полностью') {
-            $(this).text('Скрыть');
+            $('._show-all-description_btn').text('Скрыть');
+            $('._show-all-description_arrow').addClass('_arrow opened');
         } else {
-            $(this).text('Читать полностью');
+            $('._show-all-description_btn').text('Читать полностью');
+            $('._show-all-description_arrow').removeClass('_arrow opened');
         }
 
         // Прокручиваем к блоку .left-recipe_title
